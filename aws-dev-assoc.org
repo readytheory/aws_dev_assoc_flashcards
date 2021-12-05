@@ -1,0 +1,204 @@
+* AWS flashcards
+** S3
+** UBS
+** SFS
+** RDS
+** Athena
+** Dynamo DB
+*** Read/Write capacity
+**** What is one dynamodb unit of read capacity?                      :drill:
+     SCHEDULED: <2021-12-08 Wed>
+     :PROPERTIES:
+     :ID:       ce15261e-dc9a-443f-84a7-2278c2cb4c8d
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-04 Sat 23:54]
+     :END:
+***** Well, what is it?
+One read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second, for an item up to 4 KB in size     
+**** Dynamodb capacity calc :drill:
+     SCHEDULED: <2021-12-08 Wed>
+     :PROPERTIES:
+     :ID:       d1e8913f-1dac-4ce0-b5b7-0b74c1554ac2
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-04 Sat 23:53]
+     :END:
+     One [read] capacity unit represents one [strongly consistent read] per second, or [two eventually consistent reads] per second, for an item up to 4 KB in size 
+**** Dynamodb capacity calc :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       71a997a3-37d9-4fa7-a942-23e8b14848ec
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:22]
+     :END:
+If your item size is 2 KB, you require [2] write capacity units to sustain one write request per second or [4] write capacity units for a transactional write request. :drill:
+*** Dynamo limits
+**** What is the item size limit for DynamoDb                         :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       4b532143-f584-4243-b45f-01fde0a5ea58
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:30]
+     :END:
+     What is the item size limit for DynamoDb 
+     :PROPERTIES:
+     :ID:       a57fc6a4-ec5f-4e6e-9ba3-eb9a39e6dc52
+     :END:
+***** well?
+      400KB -- it includes the attribute name
+**** Binary objects -- how much size to they take in Dynamodb         :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       87e1b757-31b1-4f68-b581-0efa794f12aa
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:30]
+     :END:
+     How much do they take?
+***** how much
+      the attribute name(!) + the raw bytes
+***** notes
+      they are actually stored as base64
+**** Dynamo DB Pagination                                         :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       221a2051-ea9b-46ea-9844-ef8d9bb1a600
+     :DRILL_LAST_INTERVAL: 4.14
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:38]
+     :END:
+     When you get more than 1 meg data, how does app know there is more?
+***** How?
+      LastEvaluatedKey
+**** Dynamo Query return limits                                       :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       87a1efa0-fefb-4cdc-93c5-5325310e327b
+     :DRILL_LAST_INTERVAL: 4.14
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:38]
+     :END:
+     A  dynamo query can return [1 mb] of data
+***** Notes
+      It applies to query and scan same way
+**** Name of indicator there are more results in dynamo               :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       dafa1a24-7d88-4bb2-8069-6e9a60361266
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:38]
+     :END:
+     What's the indictor there are more records and when do you get it
+***** answer
+      LastEvaluatedKey - after 1 meg data
+**** Per partition limits on writing in dynamo
+     How much can you write per partition
+***** answer
+      1000 WCU/second
+****** Note
+that is up to 1 MB per second per partition
+** Load balancers
+*** ALB
+**** Configuration: Listeners per port                                :drill:
+     ALB - how many listeners per port
+***** answer
+      1
+**** Describe high level components of ALB                      :drill:fuzzy:
+     Describe high level components of ALB
+***** answer
+- Load balancer either Connects to Internet gateway or?
+- ALB connects to mulitple listeners
+- listeners connect to target groups
+- Devices can be in multiple target groups
+
+
+
+**** Pricing ALB - two measures                                       :drill:
+What are two measures for pricing ALB
+***** LCU and Hourly (about 20 cents/day)
+***** notes
+      LCU is the greates charge of 4 measures over an hour
+      
+    - New connections: Number of newly established connections per second. Typically, many requests are sent per connection. 
+    - Active connections: Number of active connections per minute.
+    - Processed bytes: The number of bytes processed by the load balancer in GBs for HTTP(S) requests and responses.
+    - Rule evaluations: The product of the number of rules processed by your load balancer and the request rate. The first 10 processed rules are free (Rule evaluations = Request rate * (Number of rules processed - 10 free rules).
+**** Which OSI level is App load balancer working on                  :drill:
+     Which OSI level is App load balancer working on
+***** Answer
+      level 7 the App layer.
+**** Which OSI level is Network load balancer working on           :drill:
+     Which OSI level is Network load balancer working on
+***** Answer
+      level 4 the Network layer.
+
+** Service Distinctions
+
+*** Trusted Advisor
+
+**** vs Inspector                                                     :drill:
+     Distinguish Trusted advisor and Insprector
+
+***** Answer
+      - Inspector is only for EC2, it runs inside instances on a schedule looking for vulnerabilities
+      - Trusted advisor makes cost recommendations and performance, and is premium service
+      
+**** vs Xray                                                          :drill:
+          Distinguish Trusted advisor and Xray
+
+***** Answer                                                     :conjecture:
+      Xray gets traces from your applications for debugging - Developers adds instrument to apps
+      TA you turn it on to get best pracitics
+      
+	
+      
+     
+
+
+      
+
+
