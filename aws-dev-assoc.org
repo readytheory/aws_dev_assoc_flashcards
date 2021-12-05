@@ -1,9 +1,70 @@
+-*- eval: (set-register ?o  "\n:PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") -*-
+#+TAGS: drill(d) fix(x) inferred(f) memorize(m) shaky(s)
+* Not covered
+  - lightsail
+  - gRPC
+  - gateway load balancer
+    
 * AWS flashcards
+
+** API Gateway
+
+*** Lambda integration
+** Route 53
+
+***  DNSSEC
+
+**** Guarantee
+     what does DNSSEC guarantee?
+
+***** Answer
+      data origin authentication ; authenticated denial of existinence; data integrity
+    
+**** price                                                      :drill:price:
+     price for DNSSEC
+
+**** keys
+     who holds the public key for your domain
+
+***** Answer
+      The TLD registrar (Route 53 Domains)
+
+***** Notes
+      WHen resolving, get signature from TLD registrar and compare it to DNS provider
+      - the TLD registrar sends "Delegation Signer" record which is reconcied with
+	Dns provider signature
 ** S3
 ** UBS
-** SFS
+** EFS
+*** Sharing                                                           :drill:
+    elastic file system lets you share bewteen [ec2] and [fargate] servers
 ** RDS
 ** Athena
+
+** Auto scaling
+
+*** types                                                :shaky:drill:memorize:
+    Name three autoscaling strategites
+
+**** they are
+     - Target tracking - responds to alarm
+     - Simple - usually not recommended , reevaluates after cooldown
+     - Step scaling - varies adjustements 
+
+
+
+   
+*** scope                                                             :drill:
+    with regard to subnets/regions, where does autoscaling operate
+**** answer
+     it is region specific
+*** price                                                             :drill:
+    factors in charges for autoscaling
+**** answer
+     it is free (
+     
+
+
 ** Dynamo DB
 *** Read/Write capacity
 **** What is one dynamodb unit of read capacity?                      :drill:
@@ -141,8 +202,105 @@ If your item size is 2 KB, you require [2] write capacity units to sustain one w
       1000 WCU/second
 ****** Note
 that is up to 1 MB per second per partition
+
+
+
+
 ** Load balancers
+
+*** Cloud watch                                                       :drill:
+    How ofen does ELB write to cloudwatch
+
+**** answer
+     1 minute, but only when requests are active
+
+*** ELB Access  logs                                                  :drill:
+    Access logs for ELB
+    
+**** about them
+     - are not enabled by default
+     - have info about clients
+
+
+     
+*** relation to ASGs                                                  :drill:
+    there is a [many-to-many] relationship betweent target groups and ASGs
+*** and auto scaling                                                  :drill:
+    what does ELB need to scale out/scale in?
+
+**** answer
+     An auto scaling grop
+
+*** location                                                          :drill:
+    where do ASG and ELBs have to be located relative to each other?
+
+**** answer
+     in the same region
+
+
+  
+
+
+*** Security groups                                                   :drill:
+    How does security work with ELB listeners
+    Must allow for health checks on back end listerns
+
+**** How?
+     Must assign SG to ports/protocols on front end listener
+
+
+*** Where does ELB forward traffic on a ec2?                          :drill:
+    where does ELB forward traffice on an  ec2
+
+**** answer
+     eth0
+
+*** subnet req                                                        :drill:
+    
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+Minimum size of a subnet that is target of ELB is [/27], and has to have [8] free IPs
+
+**** bonus
+     because some addresses are used for elb stuff
+*** requirement                                                       :drill:
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+A public load balancer needs one [public subnet] in each [a/z where it is defined]   
+*** Differences ALB/NLB
+
+**** A/Zs                                                             :drill:
+     which kind of load balancer allows multiple A/Zs?
+
+***** answer
+      both, but not default for either
+
+**** Static/Elastic IPs                                              :drill:
+     Where can you use static and elastic ips with Elastic load balancers?
+
+***** Answer
+      Only with network load bal.
+      For ALB the target is determined by amazon
+      
+***** notes
+      You use an alias in route53 to send traffic to the ELB
+
+
 *** ALB
+**** A/Z
+     ALB allow cross-zone load balancing
+***** Answer
+      Yes, but disabled by default
+**** Format DNS name                                         :memorize:drill:
+     Format of DNS name of ALB
+***** answer
+      <name><id-number>.region.elb.amazonaws.com
+***** Bonus 
+      only for public facing
+      intenral ones have internal- at the beginning
 **** Configuration: Listeners per port                                :drill:
      SCHEDULED: <2021-12-16 Thu>
      :PROPERTIES:
@@ -174,12 +332,14 @@ that is up to 1 MB per second per partition
      :END:
      Describe high level components of ALB
 ***** answer
+- NODES - not seen to you but use IP addresses in your private subnet
 - Load balancer either Connects to Internet gateway or?
 - ALB connects to mulitple listeners
 - listeners connect to target groups
 - Devices can be in multiple target groups
-
-
+**** Private subnet                                                  :drill:
+     How can ALB use nodes in private subnet
+***** It doesn't.  ALB makes node in public and you connect
 
 **** Pricing ALB - two measures                             :drill:
      SCHEDULED: <2021-12-15 Wed>
@@ -238,7 +398,16 @@ What are two measures for pricing ALB
 ***** Answer
       level 4 the Network layer.
 
+
+
 ** Service Distinctions
+
+*** distinguish                                                       :drill:
+    diff between Launch Configuration and Launch Template
+
+**** answer
+     Cnofiguration is immutable, older & deprecated
+
 
 *** Trusted Advisor
 
@@ -328,11 +497,12 @@ What are two measures for pricing ALB
 
 
 
-*** association template
+*** association template                                              :drill:
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
     :END:
-    [state machine] is implemented by aws [step function]
+    [man in tne middle attack] and [DNS spoofing]
+    Are remedied by DNSSEC
 *** association template
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
@@ -341,11 +511,12 @@ What are two measures for pricing ALB
 
 
 
-*** association template
+
+*** association template                                              :drill:
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
     :END:
-    [state machine] is implemented by aws [step function]
+    [reguest attributes] for ALB include  [X-Forwarded-For headers].
 *** association template
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
