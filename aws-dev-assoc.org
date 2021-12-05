@@ -39,29 +39,29 @@ One read capacity unit represents one strongly consistent read per second, or tw
      SCHEDULED: <2021-12-09 Thu>
      :PROPERTIES:
      :ID:       71a997a3-37d9-4fa7-a942-23e8b14848ec
-     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_LAST_INTERVAL: 4.14
      :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 2
-     :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 3.0
-     :DRILL_EASE: 2.5
-     :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:22]
+     :DRILL_TOTAL_REPEATS: 4
+     :DRILL_FAILURE_COUNT: 2
+     :DRILL_AVERAGE_QUALITY: 3.25
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:17]
      :END:
 If your item size is 2 KB, you require [2] write capacity units to sustain one write request per second or [4] write capacity units for a transactional write request. :drill:
 *** Dynamo limits
 **** What is the item size limit for DynamoDb                         :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-15 Wed>
      :PROPERTIES:
      :ID:       4b532143-f584-4243-b45f-01fde0a5ea58
-     :DRILL_LAST_INTERVAL: 4.0
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_LAST_INTERVAL: 10.0
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
      :DRILL_FAILURE_COUNT: 0
      :DRILL_AVERAGE_QUALITY: 4.0
      :DRILL_EASE: 2.5
      :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:30]
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:12]
      :END:
      What is the item size limit for DynamoDb 
      :PROPERTIES:
@@ -70,17 +70,17 @@ If your item size is 2 KB, you require [2] write capacity units to sustain one w
 ***** well?
       400KB -- it includes the attribute name
 **** Binary objects -- how much size to they take in Dynamodb         :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-15 Wed>
      :PROPERTIES:
      :ID:       87e1b757-31b1-4f68-b581-0efa794f12aa
-     :DRILL_LAST_INTERVAL: 4.0
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_LAST_INTERVAL: 10.352
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
      :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 4.0
-     :DRILL_EASE: 2.5
-     :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:30]
+     :DRILL_AVERAGE_QUALITY: 4.5
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:10]
      :END:
      How much do they take?
 ***** how much
@@ -88,49 +88,49 @@ If your item size is 2 KB, you require [2] write capacity units to sustain one w
 ***** notes
       they are actually stored as base64
 **** Dynamo DB Pagination                                         :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-15 Wed>
      :PROPERTIES:
      :ID:       221a2051-ea9b-46ea-9844-ef8d9bb1a600
-     :DRILL_LAST_INTERVAL: 4.14
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_LAST_INTERVAL: 10.3376
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
      :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 5.0
-     :DRILL_EASE: 2.6
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:38]
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:11]
      :END:
      When you get more than 1 meg data, how does app know there is more?
 ***** How?
       LastEvaluatedKey
 **** Dynamo Query return limits                                       :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-16 Thu>
      :PROPERTIES:
      :ID:       87a1efa0-fefb-4cdc-93c5-5325310e327b
-     :DRILL_LAST_INTERVAL: 4.14
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_LAST_INTERVAL: 11.0911
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
      :DRILL_FAILURE_COUNT: 0
      :DRILL_AVERAGE_QUALITY: 5.0
-     :DRILL_EASE: 2.6
+     :DRILL_EASE: 2.7
      :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:38]
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:14]
      :END:
      A  dynamo query can return [1 mb] of data
 ***** Notes
       It applies to query and scan same way
 **** Name of indicator there are more results in dynamo               :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-15 Wed>
      :PROPERTIES:
      :ID:       dafa1a24-7d88-4bb2-8069-6e9a60361266
-     :DRILL_LAST_INTERVAL: 4.0
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_LAST_INTERVAL: 10.0
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
      :DRILL_FAILURE_COUNT: 0
      :DRILL_AVERAGE_QUALITY: 4.0
      :DRILL_EASE: 2.5
      :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 00:38]
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:15]
      :END:
      What's the indictor there are more records and when do you get it
 ***** answer
@@ -144,10 +144,34 @@ that is up to 1 MB per second per partition
 ** Load balancers
 *** ALB
 **** Configuration: Listeners per port                                :drill:
+     SCHEDULED: <2021-12-16 Thu>
+     :PROPERTIES:
+     :ID:       b74279bb-e32f-4826-a164-b86185ee09d0
+     :DRILL_LAST_INTERVAL: 11.0911
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.7
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:09]
+     :END:
      ALB - how many listeners per port
 ***** answer
       1
 **** Describe high level components of ALB                      :drill:fuzzy:
+     SCHEDULED: <2021-12-14 Tue>
+     :PROPERTIES:
+     :ID:       9493ea22-a169-481d-9072-5d7ccea6ecb5
+     :DRILL_LAST_INTERVAL: 9.3103
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.5
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:11]
+     :END:
      Describe high level components of ALB
 ***** answer
 - Load balancer either Connects to Internet gateway or?
@@ -157,9 +181,23 @@ that is up to 1 MB per second per partition
 
 
 
-**** Pricing ALB - two measures                                       :drill:
+**** Pricing ALB - two measures                             :drill:
+     SCHEDULED: <2021-12-15 Wed>
+     :PROPERTIES:
+     :ID:       43526031-7ec0-44d9-bbf2-c3e53bcfc200
+     :DRILL_LAST_INTERVAL: 10.0
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:14]
+     :END:
 What are two measures for pricing ALB
-***** LCU and Hourly (about 20 cents/day)
+
+***** Answer
+****** LCU and Hourly (about 20 cents/day)
 ***** notes
       LCU is the greates charge of 4 measures over an hour
       
@@ -168,10 +206,34 @@ What are two measures for pricing ALB
     - Processed bytes: The number of bytes processed by the load balancer in GBs for HTTP(S) requests and responses.
     - Rule evaluations: The product of the number of rules processed by your load balancer and the request rate. The first 10 processed rules are free (Rule evaluations = Request rate * (Number of rules processed - 10 free rules).
 **** Which OSI level is App load balancer working on                  :drill:
+     SCHEDULED: <2021-12-16 Thu>
+     :PROPERTIES:
+     :ID:       5e69d6f8-8145-4a7f-b21a-76659813a8a5
+     :DRILL_LAST_INTERVAL: 11.0911
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.7
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:16]
+     :END:
      Which OSI level is App load balancer working on
 ***** Answer
       level 7 the App layer.
 **** Which OSI level is Network load balancer working on           :drill:
+     SCHEDULED: <2021-12-15 Wed>
+     :PROPERTIES:
+     :ID:       3d46d682-3649-4e24-842e-e261f1792027
+     :DRILL_LAST_INTERVAL: 10.0
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:14]
+     :END:
      Which OSI level is Network load balancer working on
 ***** Answer
       level 4 the Network layer.
@@ -180,14 +242,38 @@ What are two measures for pricing ALB
 
 *** Trusted Advisor
 
-**** vs Inspector                                                     :drill:
+**** disinguish                                           :drill:
+     SCHEDULED: <2021-12-14 Tue>
+     :PROPERTIES:
+     :ID:       41ee5153-cf54-4038-b8c6-9eb4bcd69add
+     :DRILL_LAST_INTERVAL: 8.9861
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.22
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:17]
+     :END:
      Distinguish Trusted advisor and Insprector
 
 ***** Answer
       - Inspector is only for EC2, it runs inside instances on a schedule looking for vulnerabilities
       - Trusted advisor makes cost recommendations and performance, and is premium service
       
-**** vs Xray                                                          :drill:
+**** distinguish                                                      :drill:
+     SCHEDULED: <2021-12-15 Wed>
+     :PROPERTIES:
+     :ID:       8fc08668-27fa-4094-8ede-41a84ed1342a
+     :DRILL_LAST_INTERVAL: 10.3376
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:15]
+     :END:
           Distinguish Trusted advisor and Xray
 
 ***** Answer                                                     :conjecture:
@@ -202,3 +288,76 @@ What are two measures for pricing ALB
       
 
 
+
+      
+** Associations
+
+*** association dupe                                                  :drill:
+    SCHEDULED: <2021-12-15 Wed>
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :ID:       cc455c2c-9cea-4622-8983-626c0528df47
+    :DRILL_LAST_INTERVAL: 9.6346
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.46
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:15]
+    :END:
+    [state machine] is implemented by aws [step function]
+
+
+
+*** association dupe                                                  :drill:
+    SCHEDULED: <2021-12-14 Tue>
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :ID:       cc455c2c-9cea-4622-8983-626c0528df47
+    :DRILL_LAST_INTERVAL: 8.9861
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.22
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:16]
+    :END:
+    [state machine] is implemented by aws [step function]
+
+
+
+*** association template
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+    [state machine] is implemented by aws [step function]
+*** association template
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+    [state machine] is implemented by aws [step function]
+
+
+
+*** association template
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+    [state machine] is implemented by aws [step function]
+*** association template
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+    [state machine] is implemented by aws [step function]
+*** association template
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+    [state machine] is implemented by aws [step function]
+*** association template
+    :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
+    :END:
+    [state machine] is implemented by aws [step function]
