@@ -1035,9 +1035,45 @@ What are two measures for pricing ALB
      Which OSI level is Network load balancer working on
 ***** Answer
       level 4 the Network layer.
+** Cloud formation
+*** define CF stack sets                                              :drill:
+    stack sets =
+**** A
+     Apply creat/update/delete accross multiple regions, multiple accunts
+*** define CF Change Sets                                             :drill:
+    Change sets =
+**** A
+     Summary of propsed changes let you preview impact -- Visualization
+*** Two types of resources                                            :drill:
+    There are two types of ways of refering to a resource: e.g. i-2310d7aa7801 and RedisServer1.
+    What are they callled --- _______ ID and _________ ID
+**** A
+     physical and logical
+**** bonus
+     the physical are "outside" of CF
+*** What does a CF template describe                                  :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+    [end state] of the [infrastructure] you are privisioning or changing
+*** define                                                            :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
 
+    [values for properites not available til runtime] are assigned  in templates with [instrinsic functions]
+*** functions
+**** Name function that gets a value from mapping section             :drill:
+     name?
+***** Answer
+      Fn:FindInMap
+**** Syntax for FindInMap                                             :drill:
+     how to call FindInMap
+***** Answer
+      FindInMap[MapName, TopLevelKey, SecondLevelKey]
+    
 
-
+    
 ** Service Distinctions
 
 *** distinguish                                                       :drill:
@@ -1111,6 +1147,13 @@ What are two measures for pricing ALB
       
 
 
+
+
+*** Deployment files for Elastic Beanstalk vs CloudFormation          :drill:
+    what are the extensions
+
+**** A
+     Beanstalk: .zip or .war ; CF .yaml/.json
 
 
 
