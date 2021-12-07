@@ -1,4 +1,4 @@
--*- eval: (set-register ?o  "\n:PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") -*-
+-*- eval: (set-register ?o  ":PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") -*-
 #+TAGS: drill(d) fix(x) inferred(f) memorize(m) shaky(s)
 * Not covered
   - lightsail
@@ -10,9 +10,164 @@
 ** API Gateway
 
 *** Lambda integration
+
+** xray
+
+*** what os takes xray                                                :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       8c13a60f-1ba0-493a-9eeb-6dfcc78bb69f
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:56]
+    :END:
+.
+
+**** A    
+    Amazon Linux
+    Ubuntu
+    Windows Server (2012 R2 and newer)
+*** how to launch xray on an ec2 instance                             :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       e9fc70c3-6356-4d7e-b0d2-ac50f767dad3
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:56]
+    :END:
+    ______________________________________
+**** A
+     With a user data script
+*** Xray on ec2                                                       :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       6182556d-e4be-4678-a877-a08cee149fa6
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:55]
+    :END:
+    You install a [user data script] and assign [an instance profile] to get xray trace from ec2
+**** bonus
+     a User Data Script looks like this
+#!/bin/bash
+curl https://s3.us-east-2.amazonaws.com/aws-xray-assets.us-east-2/xray-daemon/aws-xray-daemon-3.x.rpm -o /home/ec2-user/xray.rpm
+yum install -y /home/ec2-user/xray.rpm
+
+    
+
+** Lambda
+
+*** updating traffic
+
+**** one                                                              :drill:
+     SCHEDULED: <2021-12-10 Fri>
+     :PROPERTIES:
+     :ID:       55060a6f-5e75-4764-80f5-df5aba2fc46c
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:19]
+     :END:
+     what setting in lambda lets you lets you split traffic to two versions?
+
+***** answer
+      routing-config 
+
+**** two                                                              :drill:
+     SCHEDULED: <2021-12-10 Fri>
+     :PROPERTIES:
+     :ID:       f68d0cd4-d2dd-4759-a52c-fb9cfdb04af0
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:22]
+     :END:
+     necessary criteria to relate two lambda version with routing-config
+     
+***** answer
+      - same IAM execution role
+      - Same Lambda Dead Letter
+      - Alias cannot point to $LATEST
+      
+
+   
+**** three                                                            :drill:
+     SCHEDULED: <2021-12-29 Wed>
+     :PROPERTIES:
+     :ID:       ee91a1ad-0e9a-42f0-8c18-67b8c4732cc6
+     :DRILL_LAST_INTERVAL: 22.7451
+     :DRILL_CARD_TYPE: hide1cloze
+     :DRILL_REPEATS_SINCE_FAIL: 4
+     :DRILL_TOTAL_REPEATS: 4
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 3.25
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:25]
+     :END:
+     
+[traffic shifting for lambda] is a lambda feature to split traffic to two versions, configured with [routing-config]
+
+** VPC
+
+*** route tables
+
+**** gateway in private/public
+     what is typical diff in route table in a private/public gateway
+
+***** answer
+      0.0.0.0/ig->gateway vs 0.0.0.0/0 -> nat-gateway
+     
+
+
+      
+*** Requirement for server in Private Subnet to get internet          :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+   The [NAT gateway] must be in a public subnet with a route table that routes [internet traffic] to an internet gateway. 
+
+*** Where do you allow port 1024-65535?                               :drill:
+    .
+
+**** A
+     Those ephemeral ports
+     are okay for INBOUND rules for a NAT Gateway
+
+*** NAT Instance                                                      :drill:
+    What capability is offered by NAT Instance and not NAT Gateway
+
+**** A
+     You can use it as a bastion host
 ** Route 53
 
 ***  DNSSEC
+
+
 
 **** Guarantee
      what does DNSSEC guarantee?
@@ -20,7 +175,19 @@
 ***** Answer
       data origin authentication ; authenticated denial of existinence; data integrity
     
-**** price                                                      :drill:price:
+**** price                                         :drill:fix:inferred:price:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       38d27ccf-c405-40dc-970e-d67836f88a92
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 1.5
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:30]
+     :END:
      price for DNSSEC
 
 **** keys
@@ -33,17 +200,217 @@
       WHen resolving, get signature from TLD registrar and compare it to DNS provider
       - the TLD registrar sends "Delegation Signer" record which is reconcied with
 	Dns provider signature
+
+*** weighted
+
+**** how to split traffic for one name to seperate IPs with route53   :drill:
+     how?
+
+***** answer
+      weighted routing
 ** S3
 ** UBS
+
+
+
+** Flow logs
+*** define flow logs                                                  :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       0dd064b6-d647-43ce-bce7-4c1f01929c99
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:44]
+    :END:
+.
+**** definition
+     capture IP traffic between Network interfaces Of VPC
+*** Are flow logs free?                                               :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       98d12379-77c6-4005-8e52-3f5a1977f244
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:43]
+    :END:
+.
+**** answer
+     no, cloudwatch charges apply
+*** What charges apply to flow logs                                   :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       1a7e763f-9ece-45ae-a730-fb5ea363ad88
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:44]
+    :END:
+.
+**** answer
+     cloudwatch chages, even if you send to s3
+*** what services can you send flow logs to?                          :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       f24f7115-82a6-4d70-b201-8b89bce6106f
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:43]
+    :END:
+.
+**** answer
+     S3 or CLoudwatch Logs
+
+
 ** EFS
 *** Sharing                                                           :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       da009d7b-4c68-4ab5-b6db-c0267f16e67c
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:17]
+    :END:
     elastic file system lets you share bewteen [ec2] and [fargate] servers
 ** RDS
 ** Athena
 
 ** Auto scaling
 
+*** term policies
+
+**** default                                                          :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       aa3096a5-b114-460b-8954-67b338f7def4
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:17]
+     :END:
+     what is default autoscaling term (scale-in) strategy?
+
+***** answer
+      preserve balance across A/Zs 
+
+***** bonus
+      because: HA
+
+*** health checks
+
+**** types                                                            :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       b8b32a13-3c91-438f-bef7-25edfb0bc38c
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:23]
+     :END:
+     what are types of ASG health checks
+
+***** answer
+      EC2 status checks are default
+      Optionally can add *ELB* health checks (additional)
+     
+**** distinction                                                      :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       6339287b-5977-41d7-a997-5a56a43ffab8
+     :DRILL_LAST_INTERVAL: 4.14
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:27]
+     :END:
+     diff between default and ELB health finding unhealthy?
+
+***** answer
+      ELB schedules for replacement
+      Default terminates it
+
+*** draining                                                          :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       12037cb1-8c60-4c2b-ac84-3802ec6d8d64
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:17]
+    :END:
+    [Autocaling] will wait for connections to [terminate or complete] if connection draining enabled
+
+*** monitoring                                                        :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       611ed978-0f9f-4425-9b4b-c1a5582f70bf
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:24]
+    :END:
+    Cloudwatch gets instance info [every 5 minutes] by default or every one minute with [Detailed monitoring]
+
+
+
+
+      
+
 *** types                                                :shaky:drill:memorize:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       35db9392-7d71-49c5-bcd0-a0887d267163
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:22]
+    :END:
     Name three autoscaling strategites
 
 **** they are
@@ -55,10 +422,34 @@
 
    
 *** scope                                                             :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       51e1d707-29d6-4447-98c8-c7037ee26721
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:20]
+    :END:
     with regard to subnets/regions, where does autoscaling operate
 **** answer
      it is region specific
 *** price                                                             :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       856bf55c-dde9-4286-bd30-e34d7ab51bf9
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:14]
+    :END:
     factors in charges for autoscaling
 **** answer
      it is free (
@@ -202,19 +593,138 @@ If your item size is 2 KB, you require [2] write capacity units to sustain one w
       1000 WCU/second
 ****** Note
 that is up to 1 MB per second per partition
+** Cloudwatch
+***  in cloudwatch: distinguish Period/Instance Period                :drill:
+    For configuring alarms - period vs instance period.
+**** A
+- Period - Frequency of measure, in seconds.   One data point per period
 
+ - Evaluation Period  - how many periods
+*** Cloudwatch alarms                                                 :drill:
+    Do breaches have to be consecutive to raise cloudwatch alarm?
+**** A
+     No there have to be X breaches in the evaluation period
+*** Alarm criter cloudwatch                                           :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+        To trigger a [cloudwatch alarm] there must be X breaches in an [evaluation period]
+**** bonus
+     X is datapoints to alarm
+*** Triggering - counter name                                         :drill:
+    the count of breaches that will trigger cloudwatch alarm is called [datapoints to alarm]
+*** Define cloudwatch  "metric math"                                  :drill:
+    it is used for visualization -- lets you show average or min for exampe
+*** Cloudwatch take                                                   :drill:
+    Cloudwatch is basically a [metrics repository]
+*** Does Cloudwatch give totals for all regions?                      :drill:
+    _____________________________________
+**** A.
+     No - cloudwatch is region-by-region 
+*** Can you add custom metrics to Cloudwatch                          :drill:
+    can you?
+**** A
+     Yes
+*** How does cloudwatch organize metrics?                             :drill:
+    ____________________________________
+**** A
+    into namespaces
+*** How long does a cloudwatch metric stay available                  :drill:
+    .
+**** A
+     15 months
+*** 1 sided cloze
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
+*** Cloudwatch metric resolution                                      :drill:
+    What are the two cloudwatch metric resolutions
+**** A
+     Standard and High - 1 minute and 1 second
+*** Avaialble alarms                                                  :drill:
+    What are available resoutions for cloudwatch alarm?
+**** A
+     10 second, 30 second and any multipe of 60 second
+     
+    
 
+	
+
+   
+    
+     
 
 
 ** Load balancers
 
+*** offloading                                                        :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       ed19f801-ea4a-46f9-ba26-bedcb49735fe
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:16]
+    :END:
+
+what type of ELB does TLS offloading
+
+**** answer
+     both
+
+*** health checks                                                     :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       74e45f73-dbd1-42e5-9c8c-c7ecdf8860aa
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:25]
+    :END:
+    what is flaw not making ELB health checks when using ELB?
+
+**** answer
+     ELB can route to instances that failed the EC2 health check
 *** Cloud watch                                                       :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       50197b9d-e835-4f2b-b724-777847715d6c
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.5
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:30]
+    :END:
     How ofen does ELB write to cloudwatch
 
 **** answer
      1 minute, but only when requests are active
 
 *** ELB Access  logs                                                  :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       4f320b2a-25a6-4446-9b11-6e8c82914ee9
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:29]
+    :END:
     Access logs for ELB
     
 **** about them
@@ -224,14 +734,50 @@ that is up to 1 MB per second per partition
 
      
 *** relation to ASGs                                                  :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       6937dfe2-6520-4123-a214-606769ce3869
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:22]
+    :END:
     there is a [many-to-many] relationship betweent target groups and ASGs
 *** and auto scaling                                                  :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       3f2305bd-9035-4e8b-88c1-26771d6403d9
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:28]
+    :END:
     what does ELB need to scale out/scale in?
 
 **** answer
      An auto scaling grop
 
 *** location                                                          :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       f6cf6f50-1340-465f-9f6e-8398b24705f4
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:27]
+    :END:
     where do ASG and ELBs have to be located relative to each other?
 
 **** answer
@@ -241,7 +787,19 @@ that is up to 1 MB per second per partition
   
 
 
-*** Security groups                                                   :drill:
+*** Security groups                                       :drill:shaky:drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       032a4b89-7c27-4d31-bb32-5e0fdd3f4ed9
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.5
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:31]
+    :END:
     How does security work with ELB listeners
     Must allow for health checks on back end listerns
 
@@ -250,35 +808,91 @@ that is up to 1 MB per second per partition
 
 
 *** Where does ELB forward traffic on a ec2?                          :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       c16adce0-df59-4208-ab9f-2bd1627719d9
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:21]
+    :END:
     where does ELB forward traffice on an  ec2
 
 **** answer
      eth0
 
-*** subnet req                                                        :drill:
+*** subnet req                                                    :drill:fix:
+    SCHEDULED: <2021-12-16 Thu>
+    :PROPERTIES:
+    :ID:       53f878d1-4c37-47c3-a7eb-f4acaa94791d
+    :DRILL_LAST_INTERVAL: 9.6346
+    :DRILL_CARD_TYPE: hide1cloze
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.667
+    :DRILL_EASE: 2.46
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 21:26]
+    :END:
     
-:PROPERTIES:
-:DRILL_CARD_TYPE: hide1cloze
-:END:
 
 Minimum size of a subnet that is target of ELB is [/27], and has to have [8] free IPs
 
 **** bonus
      because some addresses are used for elb stuff
 *** requirement                                                       :drill:
+    SCHEDULED: <2021-12-09 Thu>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
+    :ID:       9ad782ba-6f08-4ab0-9225-72cb109f1ceb
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:25]
     :END:
 A public load balancer needs one [public subnet] in each [a/z where it is defined]   
 *** Differences ALB/NLB
 
 **** A/Zs                                                             :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       ca0302e9-b001-482e-9541-6364e16c3c32
+     :DRILL_LAST_INTERVAL: 4.14
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:26]
+     :END:
      which kind of load balancer allows multiple A/Zs?
 
 ***** answer
       both, but not default for either
 
 **** Static/Elastic IPs                                              :drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       4d8bad99-c911-46cf-8982-7356ba26d165
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 4.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:23]
+     :END:
      Where can you use static and elastic ips with Elastic load balancers?
 
 ***** Answer
@@ -295,6 +909,18 @@ A public load balancer needs one [public subnet] in each [a/z where it is define
 ***** Answer
       Yes, but disabled by default
 **** Format DNS name                                         :memorize:drill:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       40b3c80c-ee44-4075-82fb-a47969f30ecf
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:18]
+     :END:
      Format of DNS name of ALB
 ***** answer
       <name><id-number>.region.elb.amazonaws.com
@@ -337,7 +963,19 @@ A public load balancer needs one [public subnet] in each [a/z where it is define
 - ALB connects to mulitple listeners
 - listeners connect to target groups
 - Devices can be in multiple target groups
-**** Private subnet                                                  :drill:
+**** Private subnet                                      :drill:fix:inferred:
+     SCHEDULED: <2021-12-09 Thu>
+     :PROPERTIES:
+     :ID:       6a1e31ae-3571-49de-bdeb-a12f5c15f2d8
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:28]
+     :END:
      How can ALB use nodes in private subnet
 ***** It doesn't.  ALB makes node in public and you connect
 
@@ -403,6 +1041,18 @@ What are two measures for pricing ALB
 ** Service Distinctions
 
 *** distinguish                                                       :drill:
+    SCHEDULED: <2021-12-09 Thu>
+    :PROPERTIES:
+    :ID:       481b5a71-6685-4b3d-8a37-92c68e842e86
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:15]
+    :END:
     diff between Launch Configuration and Launch Template
 
 **** answer
@@ -459,6 +1109,11 @@ What are two measures for pricing ALB
 
 
       
+
+
+
+
+
 ** Associations
 
 *** association dupe                                                  :drill:
@@ -498,8 +1153,18 @@ What are two measures for pricing ALB
 
 
 *** association template                                              :drill:
+    SCHEDULED: <2021-12-09 Thu>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
+    :ID:       8a5bfe07-de84-4bcc-ba35-e1cd59694c0c
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.5
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:29]
     :END:
     [man in tne middle attack] and [DNS spoofing]
     Are remedied by DNSSEC
@@ -513,10 +1178,20 @@ What are two measures for pricing ALB
 
 
 *** association template                                              :drill:
+    SCHEDULED: <2021-12-09 Thu>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
+    :ID:       8676f4cd-11d5-4549-acba-c7ea12aaf3f5
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:19]
     :END:
-    [reguest attributes] for ALB include  [X-Forwarded-For headers].
+    [request attributes] for ALB include  [X-Forwarded-For headers].
 *** association template
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
@@ -532,3 +1207,31 @@ What are two measures for pricing ALB
     :DRILL_CARD_TYPE: hide1cloze
     :END:
     [state machine] is implemented by aws [step function]
+
+*** Association                                                       :drill:
+    SCHEDULED: <2021-12-10 Fri>
+    :PROPERTIES:
+    :ID:       9058140f-8cdc-459e-8b8f-f2fc1d7f0fad
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-06 Mon 17:09]
+    :END:
+    
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+[shorthand] syntax and [SAM]
+
+*** association
+
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+    In [API Gateway] client can invalidate cache with [Cache-C9ontrol: max-age=0]
+
