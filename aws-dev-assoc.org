@@ -145,13 +145,35 @@ yum install -y /home/ec2-user/xray.rpm
 
       
 *** Requirement for server in Private Subnet to get internet          :drill:
+    SCHEDULED: <2021-12-12 Sun>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
+:ID:       857dd87b-31b8-4188-bf00-575402379b26
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:46]
 :END:
 
    The [NAT gateway] must be in a public subnet with a route table that routes [internet traffic] to an internet gateway. 
 
 *** Where do you allow port 1024-65535?                               :drill:
+    SCHEDULED: <2021-12-13 Mon>
+    :PROPERTIES:
+    :ID:       4c9f28e6-78d8-4c1c-a9ca-a6d03108d4b2
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_FAILURE_COUNT: 2
+    :DRILL_AVERAGE_QUALITY: 2.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:36]
+    :END:
     .
 
 **** A
@@ -159,6 +181,9 @@ yum install -y /home/ec2-user/xray.rpm
      are okay for INBOUND rules for a NAT Gateway
 
 *** NAT Instance                                                      :drill:
+    :PROPERTIES:
+    :ID:       a2e79b5a-30ce-4854-beaf-85fd9ae154eb
+    :END:
     What capability is offered by NAT Instance and not NAT Gateway
 
 **** A
@@ -176,17 +201,17 @@ yum install -y /home/ec2-user/xray.rpm
       data origin authentication ; authenticated denial of existinence; data integrity
     
 **** price                                         :drill:fix:inferred:price:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-19 Sun>
      :PROPERTIES:
      :ID:       38d27ccf-c405-40dc-970e-d67836f88a92
-     :DRILL_LAST_INTERVAL: 3.86
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_LAST_INTERVAL: 9.6346
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 3
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 1.5
-     :DRILL_EASE: 2.36
-     :DRILL_LAST_QUALITY: 3
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:30]
+     :DRILL_AVERAGE_QUALITY: 2.667
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:20]
      :END:
      price for DNSSEC
 
@@ -203,7 +228,19 @@ yum install -y /home/ec2-user/xray.rpm
 
 *** weighted
 
-**** how to split traffic for one name to seperate IPs with route53   :drill:
+**** how to split traffic for one name to separate IPs with route53   :drill:
+     SCHEDULED: <2021-12-12 Sun>
+     :PROPERTIES:
+     :ID:       2b6254b2-689d-47eb-9115-a7e26f014f82
+     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_EASE: 2.36
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:38]
+     :END:
      how?
 
 ***** answer
@@ -282,17 +319,17 @@ yum install -y /home/ec2-user/xray.rpm
 
 ** EFS
 *** Sharing                                                           :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-19 Sun>
     :PROPERTIES:
     :ID:       da009d7b-4c68-4ab5-b6db-c0267f16e67c
-    :DRILL_LAST_INTERVAL: 4.0
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 10.0
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 4.0
     :DRILL_EASE: 2.5
     :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:17]
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:18]
     :END:
     elastic file system lets you share bewteen [ec2] and [fargate] servers
 ** RDS
@@ -326,17 +363,17 @@ yum install -y /home/ec2-user/xray.rpm
 *** health checks
 
 **** types                                                            :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-13 Mon>
      :PROPERTIES:
      :ID:       b8b32a13-3c91-438f-bef7-25edfb0bc38c
-     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_LAST_INTERVAL: 3.725
      :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
-     :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 3.0
-     :DRILL_EASE: 2.36
+     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 2.333
+     :DRILL_EASE: 2.22
      :DRILL_LAST_QUALITY: 3
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:23]
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:40]
      :END:
      what are types of ASG health checks
 
@@ -399,56 +436,56 @@ yum install -y /home/ec2-user/xray.rpm
       
 
 *** types                                                :shaky:drill:memorize:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :ID:       35db9392-7d71-49c5-bcd0-a0887d267163
-    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_LAST_INTERVAL: 3.86
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
-    :DRILL_EASE: 2.5
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:22]
+    :DRILL_TOTAL_REPEATS: 5
+    :DRILL_FAILURE_COUNT: 3
+    :DRILL_AVERAGE_QUALITY: 2.2
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:41]
     :END:
-    Name three autoscaling strategites
+    Name three autoscaling strategies
 
 **** they are
      - Target tracking - responds to alarm
      - Simple - usually not recommended , reevaluates after cooldown
-     - Step scaling - varies adjustements 
+     - Step scaling - varies adjustments 
 
 
 
    
 *** scope                                                             :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-19 Sun>
     :PROPERTIES:
     :ID:       51e1d707-29d6-4447-98c8-c7037ee26721
-    :DRILL_LAST_INTERVAL: 4.0
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 9.648
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
-    :DRILL_EASE: 2.5
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:20]
+    :DRILL_AVERAGE_QUALITY: 3.5
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:13]
     :END:
     with regard to subnets/regions, where does autoscaling operate
 **** answer
      it is region specific
 *** price                                                             :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-19 Sun>
     :PROPERTIES:
     :ID:       856bf55c-dde9-4286-bd30-e34d7ab51bf9
-    :DRILL_LAST_INTERVAL: 4.14
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 10.3376
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.6
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:14]
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.46
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:26]
     :END:
     factors in charges for autoscaling
 **** answer
@@ -474,33 +511,35 @@ yum install -y /home/ec2-user/xray.rpm
 ***** Well, what is it?
 One read capacity unit represents one strongly consistent read per second, or two eventually consistent reads per second, for an item up to 4 KB in size     
 **** Dynamodb capacity calc :drill:
-     SCHEDULED: <2021-12-08 Wed>
+     SCHEDULED: <2021-12-13 Mon>
      :PROPERTIES:
      :ID:       d1e8913f-1dac-4ce0-b5b7-0b74c1554ac2
      :DRILL_LAST_INTERVAL: 3.86
      :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
-     :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 3.0
+     :DRILL_TOTAL_REPEATS: 5
+     :DRILL_FAILURE_COUNT: 3
+     :DRILL_AVERAGE_QUALITY: 2.0
      :DRILL_EASE: 2.36
-     :DRILL_LAST_QUALITY: 3
-     :DRILL_LAST_REVIEWED: [2021-12-04 Sat 23:53]
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:40]
      :END:
      One [read] capacity unit represents one [strongly consistent read] per second, or [two eventually consistent reads] per second, for an item up to 4 KB in size 
 **** Dynamodb capacity calc :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-19 Sun>
      :PROPERTIES:
      :ID:       71a997a3-37d9-4fa7-a942-23e8b14848ec
-     :DRILL_LAST_INTERVAL: 4.14
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 4
+     :DRILL_LAST_INTERVAL: 10.3376
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 5
      :DRILL_FAILURE_COUNT: 2
-     :DRILL_AVERAGE_QUALITY: 3.25
-     :DRILL_EASE: 2.6
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 10:17]
+     :DRILL_AVERAGE_QUALITY: 3.2
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:17]
      :END:
-If your item size is 2 KB, you require [2] write capacity units to sustain one write request per second or [4] write capacity units for a transactional write request. :drill:
+If your item size is 2 KB, you require [2] write capacity units to
+sustain one write request per second or [4] write capacity units for a
+transactional write request.
 *** Dynamo limits
 **** What is the item size limit for DynamoDb                         :drill:
      SCHEDULED: <2021-12-15 Wed>
@@ -595,41 +634,141 @@ If your item size is 2 KB, you require [2] write capacity units to sustain one w
 that is up to 1 MB per second per partition
 ** Cloudwatch
 ***  in cloudwatch: distinguish Period/Instance Period                :drill:
+    :PROPERTIES:
+    :ID:       fe912613-50a9-44a9-bd5f-9eaf0ad88c1c
+    :END:
     For configuring alarms - period vs instance period.
 **** A
 - Period - Frequency of measure, in seconds.   One data point per period
 
  - Evaluation Period  - how many periods
 *** Cloudwatch alarms                                                 :drill:
+    :PROPERTIES:
+    :ID:       664eafa6-2460-4e0b-8353-f80fe112e676
+    :END:
     Do breaches have to be consecutive to raise cloudwatch alarm?
 **** A
      No there have to be X breaches in the evaluation period
 *** Alarm criter cloudwatch                                           :drill:
+    SCHEDULED: <2021-12-13 Mon>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
+:ID:       8282f4c2-44d4-441e-9cb9-3fa7f2b174ef
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:09]
 :END:
         To trigger a [cloudwatch alarm] there must be X breaches in an [evaluation period]
 **** bonus
      X is datapoints to alarm
 *** Triggering - counter name                                         :drill:
+    SCHEDULED: <2021-12-13 Mon>
+    :PROPERTIES:
+    :ID:       c7475b4b-c692-4827-a99e-1b3708f5f983
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_FAILURE_COUNT: 3
+    :DRILL_AVERAGE_QUALITY: 2.25
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:41]
+    :END:
     the count of breaches that will trigger cloudwatch alarm is called [datapoints to alarm]
-*** Define cloudwatch  "metric math"                                  :drill:
+*** Define cloudwatch  "metric math"                              :drill:fix:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       34a8116c-3fe1-428c-be09-5114ef0db32c
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:44]
+    :END:
     it is used for visualization -- lets you show average or min for exampe
 *** Cloudwatch take                                                   :drill:
+    SCHEDULED: <2021-12-13 Mon>
+    :PROPERTIES:
+    :ID:       05837a88-f21e-4c2c-84f6-415e7d7ab143
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.5
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:08]
+    :END:
     Cloudwatch is basically a [metrics repository]
 *** Does Cloudwatch give totals for all regions?                      :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       a056b84b-443f-44ea-adf5-e0e301398045
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:43]
+    :END:
     _____________________________________
 **** A.
      No - cloudwatch is region-by-region 
 *** Can you add custom metrics to Cloudwatch                          :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       4fb189ae-8f1d-4ee7-a094-8559f3ed2d7d
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:41]
+    :END:
     can you?
 **** A
      Yes
 *** How does cloudwatch organize metrics?                             :drill:
+    SCHEDULED: <2021-12-13 Mon>
+    :PROPERTIES:
+    :ID:       00f45ef8-f46f-4044-ae1a-a1061515b992
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:07]
+    :END:
     ____________________________________
 **** A
     into namespaces
 *** How long does a cloudwatch metric stay available                  :drill:
+    SCHEDULED: <2021-12-13 Mon>
+    :PROPERTIES:
+    :ID:       dc22acee-4f25-4386-b878-198fdfd485e3
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.5
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:10]
+    :END:
     .
 **** A
      15 months
@@ -639,10 +778,34 @@ that is up to 1 MB per second per partition
 :END:
 You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
 *** Cloudwatch metric resolution                                      :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       9a9a1950-08b0-43de-90e9-4332956fc276
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:45]
+    :END:
     What are the two cloudwatch metric resolutions
 **** A
      Standard and High - 1 minute and 1 second
 *** Avaialble alarms                                                  :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       b23d4b66-683c-439e-98ea-864639c84921
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:40]
+    :END:
     What are available resoutions for cloudwatch alarm?
 **** A
      10 second, 30 second and any multipe of 60 second
@@ -659,17 +822,17 @@ You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
 ** Load balancers
 
 *** offloading                                                        :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-20 Mon>
     :PROPERTIES:
     :ID:       ed19f801-ea4a-46f9-ba26-bedcb49735fe
-    :DRILL_LAST_INTERVAL: 4.14
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 11.0911
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.6
+    :DRILL_EASE: 2.7
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:16]
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:18]
     :END:
 
 what type of ELB does TLS offloading
@@ -678,34 +841,34 @@ what type of ELB does TLS offloading
      both
 
 *** health checks                                                     :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-20 Mon>
     :PROPERTIES:
     :ID:       74e45f73-dbd1-42e5-9c8c-c7ecdf8860aa
-    :DRILL_LAST_INTERVAL: 4.14
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 11.0911
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.6
+    :DRILL_EASE: 2.7
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:25]
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:25]
     :END:
     what is flaw not making ELB health checks when using ELB?
 
 **** answer
      ELB can route to instances that failed the EC2 health check
 *** Cloud watch                                                       :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :ID:       50197b9d-e835-4f2b-b724-777847715d6c
-    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_LAST_INTERVAL: 3.995
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 2
-    :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 2.5
-    :DRILL_EASE: 2.36
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:30]
+    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_FAILURE_COUNT: 2
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.46
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:40]
     :END:
     How ofen does ELB write to cloudwatch
 
@@ -713,17 +876,17 @@ what type of ELB does TLS offloading
      1 minute, but only when requests are active
 
 *** ELB Access  logs                                                  :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :ID:       4f320b2a-25a6-4446-9b11-6e8c82914ee9
-    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_LAST_INTERVAL: 4.285
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 2
-    :DRILL_FAILURE_COUNT: 1
+    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_FAILURE_COUNT: 2
     :DRILL_AVERAGE_QUALITY: 3.0
-    :DRILL_EASE: 2.6
+    :DRILL_EASE: 2.7
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:29]
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:35]
     :END:
     Access logs for ELB
     
@@ -734,71 +897,75 @@ what type of ELB does TLS offloading
 
      
 *** relation to ASGs                                                  :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-19 Sun>
     :PROPERTIES:
     :ID:       6937dfe2-6520-4123-a214-606769ce3869
-    :DRILL_LAST_INTERVAL: 4.0
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 9.648
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
-    :DRILL_EASE: 2.5
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:22]
+    :DRILL_AVERAGE_QUALITY: 3.5
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:11]
     :END:
-    there is a [many-to-many] relationship betweent target groups and ASGs
+    there is a [many-to-many] relationship between target groups and ASGs
 *** and auto scaling                                                  :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :ID:       3f2305bd-9035-4e8b-88c1-26771d6403d9
-    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_LAST_INTERVAL: 4.14
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
-    :DRILL_EASE: 2.5
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:28]
+    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 3.667
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:38]
     :END:
-    what does ELB need to scale out/scale in?
+    what does ELB operate on when it scales out/scales in?
 
 **** answer
-     An auto scaling grop
+     An auto scaling group
 
 *** location                                                          :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-19 Sun>
     :PROPERTIES:
     :ID:       f6cf6f50-1340-465f-9f6e-8398b24705f4
-    :DRILL_LAST_INTERVAL: 4.0
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 10.0
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 4.0
     :DRILL_EASE: 2.5
     :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:27]
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:26]
     :END:
     where do ASG and ELBs have to be located relative to each other?
 
 **** answer
      in the same region
 
-
+*** alb requirement                                                   :drill:
+    Before you start using your Application Load Balancer, you must add one or more [listeners].
   
+
+*** limitation                                                        :drill:
+Application Load Balancers do not support cookie values that are [URL encoded].
 
 
 *** Security groups                                       :drill:shaky:drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :ID:       032a4b89-7c27-4d31-bb32-5e0fdd3f4ed9
     :DRILL_LAST_INTERVAL: 3.86
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 2
-    :DRILL_FAILURE_COUNT: 1
+    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_FAILURE_COUNT: 2
     :DRILL_AVERAGE_QUALITY: 2.5
     :DRILL_EASE: 2.36
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:31]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:41]
     :END:
     How does security work with ELB listeners
     Must allow for health checks on back end listerns
@@ -808,17 +975,17 @@ what type of ELB does TLS offloading
 
 
 *** Where does ELB forward traffic on a ec2?                          :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :ID:       c16adce0-df59-4208-ab9f-2bd1627719d9
     :DRILL_LAST_INTERVAL: 3.86
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.667
     :DRILL_EASE: 2.36
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:21]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:36]
     :END:
     where does ELB forward traffice on an  ec2
 
@@ -846,18 +1013,18 @@ Minimum size of a subnet that is target of ELB is [/27], and has to have [8] fre
 **** bonus
      because some addresses are used for elb stuff
 *** requirement                                                       :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-18 Sat>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
     :ID:       9ad782ba-6f08-4ab0-9225-72cb109f1ceb
-    :DRILL_LAST_INTERVAL: 3.86
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_LAST_INTERVAL: 8.9861
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 2
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 3.0
-    :DRILL_EASE: 2.36
+    :DRILL_EASE: 2.22
     :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:25]
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:22]
     :END:
 A public load balancer needs one [public subnet] in each [a/z where it is defined]   
 *** Differences ALB/NLB
@@ -881,17 +1048,17 @@ A public load balancer needs one [public subnet] in each [a/z where it is define
       both, but not default for either
 
 **** Static/Elastic IPs                                              :drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-19 Sun>
      :PROPERTIES:
      :ID:       4d8bad99-c911-46cf-8982-7356ba26d165
-     :DRILL_LAST_INTERVAL: 4.0
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_LAST_INTERVAL: 10.352
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 2
      :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 4.0
-     :DRILL_EASE: 2.5
-     :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:23]
+     :DRILL_AVERAGE_QUALITY: 4.5
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:21]
      :END:
      Where can you use static and elastic ips with Elastic load balancers?
 
@@ -909,17 +1076,17 @@ A public load balancer needs one [public subnet] in each [a/z where it is define
 ***** Answer
       Yes, but disabled by default
 **** Format DNS name                                         :memorize:drill:
-     SCHEDULED: <2021-12-09 Thu>
+     SCHEDULED: <2021-12-13 Mon>
      :PROPERTIES:
      :ID:       40b3c80c-ee44-4075-82fb-a47969f30ecf
-     :DRILL_LAST_INTERVAL: 3.86
+     :DRILL_LAST_INTERVAL: 3.995
      :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 1
-     :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 3.0
-     :DRILL_EASE: 2.36
-     :DRILL_LAST_QUALITY: 3
-     :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:18]
+     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 3.333
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:39]
      :END:
      Format of DNS name of ALB
 ***** answer
@@ -1037,14 +1204,50 @@ What are two measures for pricing ALB
       level 4 the Network layer.
 ** Cloud formation
 *** define CF stack sets                                              :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       21a8d348-4d41-43ef-b4c8-e9ffba625e01
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:42]
+    :END:
     stack sets =
 **** A
-     Apply creat/update/delete accross multiple regions, multiple accunts
+     Apply creat/update/delete accross multiple regions, multiple accounts
 *** define CF Change Sets                                             :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       9c8e88bb-24e8-450e-aeb2-c7ae0e4718c1
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:37]
+    :END:
     Change sets =
 **** A
      Summary of propsed changes let you preview impact -- Visualization
 *** Two types of resources                                            :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       1d40cf9b-8606-4e38-80a8-da49b15f0068
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.5
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:39]
+    :END:
     There are two types of ways of refering to a resource: e.g. i-2310d7aa7801 and RedisServer1.
     What are they callled --- _______ ID and _________ ID
 **** A
@@ -1052,22 +1255,57 @@ What are two measures for pricing ALB
 **** bonus
      the physical are "outside" of CF
 *** What does a CF template describe                                  :drill:
+    SCHEDULED: <2021-12-12 Sun>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
+:ID:       aa808fc7-0a00-4afd-9134-8c62288b8e5c
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:38]
 :END:
     [end state] of the [infrastructure] you are privisioning or changing
 *** define                                                            :drill:
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
+:ID:       f88fa158-3123-4ab1-8f21-d9945cdd8beb
 :END:
 
     [values for properites not available til runtime] are assigned  in templates with [instrinsic functions]
 *** functions
 **** Name function that gets a value from mapping section             :drill:
+     SCHEDULED: <2021-12-12 Sun>
+     :PROPERTIES:
+     :ID:       052a13bf-f064-409b-a96f-30e473938e21
+     :DRILL_LAST_INTERVAL: 4.14
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 1
+     :DRILL_FAILURE_COUNT: 0
+     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_EASE: 2.6
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:41]
+     :END:
      name?
 ***** Answer
       Fn:FindInMap
 **** Syntax for FindInMap                                             :drill:
+     SCHEDULED: <2021-12-13 Mon>
+     :PROPERTIES:
+     :ID:       eb84dd84-0d84-4c0a-93c8-ba0287d91a69
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_FAILURE_COUNT: 2
+     :DRILL_AVERAGE_QUALITY: 2.0
+     :DRILL_EASE: 2.5
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:35]
+     :END:
      how to call FindInMap
 ***** Answer
       FindInMap[MapName, TopLevelKey, SecondLevelKey]
@@ -1150,6 +1388,18 @@ What are two measures for pricing ALB
 
 
 *** Deployment files for Elastic Beanstalk vs CloudFormation          :drill:
+    SCHEDULED: <2021-12-12 Sun>
+    :PROPERTIES:
+    :ID:       ee17c841-9de8-4ff1-8a2f-066ee15a407a
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 1
+    :DRILL_FAILURE_COUNT: 0
+    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_EASE: 2.36
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2021-12-08 Wed 06:43]
+    :END:
     what are the extensions
 
 **** A
@@ -1196,18 +1446,18 @@ What are two measures for pricing ALB
 
 
 *** association template                                              :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
     :ID:       8a5bfe07-de84-4bcc-ba35-e1cd59694c0c
-    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_LAST_INTERVAL: 4.14
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 2
-    :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 2.5
-    :DRILL_EASE: 2.5
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:29]
+    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_FAILURE_COUNT: 2
+    :DRILL_AVERAGE_QUALITY: 2.75
+    :DRILL_EASE: 2.6
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:35]
     :END:
     [man in tne middle attack] and [DNS spoofing]
     Are remedied by DNSSEC
@@ -1221,18 +1471,18 @@ What are two measures for pricing ALB
 
 
 *** association template                                              :drill:
-    SCHEDULED: <2021-12-09 Thu>
+    SCHEDULED: <2021-12-13 Mon>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
     :ID:       8676f4cd-11d5-4549-acba-c7ea12aaf3f5
     :DRILL_LAST_INTERVAL: 3.86
     :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 1
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 3.0
+    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 2.667
     :DRILL_EASE: 2.36
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-05 Sun 16:19]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:36]
     :END:
     [request attributes] for ALB include  [X-Forwarded-For headers].
 *** association template
