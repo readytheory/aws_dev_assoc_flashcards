@@ -1,5 +1,6 @@
 -*- eval: (set-register ?o  ":PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") -*-
 #+TAGS: drill(d) fix(x) inferred(f) memorize(m) shaky(s)
+
 * Not covered
   - lightsail
   - gRPC
@@ -1527,4 +1528,270 @@ What are two measures for pricing ALB
 :END:
 
     In [API Gateway] client can invalidate cache with [Cache-C9ontrol: max-age=0]
+
+
+** code deploy - distincive selling point                             :drill:
+
+*** a
+    
+don't need to make changes to exisitng code
+
+
+
+** CodeDeploy                                                         :drill:
+
+   Code can deploy application content that runs on a server and is stored in 
+    Name 4
+
+*** Name 4
+Amazon S3 buckets, GitHub repositories, or Bitbucket repositories.  Codecommt
+   Can deploy to running servers
+   Can deploy to Lambda
+   Can deploy to fargate
+
+   
+** What service                                                       :drill:
+ 1) Automate software installation and 2) reduce manual errors
+
+*** what service is it
+Keyword for CodeDeploy
+
+** Code Deploy                                                        :drill:
+
+   For code deploy
+
+*** what is name of  Setting that controls rate of deployment (e.g. Canary)
+ Deployment Configuration
+   - also e.g. number of instances that must be healthy
+
+** Dev env                                                            :drill:
+     
+ What development environment 
+
+*** lets developer build + test in local environment?
+  SAM
+  It is an opensource framework
+
+** Name it                                                            :drill:
+
+  What gives you chef and puppet
+
+*** name it
+  Opsworks
+
+**  What sections are required in a cloud formation template?         :drill:
+
+*** they are
+  Resources - only
+
+*** except
+    in SAM, tranform is required
+
+    
+** CloudFormation memorize                                            :drill:
+  Memorize - 
+
+*** sections of a cloudformation template
+  Metadata * Parameters * Rules * Mappings * Condition * Transform * Resources * Outputs
+
+** Cloud formation SAM 
+  What is required in 
+
+*** SAM CF template and not other CFtemplates?
+   Tranform -- because that is where the version of SAM is specified
+
+   
+** Tell me                                                            :drill:
+   Two things you need 
+
+*** to create a lambda function
+    A deployment package and an execution role
+
+** Lamda config pkgs                                                  :drill:
+    
+    Lambda supports two types of deployment packages: [container images] and [.zip file archives].
+    
+***    bonus
+    the console automatically makes a zip version
+    container images come from  ECR
+
+** MPU - rule of thumb                                                :drill:
+     Object size where you should start considering multi-part upload
+
+*** the size
+     100 Meg
+
+** Multipart upload advantages                                        :drill:
+
+*** name 4
+       - pause and resume
+       - recover from network interruptios
+       - thruput increase from parallelization
+       - can start upload while file is still being created
+** Bucket names                                                       :drill:
+      Restriction on bucket names for Transfer acceleration
+*** name 2
+       - no dots
+       - DNS compliant
+
+** Elasticache strategies                                             :drill:
+       drawbacks lazy loading (elasticache)
+
+*** name 2
+       - cache miss penalty
+       - stale data -- IF you only refresh when there is a miss
+
+** Elasticache strategies                                             :drill:
+      What is write-thru
+
+*** describe it
+      elasticache strategy, contrast with lazy loading -- db writes mean cache writes, no stale data
+
+** Elasticache strategies                                             :drill:
+      The penalties for Lazy Loading and Write-thru
+
+*** name 2
+	LL: cache-miss penalty   WT: write penalty
+
+** Elasticache strategies                                             :drill:
+      Elasticache write thru disadvantages
+
+*** name 2
+	- cache churn
+	- missing data (if a new node is brought up e.g. after failure and only gets data on write)
+
+** stage variables                                                    :drill:
+      What service has "Stage Variable"
+
+*** which?
+       - API Gateway
+
+** lamda layers                                                       :drill:
+
+      Generally speaking, what is in a lambda layer
+
+*** what
+       dependencies
+
+** lambda alias                                                       :drill:
+      What is
+
+*** a lambda alias?
+
+
+	  A pointer to a specific lambda version
+
+** Configure rest API                                                 :drill:
+
+       [Stage variables] are name-value pairs that you can define as [configuration attributes] associated with a deployment stage of a REST API.
+
+***        Bonus
+	 configuration is key -- setting for a specific environment
+	 They are part of API Gateway
+ 
+** Using stage vars                                                   :drill:
+
+	 Should you 
+
+*** use API Gateway Stage Variable for passwords?
+	  No use AWS authorizer
+
+** Gatway secrets                                                     :drill:
+	  should you use [aws authorizer] for sensitive data in API Gateway configuration
+** API Gateway custom domain                                          :drill:
+	  Drawback to not using a path on Custom domain for API Gateway
+*** drawback
+	  You can't set version if you do like api.mydomain.biz with no path
+
+** API gateway basics                                                 :drill:
+	  API gateway supports 
+
+*** three basic things:
+
+	   Creating, deploying, and managing a RESTful application programming interface (API) to expose backend HTTP endpoints, AWS Lambda functions, or other AWS services.
+	   Creating, deploying, and managing a WebSocket API to expose AWS Lambda functions or other AWS services.
+	   Invoking exposed API methods through the frontend HTTP and WebSocket endpoints.
+
+
+** API Gateway endpoints                                              :drill:
+
+*** 	   Three types of Gateway API endpoints
+	     - Edge-optimized
+	     - regional  (for clients in region, e.g. customer's own ec2)
+	     - private (inside VPC)
+** Gateway API non-pulic                                              :drill:
+	      
+
+	    What is name of API endpoint that is for use by customer's own clients?
+*** The name
+	    either regional or private
+	       -- private means inside VPC,
+	       =-- regional just means other resources of customer in same region can call it
+
+** VTL identify                                                       :drill:
+	    What scripting language is VTL?  
+
+*** What service?
+	     Velocity Template, associated with API Gateway.  Transforms requests from frontend format to backend format
+
+** API Gateway without backend                                        :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+	     In a [mock integration], API responses are generated from [API Gateway directly], without the need for an integration backend.
+** API Gateway API provision                                          :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+	      A [model] is required for generating a [strongly typed SDK] of an API.  (Gateway API)
+
+** API Gateway's internal interface                                   :drill:
+  What's this: he internal interface of a WebSocket API route or REST
+  API method in API Gateway, in which you map the body of a route
+  request or the parameters and body of a method request to the
+  formats required by the backend.
+
+*** it is
+
+	      An integration request
+** API Gateway's internal intervace                                   :drill:
+      What's this: The internal interface of a WebSocket API route or
+      REST API method in API Gateway, in which you map the status
+      codes, headers, and payload that are received from the backend
+      to the response format that is returned to a client app.
+*** it is 
+
+	      And integration response
+** API Gateway distinguish integration request/response               :drill:
+	      Api gateway: integration request vs integration response
+*** distinction
+	      integration request - maps request data to format needed by backend
+	      integration response - map the backend result to a response the client can use
+
+** Creating HTTP API                                                  :drill:
+	      You can use [quick create] to simplify creating an HTTP API.
+
+** Grant permissions API Gateway 	      
+	      What lets you allocate certain permissions to given API clients?  (API gateway)
+
+*** what?
+	      A usage plan
+
+** API Stage Variable                                                 :drill:
+	      Api stage variable are like [environment variables]
+
+	      
+** SAM reusable components                                            :drill:
+	      In SAM a common pattern of components that can be included  in templates is a [nested application]
+ 
+
+
+
+
+
+
+	 
+
 
