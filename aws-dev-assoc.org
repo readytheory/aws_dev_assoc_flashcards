@@ -1,4 +1,4 @@
--*- eval: (set-register ?o  ":PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") -*-
+-*- eval: (progn (set-register ?o  ":PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") (set-register ?i  "** Question  :drill:\n___?\n*** Answer:\nanswer here\n")) -*-
 #+TAGS: drill(d) fix(x) inferred(I) memorize(m) shaky(s)
 
 * Not covered
@@ -6,12 +6,91 @@
   - gRPC
   - gateway load balancer
   - fargate
+
     
 * AWS flashcards
 
-** API Gateway
+** RDS performance                                                    :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       9e9cd280-75be-490a-a46d-63591294d384
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 14:31]
+   :END:
+   RDS feature that identifies long running query 
+*** Answer:
+slow query log
 
-*** Lambda integration
+** MySQL logs                                                 :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       4fc34154-238c-40bb-bffa-c47422acfff8
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 14:30]
+   :END:
+Alternatives to console for monitoring mysql logs
+*** Answer:
+    download binary log with mybinlo
+    direct logs to a mysql table
+*** bonus
+    the various logs:
+    error (default)
+    general
+    slow query
+    audit
+    The console is  for logs going to cloudwatch
+
+** Push to mobile apps                                                :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       649a8311-763d-4b9d-a2a4-ec2b405a7bc3
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 14:31]
+   :END:
+What is feature that allows push to mobile apps?
+*** Answer:
+SNS - push notifications
+
+** Three services CodeDeploy can target                               :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       1c451dc7-78fc-4f99-bfc9-23cb0081ed9d
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 14:31]
+   :END:
+What are they?
+*** Answer:
+Lambda, Ec2 and On Premises servers
+
+    
+
+
+
+  
 
 ** xray
 
@@ -2544,369 +2623,692 @@ distinguish
   
 
     
-* how to you include libraries for labmda without a massive deployment package :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       25c4f528-a20d-4b56-aa36-95db8f4319f5
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:51]
-  :END:
-  how
+** how to you include libraries for labmda without a massive deployment package :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       25c4f528-a20d-4b56-aa36-95db8f4319f5
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:51]
+   :END:
+   how
   
-** answer
-   layers
+*** answer
+    layers
 
-* adding a layer                                                      :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       6f4bb41f-eac6-484f-b08d-fd898c6a606c
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 3
-  :DRILL_FAILURE_COUNT: 2
-  :DRILL_AVERAGE_QUALITY: 1.333
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:02]
-  :END:
-  [update-function-configuration] is is the lambda cli call to add a layer
-  :PROPERTIES:
-  :ID:       cf7dbc72-27b7-4854-bc47-d20b11a29531
-  :END:
+** adding a layer                                                     :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       6f4bb41f-eac6-484f-b08d-fd898c6a606c
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 1.333
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:02]
+   :END:
+   [update-function-configuration] is is the lambda cli call to add a layer
+   :PROPERTIES:
+   :ID:       cf7dbc72-27b7-4854-bc47-d20b11a29531
+   :END:
 
-* limits for mem in lambda                                            :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       b39a3bec-32e8-4650-858b-26f57b0b0cd6
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 2
-  :DRILL_FAILURE_COUNT: 1
-  :DRILL_AVERAGE_QUALITY: 3.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:01]
-  :END:
-what are min/max memory  for lambda func
-** they are...
-default 128 is min and 3008 Meg is max 64 MB incs
-performance scales with memory
-128 is defaul
+** limits for mem in lambda                                           :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       b39a3bec-32e8-4650-858b-26f57b0b0cd6
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:01]
+   :END:
+ what are min/max memory  for lambda func
+*** they are...
+ default 128 is min and 3008 Meg is max 64 MB incs
+ performance scales with memory
+ 128 is defaul
 
-* lambda limits                                                       :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       6b27e5ed-7a62-4f7a-803f-be55ed6d01b6
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:52]
-  :END:
-Max env var size (all env vars) for lamda is [4kb]
+** lambda limits                                                      :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       6b27e5ed-7a62-4f7a-803f-be55ed6d01b6
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:52]
+   :END:
+ Max env var size (all env vars) for lamda is [4kb]
 
 
-* lambda                                                              :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       72a5512e-2694-4a43-a38a-920a64eae1ab
-  :DRILL_LAST_INTERVAL: 3.86
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 3.0
-  :DRILL_EASE: 2.36
-  :DRILL_LAST_QUALITY: 3
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:57]
-  :END:
+** lambda                                                             :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       72a5512e-2694-4a43-a38a-920a64eae1ab
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:57]
+   :END:
   
-Likely reason you'd get InvalidParameterValueException from CLI from a script to deploy a lambda?
+ Likely reason you'd get InvalidParameterValueException from CLI from a script to deploy a lambda?
 
-** reasons
- - giving a role it can't assume
- - a lambda needs an execution role
+*** reasons
+  - giving a role it can't assume
+  - a lambda needs an execution role
 
 
-* verb how to call a lambda function from cli                         :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       82aa5833-b747-4243-a64a-43186715343a
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:48]
-  :END:
-the keyword is aws lambda [--invoke]
+** verb how to call a lambda function from cli                        :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       82aa5833-b747-4243-a64a-43186715343a
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:48]
+   :END:
+ the keyword is aws lambda [--invoke]
 
-** bonus
-   for asynch it is --invocation-type Event
+*** bonus
+    for asynch it is --invocation-type Event
    
-* lambda 
-How to call lambda function asynch on cli
+** lambda 
+ How to call lambda function asynch on cli
 
-** the arguments to use
---invocation-type Event
+*** the arguments to use
+ --invocation-type Event
 
 
 
-* lambda                                                              :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       2ecb20e6-2653-49ed-acf1-83a3df771437
-  :DRILL_LAST_INTERVAL: 4.14
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 2
-  :DRILL_FAILURE_COUNT: 1
-  :DRILL_AVERAGE_QUALITY: 2.5
-  :DRILL_EASE: 2.6
-  :DRILL_LAST_QUALITY: 5
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:01]
-  :END:
-what is needed for lambda to process items from a stream or queue
+** lambda                                                             :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       2ecb20e6-2653-49ed-acf1-83a3df771437
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:01]
+   :END:
+ what is needed for lambda to process items from a stream or queue
 
-** answer
-create an event source mapping
+*** answer
+ create an event source mapping
 
-* event source mappingd                                               :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       66c0b76c-0755-4fe9-b6fc-7bee3011eed3
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:00]
-  :END:
+** event source mappingd                                              :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       66c0b76c-0755-4fe9-b6fc-7bee3011eed3
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:00]
+   :END:
   
-Define event source mapping
-** answer
-It reads from an event source and invokes a lambda function
+ Define event source mapping
+*** answer
+ It reads from an event source and invokes a lambda function
 
-* boto3 objects                                                       :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       a4baa70e-f1dc-4c09-a2c9-4c18bb674844
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 2
-  :DRILL_FAILURE_COUNT: 1
-  :DRILL_AVERAGE_QUALITY: 2.5
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:01]
-  :END:
-in boto3, client vs resource, which is lower level?
+** boto3 objects                                                      :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       a4baa70e-f1dc-4c09-a2c9-4c18bb674844
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:01]
+   :END:
+ in boto3, client vs resource, which is lower level?
 
-** answer
-client is low level, full api
-resource is higher level, OO, not complete
+*** answer
+ client is low level, full api
+ resource is higher level, OO, not complete
 
-* lambda permissions                                                  :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       4069c06f-e51e-4fe5-ac61-c0c7ae1cfb44
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:57]
-  :END:
-How does S3 get right to invoke lambda?
+** lambda permissions                                                 :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       4069c06f-e51e-4fe5-ac61-c0c7ae1cfb44
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:57]
+   :END:
+ How does S3 get right to invoke lambda?
 
-** answer
- Add a permission for S3 to invoke it -- it is an aws lambda cli function and gives right to one bucket
- point is: permission is not granted by lambda
+*** answer
+  Add a permission for S3 to invoke it -- it is an aws lambda cli function and gives right to one bucket
+  point is: permission is not granted by lambda
 
 
 
-* vocab arn                                                           :drill:
-  SCHEDULED: <2021-12-23 Thu>
-  :PROPERTIES:
-  :ID:       264053b4-8528-4248-a1bb-422ad4d2d732
-  :DRILL_LAST_INTERVAL: 4.14
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 5.0
-  :DRILL_EASE: 2.6
-  :DRILL_LAST_QUALITY: 5
-  :DRILL_LAST_REVIEWED: [2021-12-19 Sun 10:23]
-  :END:
-what is a qualitified arn
-** definition
-it has a version at the end
- - in lambda it canNOT be used for an alias
+** vocab arn                                                          :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       264053b4-8528-4248-a1bb-422ad4d2d732
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 10:23]
+   :END:
+ what is a qualitified arn
+*** definition
+ it has a version at the end
+  - in lambda it canNOT be used for an alias
 
-* vocab lambda alias                                                  :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       54467e95-0410-4928-8d90-8513a764c268
-  :DRILL_LAST_INTERVAL: 4.14
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 2
-  :DRILL_FAILURE_COUNT: 1
-  :DRILL_AVERAGE_QUALITY: 3.5
-  :DRILL_EASE: 2.6
-  :DRILL_LAST_QUALITY: 5
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:02]
-  :END:
-How does an alias difffer from a version in lambda?
+** vocab lambda alias                                                 :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       54467e95-0410-4928-8d90-8513a764c268
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:02]
+   :END:
+ How does an alias difffer from a version in lambda?
 
-** answer
- - instead of number in arn, has name of aliase
- - the alias can be changed, versions are imutable
+*** answer
+  - instead of number in arn, has name of aliase
+  - the alias can be changed, versions are imutable
 
-**  bonus:
-   alias can point at two versions, with weighting
+***  bonus:
+    alias can point at two versions, with weighting
 
-* lambda alias                                                        :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       d760bdba-2951-4b0f-b60b-e6d745a9c183
-  :DRILL_LAST_INTERVAL: 4.14
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 5.0
-  :DRILL_EASE: 2.6
-  :DRILL_LAST_QUALITY: 5
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:00]
-  :END:
-What is typical use for weighted alias in lambda
-** typical:
- - blue / green deployment
+** lambda alias                                                       :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       d760bdba-2951-4b0f-b60b-e6d745a9c183
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:00]
+   :END:
+ What is typical use for weighted alias in lambda
+*** typical:
+  - blue / green deployment
 
-* lambda zipfile size                                                 :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       7abf79cc-44a8-4ab7-9b74-656640a17f29
-  :DRILL_LAST_INTERVAL: 3.86
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 3.0
-  :DRILL_EASE: 2.36
-  :DRILL_LAST_QUALITY: 3
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:00]
-  :END:
-What is size limit of zip file for lambda to upload
-** max is
- - 50 mb, has to go to S3 if bigger
+** lambda zipfile size                                                :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       7abf79cc-44a8-4ab7-9b74-656640a17f29
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 14:00]
+   :END:
+ What is size limit of zip file for lambda to upload
+*** max is
+  - 50 mb, has to go to S3 if bigger
 
-* lambda execs                                                        :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       9cbb95e8-e9d2-42d1-babc-00d8b34f3ef8
-  :DRILL_LAST_INTERVAL: 4.14
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 5.0
-  :DRILL_EASE: 2.6
-  :DRILL_LAST_QUALITY: 5
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:49]
-  :END:
-Lambda default execution/second limit
+** lambda execs                                                       :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       9cbb95e8-e9d2-42d1-babc-00d8b34f3ef8
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:49]
+   :END:
+ Lambda default execution/second limit
 
-** limit is:
- - 1000 execution/second
+*** limit is:
+  - 1000 execution/second
 
-* lambd concurrency                                                   :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       b9cbf2ed-ae1b-4d08-9e30-dc66c735839f
-  :DRILL_LAST_INTERVAL: 4.14
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 5.0
-  :DRILL_EASE: 2.6
-  :DRILL_LAST_QUALITY: 5
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:48]
-  :END:
-How much concurrency can you reserve per lambda?
+** lambd concurrency                                                  :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       b9cbf2ed-ae1b-4d08-9e30-dc66c735839f
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:48]
+   :END:
+ How much concurrency can you reserve per lambda?
 
-** answer
- - default 900, you hae to leave 100 unreserved capacity
+*** answer
+  - default 900, you hae to leave 100 unreserved capacity
 
-* lambda behavior                                                     :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       5aed74f8-e393-417d-a58d-59d0204ed369
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:49]
-  :END:
-What happens when too many lambda functions called concurrently?
-** it is signalled by three things:
-  - throttle
-  - TooManyRequestException
-  - Http 429
+** lambda behavior                                                    :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       5aed74f8-e393-417d-a58d-59d0204ed369
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:49]
+   :END:
+ What happens when too many lambda functions called concurrently?
+*** it is signalled by three things:
+   - throttle
+   - TooManyRequestException
+   - Http 429
 
-* lambda throttling                                                   :drill:
-  SCHEDULED: <2021-12-22 Wed>
-  :PROPERTIES:
-  :ID:       0b883def-7754-4396-aff2-665e6b78ca7b
-  :DRILL_LAST_INTERVAL: 4.0
-  :DRILL_REPEATS_SINCE_FAIL: 2
-  :DRILL_TOTAL_REPEATS: 1
-  :DRILL_FAILURE_COUNT: 0
-  :DRILL_AVERAGE_QUALITY: 4.0
-  :DRILL_EASE: 2.5
-  :DRILL_LAST_QUALITY: 4
-  :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:51]
-  :END:
-Default throttle behavior for lambda?
-** defaults:
-  - Synch: 429 error
-  - Asynch retry, retry, DLQ
+** lambda throttling                                                  :drill:
+   SCHEDULED: <2021-12-22 Wed>
+   :PROPERTIES:
+   :ID:       0b883def-7754-4396-aff2-665e6b78ca7b
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-18 Sat 13:51]
+   :END:
+ Default throttle behavior for lambda?
+*** defaults:
+   - Synch: 429 error
+   - Asynch retry, retry, DLQ
+
+
+** Question  :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       761f31e8-9238-4e1c-b9fc-ca53d45a819b
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:18]
+   :END:
+Name an Elastic beanstalk feature that takes care of asynch tasks like file transformations
+*** Answer:
+  - worker environment
+    Elastic Beanstalk worker environments simplify this process by managing
+    the Amazon SQS queue and running a daemon process on each instance that
+    reads from the queue for you. 
+   
+** Dyanmo db indices                                                  :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       41ea0eff-0b33-4577-8f87-1de36c48a74a
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:15]
+   :END:
+Distinguish global and local secondary indices
+*** Answer:
+    
+
+Global secondary index — an index with a partition key and a sort key
+that can be different from those on the base table. A global secondary
+index is considered "global" because queries on the index can span all
+of the data in the base table, across all partitions.
+
+Local secondary index — an index that has the same partition key as
+the base table, but a different sort key. A local secondary index is
+"local" in the sense that every partition of a local secondary index
+is scoped to a base table partition that has the same partition key
+value.
+
+** Kinesis shards                                                     :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       3b05f3ff-a174-4fb2-9d44-fe1335989abf
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:14]
+   :END:
+If you have 4 shards, how many instances with KCL  should you have
+*** Answer:
+1 to 4.  At most 1 worker can process a shard, but 1 worker can process
+multiple shards
+
+** What is CORS for                                           :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       447e0e0d-beaa-4338-b93b-d2c73c576dc6
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:19]
+   :END:
+What does CORS do and for which service is it relevant
+*** Answer:
+Allows apps loaded in one domain to use resources from another.
+Relevant especially getting resources from S3 buckets thru a web app
+
+You sett a CORS configuration on buckets
+
+** Cloudformation deploy                                      :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       7c7e2788-89ed-44b6-8e19-586322422c21
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:14]
+   :END:
+
+If you are going to deploy resources on your local machine from CLI, what do you
+doe wWhat do you usually run before "aws cloudformation deploy"
+*** Answer:
+aws cloudformation package
+
+** DynamoDb                                                    :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       93907369-1f23-4c40-a129-6d56444e62da
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:19]
+   :END:
+Reduce frequency of ProvisionedThroughputExceededException
+*** Answer:
+Use exponential backoff.  Retries happen always with DynamodB
+
+** ALB feature                                                        :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       96a5e99c-0821-4f2e-9b84-a29664a73da0
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:16]
+   :END:
+What does enable multi valued headers do?
+*** Answer:
+    Turns values specified twice to arrays -
+     &name=Fred&name=Flinstone
+     -> name: [Fred, Flinstone]
+
+** Multi valued headers                                       :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       d2877fad-5b98-4359-853f-181a00318021
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:18]
+   :END:
+An Advanced feature of [Application Load Balancer] is multi-valued headers
+
+** DynamoDb cache                                                     :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       f091b770-d023-4067-a016-30f689081a6a
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:18]
+   :END:
+[DAX Accelerator] is a DynamoDB-specific cache solution
+*** Bonus
+Reduces responses FROM milliseconds TO microseconds
+
+** Server Side Encryption                                     :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       7f45ce23-1ad3-4358-846e-e28d31537460
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:19]
+   :END:
+If you use customer keys for encrypting s3, what three headers to you need 
+*** Answer:
+all three of
+    
+x-amz-server-side​-encryption​-customer-algorithm   (can only have one value: AES256)
+x-amz-server-side​-encryption​-customer-key   (the key)
+x-amz-server-side​-encryption​-customer-key-MD5  (encoded version, used like checksum)
+
+** SQS polling                                                        :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       d5db822b-84ab-4c81-a0c9-09f385ef91df
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:18]
+   :END:
+How to configure long polling
+*** Answer:
+Just set a timeout -- default of 0 means short polling
+
+** SQS Polling                                                        :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       555794de-5323-4174-9763-f64745f62007
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:16]
+   :END:
+What is customer visibility timeout for?
+*** Answer:
+Stop multiple consumers from getting a message that is being processed
+
+** application passwords                                              :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       02622f48-f7c4-4e0f-b676-0d9f4dbf7d6e
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:20]
+   :END:
+   [Secrets Manager] provides an API your code can call to get the
+   password for a database, and it provides for automatic rotation
+
+*** bonus
+       Services that it works with:
+       Amazon RDS, Amazon DocumentDB, and Amazon Redshift
+       Others there is a template, customers must create a custom rotation function
+       
+** X-Ray                                                      :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       68792d29-27eb-4e7e-ac1b-024c634999a0
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:19]
+   :END:
+Difference settig up Xray on
+1) ebs
+2) elastic beanstalk
+*** Answer:
+1) use a "user data script" for ebs
+2) for elastic beanstalk, use config file - xray-daemon.config in .ebextensions/
+
+
+
+** Lampda concurrence                                                 :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       23ea866a-d5d3-4298-a589-c9e552e8b726
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:15]
+   :END:
+What is Lambda provisioned concurrency?
+*** Answer:
+  - once it is invoked, it stays loaded, low latency (avoid cold start)
+  - you pay for it as long as its running 
+  - provisioned concurrency can be controlled with ASG
+
+
+** RDS proxy                                                  :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       9ef90cf5-914f-46c3-979c-3d68aedbd879
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:20]
+   :END:
+What is RDS proxy?
+*** Answer:
+ - a connection pool lambda can use
+
+** Question  :drill:
+   SCHEDULED: <2021-12-23 Thu>
+   :PROPERTIES:
+   :ID:       caf2ac13-8dcd-453e-a035-8edb5c1012b8
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:20]
+   :END:
+What is Execution Record
+*** Answer:
+ -a lambda artifact in Success/Failure destination
+ - has version, request/response context request/response payload
+
+
+
+     
+
+
+
+
+
+
 
 
 * scrap/in progress
   
 
+Cloudwatch custom metrics
+ - what is Api name and some parms to add a custom metric
 
 
-
-
-
-
-What is Lambda provisioned concurrency?
-  - once it is invoked, it stays loaded, low latency (avoid cold start)
-  - you pay for it as long as its running 
-  - provisioned concurrency can be controlled with ASG
-
-What is RDS proxy?
- - a connection pool lambda can use
-
-
-What is Execution Record
- -a lambda artifact in Success/Failure destination
- - has version, request/response context request/response payload
 
 
 lambda DLQ vs on-failure queue?
@@ -2984,8 +3386,6 @@ Reasons to choose Memcached over Redis (per TJ):
    - Run on large nodes/multi core
    - Scale out and in
 
-Name an Elastic beanstalk feature that takes care of asynch tasks like file transformations
-  - worker environment
 
 What is a local secondary index?
   - it has the same partition key as the main table, different sort key
