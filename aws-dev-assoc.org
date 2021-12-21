@@ -89,23 +89,58 @@ Lambda, Ec2 and On Premises servers
     
 
 
+** Question  :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       e3ade395-7fa6-4a0e-95cf-9684466a6e6b
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:18]
+   :END:
+     fargage vs ecs: which has more powerful machines
+*** Answer:
+      ec2 by a ways - max mem fargate 30g, vcu 4, ec2 can have much more
+
+** Question  :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       a27bd5e9-ac52-48ee-ba81-e75cef979faa
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:25]
+   :END:
+Does fargate offer CPU bursting
+*** Answer:
+      
+      no
+
 
   
 
 ** xray
 
 *** what os takes xray                                                :drill:
-    SCHEDULED: <2021-12-20 Mon>
+    SCHEDULED: <2021-12-24 Fri>
     :PROPERTIES:
     :ID:       8c13a60f-1ba0-493a-9eeb-6dfcc78bb69f
-    :DRILL_LAST_INTERVAL: 10.3376
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
-    :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_LAST_INTERVAL: 3.995
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_FAILURE_COUNT: 1
+    :DRILL_AVERAGE_QUALITY: 3.5
     :DRILL_EASE: 2.46
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-10 Fri 06:44]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:29]
     :END:
 .
 
@@ -472,36 +507,38 @@ yum install -y /home/ec2-user/xray.rpm
       Optionally can add *ELB* health checks (additional)
      
 **** distinction                                                      :drill:
-     SCHEDULED: <2021-12-20 Mon>
+     SCHEDULED: <2021-12-24 Fri>
      :PROPERTIES:
      :ID:       6339287b-5977-41d7-a997-5a56a43ffab8
-     :DRILL_LAST_INTERVAL: 11.0911
-     :DRILL_REPEATS_SINCE_FAIL: 3
-     :DRILL_TOTAL_REPEATS: 2
-     :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_LAST_INTERVAL: 4.285
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 4
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 4.0
      :DRILL_EASE: 2.7
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-09 Thu 22:08]
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:32]
      :END:
-     diff between default and ELB health finding unhealthy?
+     diff between default ECS and ELB health finding unhealthy?
 
 ***** answer
+      In ElasticBeanstalk there are two kinds of health checks: ELB and Ec2
       ELB schedules for replacement
       Default terminates it
 
 *** draining                                                          :drill:
-    SCHEDULED: <2021-12-20 Mon>
+    SCHEDULED: <2022-01-11 Tue>
     :PROPERTIES:
+    :DRILL_CARD_TYPE: hide1cloze
     :ID:       12037cb1-8c60-4c2b-ac84-3802ec6d8d64
-    :DRILL_LAST_INTERVAL: 9.648
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_LAST_INTERVAL: 21.9685
+    :DRILL_REPEATS_SINCE_FAIL: 4
+    :DRILL_TOTAL_REPEATS: 3
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 3.5
-    :DRILL_EASE: 2.36
+    :DRILL_AVERAGE_QUALITY: 3.333
+    :DRILL_EASE: 2.22
     :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-10 Fri 06:41]
+    :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:10]
     :END:
     [Autocaling] will wait for connections to [terminate or complete] if connection draining enabled
 
@@ -1162,17 +1199,17 @@ A public load balancer needs one [public subnet] in each [a/z where it is define
 *** Differences ALB/NLB
 
 **** A/Zs                                                             :drill:
-     SCHEDULED: <2021-12-20 Mon>
+     SCHEDULED: <2022-01-14 Fri>
      :PROPERTIES:
      :ID:       ca0302e9-b001-482e-9541-6364e16c3c32
-     :DRILL_LAST_INTERVAL: 10.3376
-     :DRILL_REPEATS_SINCE_FAIL: 3
-     :DRILL_TOTAL_REPEATS: 2
+     :DRILL_LAST_INTERVAL: 24.9136
+     :DRILL_REPEATS_SINCE_FAIL: 4
+     :DRILL_TOTAL_REPEATS: 3
      :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 4.0
-     :DRILL_EASE: 2.46
+     :DRILL_AVERAGE_QUALITY: 3.667
+     :DRILL_EASE: 2.32
      :DRILL_LAST_QUALITY: 3
-     :DRILL_LAST_REVIEWED: [2021-12-10 Fri 06:43]
+     :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:24]
      :END:
      which kind of load balancer allows multiple A/Zs?
 
@@ -1263,17 +1300,17 @@ A public load balancer needs one [public subnet] in each [a/z where it is define
 - listeners connect to target groups
 - Devices can be in multiple target groups
 **** Private subnet                                      :drill:fix:inferred:
-     SCHEDULED: <2021-12-20 Mon>
+     SCHEDULED: <2022-01-15 Sat>
      :PROPERTIES:
      :ID:       6a1e31ae-3571-49de-bdeb-a12f5c15f2d8
-     :DRILL_LAST_INTERVAL: 10.352
-     :DRILL_REPEATS_SINCE_FAIL: 3
-     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_LAST_INTERVAL: 25.8489
+     :DRILL_REPEATS_SINCE_FAIL: 4
+     :DRILL_TOTAL_REPEATS: 4
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 3.667
-     :DRILL_EASE: 2.6
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-10 Fri 06:39]
+     :DRILL_AVERAGE_QUALITY: 3.5
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:27]
      :END:
      How can ALB use nodes in private subnet
 ***** A
@@ -1458,17 +1495,17 @@ What are two measures for pricing ALB
 ** Service Distinctions
 
 *** distinguish                                                       :drill:
-    SCHEDULED: <2021-12-20 Mon>
+    SCHEDULED: <2022-01-16 Sun>
     :PROPERTIES:
     :ID:       481b5a71-6685-4b3d-8a37-92c68e842e86
-    :DRILL_LAST_INTERVAL: 10.3376
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_LAST_INTERVAL: 26.7124
+    :DRILL_REPEATS_SINCE_FAIL: 4
+    :DRILL_TOTAL_REPEATS: 3
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.0
-    :DRILL_EASE: 2.46
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-10 Fri 06:42]
+    :DRILL_AVERAGE_QUALITY: 4.333
+    :DRILL_EASE: 2.56
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:25]
     :END:
     diff between Launch Configuration and Launch Template
 
@@ -3106,6 +3143,228 @@ What does enable multi valued headers do?
      &name=Fred&name=Flinstone
      -> name: [Fred, Flinstone]
 
+** Question  :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       e14ea5b6-1c38-435e-b6b5-30435bb4ceff
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:22]
+   :END:
+An Amazon SQS message has three basic states:
+*** Answer:
+    Sent to a queue by a producer.
+    Received from the queue by a consumer.
+    Deleted from the queue.
+
+** SQS states                                                 :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       5a21a457-cdca-4d96-a245-7286a19f6edf
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:25]
+   :END:
+What is an inflight message? (SQS)
+*** Answer:
+It has been received by consumer but not deleted
+
+** SQS limits                                                 :drill:
+   :PROPERTIES:
+   :ID:       f058312d-b6f7-46d7-a319-97b8c8d4d3c9
+   :END:
+Maximum number of inflight messages
+*** Answer:
+For Standard queues 120K
+For FIFO 20K
+
+** SQS queue
+   If you set the visibility timeout for a message and it never gets
+   deleted, what happens?
+
+*** answer
+    it gets delivered again with the original timeout
+    - ChangeMessageVisibility is the call that sets it
+
+** SQS limits                                                         :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       1908c040-a6ee-4ec2-8077-65c0eb14ae74
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:25]
+   :END:
+   [12 hours] is the maxium visibility timeout
+
+   
+** SQS Visibility timeout                                             :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       e7cb3f4b-f657-439e-9a1b-3d3aff675b1f
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:26]
+   :END:
+   A feature in message handler that extends visibility timeout
+   periodically is called a [heartbeat]
+
+** SQS Alternative                                                    :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       30232118-12b2-4d16-a2df-559dc3231fc1
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:26]
+:END:
+If you have to extend [visibility timeout] for SQS message to more than
+12 hours, you should consider [step functions]
+
+** SQS long polling                                                   :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       e7f1e769-5294-4e21-aebe-43e875565ee0
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:11]
+   :END:
+   The maxium time you can set polling to in SQS is [20 seconds]
+
+** SQS polling errors                                                 :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       1e5888cd-8ffd-4ab1-8480-f46edbc63ecc
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:32]
+   :END:
+
+   In SQS, To avoid HTTP errors, make sure that the HTTP response
+   timeout for [ReceiveMessage] requests is longer than the
+   [WaitTimeSeconds] parameter.
+
+   Otherwise the HTTP can timeout before the guy answers when the
+   guy is working normally
+
+** SQS polling
+   what servers do different polling modes query?
+
+*** answer
+    short polling-> subset
+    long polling -> all
+    
+    With short polling, the ReceiveMessage request queries only a
+    subset of the servers (based on a weighted random distribution) to
+    find messages that are available to include in the
+    response. Amazon SQS sends the response right away, even if the
+    query found no messages.
+
+With long polling, the ReceiveMessage request queries all of the servers for messages.
+** SQS distinction in waits                                           :drill:
+   Difference WaitTimeSeconds and Http Response timeout?
+*** answer
+    WaitTimeSeconds is how long it will wait for a message to becoe available
+    Http Response timeout is the underlying http layer that receiveMessage calls
+    WaitTimeSeconds should be shorter than The Response Timeout
+
+**  SQS                                                               :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       408bf111-d13d-43ae-ae37-cf235055d460
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:25]
+   :END:
+   what is a receipt handle for in SQS?
+
+*** answer
+    the consumer needsit to delete a message
+
+    
+** SQS receipts                                                       :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       e432218e-d2cc-4325-8fca-5a13c2c0b601
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:12]
+:END:
+
+   A message that isn't deleted or a message whose visibility isn't
+   extended before the [visibility timeout] expires counts as a [failed
+   receive].
+   
+    
+
+
+     
+     
+** SSL for Cloudfront                                         :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       dca3e6b5-4216-4907-b6e4-4bcaef45131e
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:16]
+   :END:
+If you use the default name for cloudfront (h2ee41bedff.cloudfront.net)
+how can you get traffic directed to HTTPS?
+*** Answer:
+Viewer Protocol Policy to use Redirect HTTP to HTTPS
+or
+setting the Viewer Protocol Policy to use HTTPS Only
+     
 ** Multi valued headers                                       :drill:
    SCHEDULED: <2021-12-23 Thu>
    :PROPERTIES:
@@ -3120,6 +3379,46 @@ What does enable multi valued headers do?
    :DRILL_LAST_REVIEWED: [2021-12-19 Sun 20:18]
    :END:
 An Advanced feature of [Application Load Balancer] is multi-valued headers
+
+** Encrypt                                                            :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       01d5ca01-deda-401d-93f7-ac098c0aa49b
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:22]
+   :END:
+The primaary purpose of KMS encrypt method is to
+[move data from one region to another]
+
+** Cognito                                                            :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       24e3d39b-d586-4521-ae65-085e6757d101
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:24]
+   :END:
+   Definitions of user pools and identity pools
+
+*** answer
+
+   User pools are user directories that provide sign-up and sign-in
+    options for your app users.
+
+   Identity pools enable you to grant your users access to other AWS
+    services.
+
 
 ** DynamoDb cache                                                     :drill:
    SCHEDULED: <2021-12-23 Thu>
@@ -3291,16 +3590,201 @@ What is Execution Record
  -a lambda artifact in Success/Failure destination
  - has version, request/response context request/response payload
 
+** Question  :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       48f4cd28-1683-462b-8450-92c797fd1a7e
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:23]
+   :END:
+Can you create a local secondary index on an existing table?
+*** Answer:
+You cannot add a local secondary index to an existing table. It must
+be provided at creation. This is different than global secondary
+indexes.
 
 
+** Dynamo DB local seconary                                           :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       3c850258-c67a-4e36-a2fe-bf1e53b58f2e
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:21]
+   :END:
+What is advantage of Local Secondary Index?
+*** Answer:
+ - can share read capacity with base table  (save $, it is boutique scenario)
      
+** Dymamo feature                                                     :drill:
+   SCHEDULED: <2021-12-24 Fri>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       fe76e985-3f8e-4504-9303-af0257c21e2b
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:18]
+:END:
 
 
+an [item collection] is any group of items that have the same
+partition key value in a table and [all of its local secondary
+indexes].
 
 
+** Dynamo Db limits                                                   :drill:
+   :PROPERTIES:
+   :ID:       2c4a4e7c-0628-42fd-b092-f5f556acf211
+   :END:
+   What limit is will you only hit on a table that has local secondary index?
+
+*** answer
+ItemCollectionSizeLimitExceededException
+If more than 10gb 
 
 
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       9205aa74-c39e-450c-aff6-e95c32849893
+   :END:
+read per second Dynamo calcs - What is 2:1:.5 for?
+*** Answer:
+ 2 rcu per 1 transactional  second
+ 1 rcu per strongly consistent
+ .5 rcu per eventually consistent
 
+** DynamoDb SLA                                                       :drill:
+   :PROPERTIES:
+   :ID:       0356d2f8-d282-46d9-8a5d-0f1b32885e96
+   :END:
+   describe latency of DynamoDb
+   
+*** answer
+    for most atomic operations, such as GetItem and PutItem, you can
+    expect an average latency in single-digit milliseconds. Latency
+    for non-atomic operations, such as Query and Scan, depends on many
+    factors, including the size of the result set and the complexity
+    of the query conditions and filters.
+
+** Question  :drill:
+How can you reduce latency for DynamoDb users in specified regions
+*** Answer:
+With global tables, you can specify the AWS Regions where
+    you want the table to be available.
+    
+** DynamoDb latency                                                   :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       a4ab0b29-a0ac-48f8-8e6e-c9976c808a84
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:18]
+   :END:
+   Name 5 strategies to reduce latency
+***   answer
+    
+    Reduce the request timeout settings: Tune the client SDK
+    parameters requestTimeOut and clientExecutionTimeout to timeout
+    and fail much faster (for example, after 50 milliseconds). This
+    causes the client to abandon high latency requests after the
+    specified time period and then send a second request that usually
+    completes much faster than the first. For more information about
+    timeout settings, see Tuning AWS Java SDK HTTP request settings
+    for latency-aware Amazon DynamoDB applications.
+
+    Reduce the distance between the client and the DynamoDB endpoint:
+    If you have globally dispersed users, consider using global
+    tables. With global tables, you can specify the AWS Regions where
+    you want the table to be available. This can significantly reduce
+    latency for your users.
+
+    Use caching: If your traffic is read heavy, consider using a
+    caching service, such as Amazon DynamoDB Accelerator (DAX). DAX is
+    a fully managed, highly available, in-memory cache for DynamoDB
+    that delivers up to a 10x performance improvement, from
+    milliseconds to microseconds, even at millions of requests per
+    second.
+
+    Send constant traffic or reuse connections: When you're not making
+    requests, consider having the client send dummy traffic to a
+    DynamoDB table. Or, you can reuse client connections or use
+    connection pooling. All these techniques keep internal caches warm
+    that helps keep latency low.
+
+    Use eventually consistent reads: If your application doesn't
+    require strongly consistent reads, consider using eventually
+    consistent reads. Eventually consistent reads are cheaper and are
+    less likely to experience high latency.
+
+** Caches alternatives                                        :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       c8cbc9ff-ea1d-4771-a78e-4e4bd6d8ce51
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:30]
+   :END:
+Reasons to choose Memcached over Redis (per TJ):
+*** Answer:
+answer here
+
+   - multithreaded
+   - cache objects e.g. DB connection
+   - Run on large nodes/multi core
+   - Scale out and in
+*** Bonus
+    For DynamoDb DAX is the cache 
+ 
+** Encryption - volume                                        :drill:
+   SCHEDULED: <2021-12-24 Fri>
+   :PROPERTIES:
+   :ID:       4f894d04-2a92-4500-a536-3817a607dd4a
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-20 Mon 21:23]
+   :END:
+How to encrypt an unencrypted volume
+*** Answer:
+  - it can't be encrypted "in place"
+  - you can copy it onto an encrypted volume
+  - or you can make a snapshot, make and encyrptetd volume, and copy snapshot to encyrpted volume
+
+** SSL for Cloudfront                                         :drill:
+What feature to use in Cloudfront to Redirect HTTP to HTTPS?
+*** Answer:
+ Viewer Protocol Policy 
+    
 
 * scrap/in progress
   
@@ -3315,10 +3799,6 @@ lambda DLQ vs on-failure queue?
 DLQ is part of version specific and is locked in (fuzzy)
 
 
-read per second Dynamo calcs - 2:1:.5 for?
- 2 rcu per 1 transactional  second
- 1 rcu per strongly consistent
- .5 rcu per eventually consistent
 
 
  cloud formation to deploy s3 from lamda
@@ -3343,10 +3823,6 @@ Maxiumum body of Lambda function call
   - Synchronous, otherwise 6 MB
   - Asynch 256K
 
-How to encrypt an unencrypted volume
-  - it can't be encrypted "in place"
-  - you can copy it onto an encrypted volume
-  - or you can make a snapshot, make and encyrptetd volume, and copy snapshot to encyrpted volume
 
 
 What is unpublished version of lambda?
@@ -3380,11 +3856,6 @@ Diff between AWS and HTTP integration in API Gateway?
    AWS is and AWS_PROXY for lambda -- proxy is simple mapping
    HTPP and HTTP proxy for ec2 -- proxy is simple mapping
 
-Reasons to choose Memcached over Redis (per TJ):
-   - multithreaded
-   - cache objects e.g. DB connection
-   - Run on large nodes/multi core
-   - Scale out and in
 
 
 What is a local secondary index?
@@ -3479,20 +3950,14 @@ For dynamoDb - three requirements for local secondary index
 
 For Dynamo db - an ["item collection"] is [all items with same partition key]
 
-What is advantage of Local Secondary Index?
- - can share read capacity with base table 
+
+
+
+
 
 
 
  * AWS flashcards
-  ** one
-     fargage vs ecs: which has more powerful machines
-  *** a
-      ec2 by a ways - max mem fargate 30g, vcu 4, ec2 can have much more
-  ** Does fargate offer CPU bursting
-  *** a
-      no
-      ****
   ***
   ** one
      what is difference in pricing ec2 vs fargate 
