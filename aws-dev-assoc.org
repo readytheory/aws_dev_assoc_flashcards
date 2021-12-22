@@ -1,5 +1,5 @@
 -*- eval: (progn (set-register ?o  ":PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") (set-register ?i  "** Question  :drill:\n___?\n*** Answer:\nanswer here\n")) -*-
-#+TAGS: drill(d) fix(x) inferred(I) memorize(m) shaky(s)
+#+TAGS: drill(d) fix(x) inferred(I) memorize(m)  practice(p)
 
 * Not covered
   - lightsail
@@ -488,17 +488,17 @@ yum install -y /home/ec2-user/xray.rpm
 *** health checks
 
 **** types                                                            :drill:
-     SCHEDULED: <2021-12-21 Tue>
+     SCHEDULED: <2022-01-08 Sat>
      :PROPERTIES:
      :ID:       b8b32a13-3c91-438f-bef7-25edfb0bc38c
-     :DRILL_LAST_INTERVAL: 8.2695
-     :DRILL_REPEATS_SINCE_FAIL: 3
-     :DRILL_TOTAL_REPEATS: 4
+     :DRILL_LAST_INTERVAL: 18.3583
+     :DRILL_REPEATS_SINCE_FAIL: 4
+     :DRILL_TOTAL_REPEATS: 5
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 2.75
+     :DRILL_AVERAGE_QUALITY: 3.0
      :DRILL_EASE: 2.22
      :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-13 Mon 06:46]
+     :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:35]
      :END:
      what are types of ASG health checks
 
@@ -562,7 +562,7 @@ yum install -y /home/ec2-user/xray.rpm
 
       
 
-*** types                                                :shaky:drill:memorize:
+*** types                                                :practice:drill:memorize:
     SCHEDULED: <2021-12-28 Tue>
     :PROPERTIES:
     :ID:       35db9392-7d71-49c5-bcd0-a0887d267163
@@ -967,17 +967,17 @@ You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
 ** Load balancers
 
 *** offloading                                                        :drill:
-    SCHEDULED: <2021-12-20 Mon>
+    SCHEDULED: <2022-01-21 Fri>
     :PROPERTIES:
     :ID:       ed19f801-ea4a-46f9-ba26-bedcb49735fe
-    :DRILL_LAST_INTERVAL: 11.0911
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_LAST_INTERVAL: 30.9885
+    :DRILL_REPEATS_SINCE_FAIL: 4
+    :DRILL_TOTAL_REPEATS: 3
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.7
+    :DRILL_EASE: 2.8
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:18]
+    :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:40]
     :END:
 
 what type of ELB does TLS offloading
@@ -986,17 +986,17 @@ what type of ELB does TLS offloading
      both
 
 *** health checks                                                     :drill:
-    SCHEDULED: <2021-12-20 Mon>
+    SCHEDULED: <2022-01-20 Thu>
     :PROPERTIES:
     :ID:       74e45f73-dbd1-42e5-9c8c-c7ecdf8860aa
-    :DRILL_LAST_INTERVAL: 11.0911
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_LAST_INTERVAL: 29.946
+    :DRILL_REPEATS_SINCE_FAIL: 4
+    :DRILL_TOTAL_REPEATS: 3
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 5.0
+    :DRILL_AVERAGE_QUALITY: 4.667
     :DRILL_EASE: 2.7
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-09 Thu 06:25]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:37]
     :END:
     what is flaw not making ELB health checks when using ELB?
 
@@ -1123,7 +1123,7 @@ what type of ELB does TLS offloading
 Application Load Balancers do not support cookie values that are [URL encoded].
 
 
-*** Security groups                                       :drill:shaky:drill:
+*** Security groups                                       :drill:practice:drill:
     SCHEDULED: <2021-12-22 Wed>
     :PROPERTIES:
     :ID:       032a4b89-7c27-4d31-bb32-5e0fdd3f4ed9
@@ -1568,17 +1568,17 @@ What are two measures for pricing ALB
 
 
 *** Deployment files for Elastic Beanstalk vs CloudFormation          :drill:
-    SCHEDULED: <2021-12-21 Tue>
+    SCHEDULED: <2022-01-12 Wed>
     :PROPERTIES:
     :ID:       ee17c841-9de8-4ff1-8a2f-066ee15a407a
-    :DRILL_LAST_INTERVAL: 9.3103
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 2
+    :DRILL_LAST_INTERVAL: 21.9723
+    :DRILL_REPEATS_SINCE_FAIL: 4
+    :DRILL_TOTAL_REPEATS: 3
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 3.5
+    :DRILL_AVERAGE_QUALITY: 3.667
     :DRILL_EASE: 2.36
     :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-12 Sun 19:44]
+    :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:35]
     :END:
     what are the extensions
 
@@ -3180,8 +3180,17 @@ What is an inflight message? (SQS)
 It has been received by consumer but not deleted
 
 ** SQS limits                                                 :drill:
+   SCHEDULED: <2021-12-25 Sat>
    :PROPERTIES:
    :ID:       f058312d-b6f7-46d7-a319-97b8c8d4d3c9
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:47]
    :END:
 Maximum number of inflight messages
 *** Answer:
@@ -3296,6 +3305,18 @@ If you have to extend [visibility timeout] for SQS message to more than
 
 With long polling, the ReceiveMessage request queries all of the servers for messages.
 ** SQS distinction in waits                                           :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       6d0b914c-c61f-433a-9ba9-9b1c9a7ee219
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:47]
+   :END:
    Difference WaitTimeSeconds and Http Response timeout?
 *** answer
     WaitTimeSeconds is how long it will wait for a message to becoe available
@@ -3649,10 +3670,19 @@ indexes].
 
 
 ** Dynamo Db limits                                                   :drill:
+   SCHEDULED: <2021-12-25 Sat>
    :PROPERTIES:
    :ID:       2c4a4e7c-0628-42fd-b092-f5f556acf211
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:38]
    :END:
-   What limit is will you only hit on a table that has local secondary index?
+   What limit can you only hit on a table that has local secondary index?
 
 *** answer
 ItemCollectionSizeLimitExceededException
@@ -3660,20 +3690,41 @@ If more than 10gb
 
 
 ** Question  :drill:
+   SCHEDULED: <2021-12-25 Sat>
    :PROPERTIES:
    :ID:       9205aa74-c39e-450c-aff6-e95c32849893
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:46]
    :END:
 read per second Dynamo calcs - What is 2:1:.5 for?
 *** Answer:
- 2 rcu per 1 transactional  second
+ 2 rcu per 1 transactional read
  1 rcu per strongly consistent
  .5 rcu per eventually consistent
 
+ The provisioned amounts give you x per second
+
 ** DynamoDb SLA                                                       :drill:
+   SCHEDULED: <2021-12-25 Sat>
    :PROPERTIES:
    :ID:       0356d2f8-d282-46d9-8a5d-0f1b32885e96
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:40]
    :END:
-   describe latency of DynamoDb
+   describe latency of DynamoDb, what are fastest operations and how
+   fast are they, usually
    
 *** answer
     for most atomic operations, such as GetItem and PutItem, you can
@@ -3683,6 +3734,18 @@ read per second Dynamo calcs - What is 2:1:.5 for?
     of the query conditions and filters.
 
 ** Question  :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       8d4d7c8a-3541-4fd9-810e-f2e9f179c7ec
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:35]
+   :END:
 How can you reduce latency for DynamoDb users in specified regions
 *** Answer:
 With global tables, you can specify the AWS Regions where
@@ -3781,52 +3844,423 @@ How to encrypt an unencrypted volume
   - or you can make a snapshot, make and encyrptetd volume, and copy snapshot to encyrpted volume
 
 ** SSL for Cloudfront                                         :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       20b9b6ea-8761-4fe6-a929-a11c32ad0f14
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 1.667
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:47]
+   :END:
 What feature to use in Cloudfront to Redirect HTTP to HTTPS?
 *** Answer:
  Viewer Protocol Policy 
-    
 
-* scrap/in progress
+** cloudwatch alarm                                                   :drill:
+   SCHEDULED: <2021-12-25 Sat>
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       45d3c320-b490-455f-b851-5563171d7f34
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 2.5
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:43]
+:END:
+  an alarm watches [a single action] over [a specified time period]
+
+** Cloudwatch custom metrics  :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       77d6782c-e439-4ef0-97b8-38e0e86147a6
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:36]
+   :END:
+ - what is Api name and some parms to add a custom metric
+*** Answer:
+PutMetricData
+  Parms: MetricData.member.N = array of MetricDatum
+  Namespace: something that isn't AWS
+
+  https://monitoring.&api-domain;/doc/2010-08-01/?Action=PutMetricData&Version=2010-08-01
+  &Namespace=TestNamespace
+  &MetricData.member.1.MetricName=buffers
+  &MetricData.member.1.Unit=Bytes
+  &MetricData.member.1.Value=231434333
+  &MetricData.member.1.Dimensions.member.1.Name=InstanceID
+  &MetricData.member.1.Dimensions.member.1.Value=i-aaba32d4
+  &MetricData.member.1.Dimensions.member.2.Name=InstanceType
+  &MetricData.member.1.Dimensions.member.2.Value=m1.small
+  &AUTHPARAMS
+
+  https://monitoring.&api-domain;/doc/2010-08-01/
+  ?Action=PutMetricData
+  &Version=2010-08-01
+  &Namespace=TestNamespace
+  &MetricData.member.1.MetricName=Reads
+  &MetricData.member.1.Unit=Count
+  &MetricData.member.1.Values.member.1=5
+  &MetricData.member.1.Values.member.2=8
+  &MetricData.member.1.Values.member.3=10
+  &MetricData.member.1.Values.member.4=9
+  &MetricData.member.1.Counts.member.1=1
+  &MetricData.member.1.Counts.member.2=5
+  &MetricData.member.1.Counts.member.3=6
+  &MetricData.member.1.Counts.member.4=5
+  &MetricData.member.1.Dimensions.member.1.Name=InstanceID
+  &MetricData.member.1.Dimensions.member.1.Value=i-aaba32d4
+  &MetricData.member.2.MetricName=Writes
+  &MetricData.member.2.Unit=Count
+  &MetricData.member.2.Values.member.1=2
+  &MetricData.member.2.Values.member.2=3
+  &MetricData.member.2.Values.member.3=0
+  &MetricData.member.2.Counts.member.1=2
+  &MetricData.member.2.Counts.member.2=2
+  &MetricData.member.2.Counts.member.3=1
+  &MetricData.member.2.Dimensions.member.1.Name=InstanceID
+  &MetricData.member.2.Dimensions.member.1.Value=i-aaba32d4
+  &AUTHPARAMS
   
 
-Cloudwatch custom metrics
- - what is Api name and some parms to add a custom metric
-
-
-
-
+** Question  :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       a43038e7-dfc4-4cce-ad2c-32261b9a0ddb
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:40]
+   :END:
 lambda DLQ vs on-failure queue?
-DLQ is part of version specific and is locked in (fuzzy)
+*** Answer:
+DLQ is part of lambda version specific and is locked in
+On-Failure can include more details
 
+DLQ has redrive support
 
+** CF deploy from s3                                              :drill:fix:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       6a39f60e-0c73-4349-a69d-4b52d77cf356
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:36]
+   :END:
+ cloud formation to deploy lambda from s3, does bucket have to be in same region we run CF in?
+*** Answer:
 
-
- cloud formation to deploy s3 from lamda
- does s3 bucket have to be in same region we run CF in?
  Yes -- even tho s3 is global
+ weird
 
+** EC2 busrsting                                                      :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       d3806b49-3929-426b-b78f-c238b5326e4e
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:39]
+:END:
+
+There are two throughput modes for your file system: [Bursting Throughput] or [Provisioned Throughput].
+*** bonus
+Bursting Throughput mode
+  - throughput on Amazon EFS scales as your file system grows.
+Provisioned Throughput mode
+  you can instantly provision the throughput of your file system independent of the amount of data stored
+
+** Bursting Credits                                           :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       af93d7fb-8074-4ea8-8379-4895b8419674
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:42]
+   :END:
+What is allotment of bursting credits on new file system
+*** Answer:
+New file systems start out with 2.1 TiB of burst credits. 
+*** Bonus
+    This is why you can drive the new file system at burst throughput,
+    despite having no data or metadata stored in the system. When the
+    burst credits are used, then the performance of the new system is
+    lowered.
+
+** EFS Filesystem                                             :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       2c1d6726-6c31-4f3e-94ac-b27826ce63a9
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:43]
+   :END:
+What fielsystem becomes more efficient with greater volumes and why?
+*** Answer:
+
+With EFS, overall throughput generally increases as the average I/O
+size increases, because the overhead is amortized over a larger amount
+of data.  Amazon EFS supports highly parallelized workloads (for
+example, using concurrent operations from multiple threads and
+multiple Amazon EC2 instances), which enables high levels of aggregate
+throughput and operations per second.
+
+
+** Elastic beanstalk                                                  :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       7389718b-bf5c-4b39-808c-0f03ab3dd1fd
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:34]
+   :END:
+   When can you lose bursting credits
+
+*** answer
+    
+
+Some policies replace all instances during the deployment or
+update. This causes all accumulated Amazon EC2 burst balances to be
+lost. It happens in the following cases:
+
+    Managed platform updates with instance replacement enabled
+
+    Immutable updates
+
+    Deployments with immutable updates or traffic splitting enabled
+
+
+** Elastic Beastalk Deployment                                :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       116fff72-34c8-4d3f-808a-a60bc036b0b9
+:DRILL_LAST_INTERVAL: 3.86
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:43]
+:END:
+Synonyms: [traffic splitting] and [canary appt]
+
+** Bursting credit usage                                      :drill:
+   SCHEDULED: <2021-12-25 Sat>
+   :PROPERTIES:
+   :ID:       897363c3-eae5-4fdc-a637-d0b0f329168e
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2021-12-21 Tue 17:42]
+   :END:
+What behavior to you look for when monitoring [BurstCreditBalance] metric
+to ensure you are getting best thruput
+*** Bonus:
+To monitor and trigger an alarm on throughput, use the
+BurstCreditBalance metric.
+
+ + It should increase when your function's
+concurrency is low and decrease when it is high.
+
+If it always decreases or does not accumulate enough during low
+activity to cover peak traffic, you may need to limit your function's
+concurrency or enable provisioned throughput.
+
+** Labmda version                                             :drill:
+What is unpublished version of lambda?
+*** Answer:
+ - the working copy, unversioed, aka $LATEST
+
+
+
+** Lambda and VPC resources                                  :drill:practice:
  How to connect to VPC with lambda
+*** Answer:
  by default it can't
  lambda creates an ENI -- it needs private subnet id and security gourp id
 
- When lambda connects to private subnet, key points
+** Lambda and VPC resources                                  :drill:practice:
+When lambda connects to private subnet, key points
+*** Answer:
   - need to have a Nat Gateway if it needs internet access
   - time to create dns records can cause timeout
   - the function needs create/describe/delete netowrk interfac
   - included in managed poolicy AWSLamdaVPCAccessExecutionRole
+ 
 
- Requirement on Lambda Fuction/ALB
+
+** What region s3                                             :drill:
+How do you get the bucket location from CLI?
+*** Answer:
+aws s3api get-bucket-location --bucket lambd-wiki
+
+note: bucket, not bucket-name, and s3api, not s3
+
+
+** Question  :drill:
+What are the high level object in Cloud Development Kit called
+*** Answer:
+Constructs
+
+Constructs Can be created in Java, .net, python
+
+AWS CDK uses the familiarity and expressive power of programming
+languages for modeling your applications. It provides high-level
+components called constructs that preconfigure cloud resources with
+proven defaults, so you can build cloud applications with ease.
+
+** CDK                     :drill:
+What backend does CDK use to define stacks?
+*** answer:
+    either CloudFormation or Terraform
+
+** Lambda placement requiremetn
+   Where must Lamda be defined for ALB?
+   
+*** answer
+    in same region
   - target group and Lambda must be in same account and same region
 
+** Lambda limits                                              :drill:
 Maxiumum body of Lambda function call
+*** Answer:
   - Synchronoou when in ALB 1 meg
   - Synchronous, otherwise 6 MB
   - Asynch 256K
 
 
+** IAM to use coname/users/XYX/ buckets                               :drill:
+   How can you set up to easiliy create sibling folders limited to different EE names?
 
-What is unpublished version of lambda?
- - the working copy, unversioed, aka $LATEST
+*** answer
+    IAM policy variables
+    {"Condition": {"StringLike": {"s3://assholery/:{$aws:username}"}}}
+    They were introduced in 2012 version
+
+    
+** Dedicated instance                                                 :drill:
+   can dedicated instances be the on the same host as non-dedicated instances?
+
+*** answer
+    Yes.  Dedicated hosts have all dedicated instances
+    
+** SQS Default                                               :drill:memorize:
+   Default visibility timeout for SQS message
+
+*** answer
+    30 seconds
+    Both standard and FIFO
+
+    
+** Tag behavior                                                       :drill:
+   Are tags case sensitive?  What if you use dupes
+   
+*** answer
+    Yes, case sensitive.  Existing value overwrites older
+
+** Queue limits                                                       :drill:
+   How long to wait after you create a queue?
+
+*** asnwer
+    One second 
+   
+** lambda vocab                                                       :drill:
+   :PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+Lambda - [$LATEST] is aka [unpublished]
+
+** SQS Queue Quotas                                                   :drill:
+   if you hit inflight limit, what happens?
+
+*** answer
+    Short Polling queue:  you get an error message
+    Long polling Queue: nothing
+
+    
+** ALB performance                                                    :drill:
+   Distinguish ALB Access Logs and ALB Request tracing
+
+*** answer
+    Request tracing: Http routing info -- Load balancer adds a header
+    ALB access log:  troubleshooting access/performance -- latencies, etc.
+      -- Access logging is disabled by default
+
+      
+** SQS Troubleshooting                                                :drill:
+   :PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:END:
+
+   [Access log] is an ALB feature for troubleshooting.  There is no
+   charge except [s3 charges to store the log]
+
+** Elastic Beanstalk deployment                                       :drill:
+   Tell me five Elastic Beanstalk deployment methods
+   
+ - All at one
+ - Blue Green
+ - Immutable
+ - Rolling
+ - Rolling with additional
+
+
+
+* scrap/in progress
+  
+
+
+
+
+
+
 
 
 Lambda - $LATEST is aka [unpublished]
@@ -3834,13 +4268,6 @@ Lambda - $LATEST is aka [unpublished]
 In API Gateway - what is that allows you to publish different versions aka dev, test -- to different urls from same code
  - stage variables -- they are deployment stages
    Lets you reference the value from API setup
-
-Tell me five Elastic Beanstalk deployment methods
- - All at one
- - Blue Green
- - Immutable
- - Rolling
- - Rolling with additional
 
 Lambda feature to redirect traffic to new version; it's advantage; name of implementation setting
  - Traffic shifting
@@ -4030,8 +4457,6 @@ cloudatch statistic vs metric
   statistics are based on the metrics over a period of time
   They include minimum, count, sum etc
 
-cloudwatch alram
-  an alarm watches [a single action] over [a specified time period]
 
 what do cloudwatch alarms do?
   initiate actions
