@@ -4498,6 +4498,22 @@ IAM
 ** Lambda                                                     :drill:
 Lambda - $LATEST is aka [unpublished]
 
+** Question  :drill:
+What is a task in EC2
+*** Answer:
+Mostly:
+A task is the instantiation of a task definition within a cluster.
+Same as a "batch" container - the running reification of an images
+But:
+  A task can be comprised of multiple containers
+
+vs Service:  a service keeps running, a task will finish
+
+https://www.freecodecamp.org/news/amazon-ecs-terms-and-architecture-807d8c4960fd/
+  
+
+  
+
 
 ** Question  :drill:
 In API Gateway - what is that allows you to publish different versions aka dev, test -- to different urls from same code
@@ -4517,70 +4533,117 @@ Can you run ECS services with Elastic Beanstalk?
 Yes
 Bonus either single- or multi-container instance
 
-* scrap/in progress
-  
+
+** Question  :drill:
+Can you put on premises machines into ecs cluster?
+*** Answer:
+No - only Ec2 can run the necessary agent
 
 
+** Question  :drill:
+2 things required to allow specified clients  to get up-to-desults from API Gateway
+*** Answer:
+ - 1 you configure: Tick on require authorization in Cache Settings
+ - 2 they configure: include header Cache-Control: max-age=0
+
+** define                                                             :drill:
+define cloudwatch event
+*** Answer:
+  delivers a near real-time stream of system events that describe changes in Amazon Web Services (AWS) resources.
 
 
+** dynamo projection                                                  :drill:
+the [primary key attributes] of the [base table] are always projected into a dynamo index  
 
 
+** API gateway integrations                                           :drill:
+In API gateway, distinguish HTTP PROXY and HTTP integration
+*** Answer:
+  - proxy simply maps path and HTTP method
+  - HTTP aka HTTP custom - allows you to specify how data in
+    request/response is mapped to methods
 
 
+** Question  :drill:
+Difference geolocation and gegoproximity routing
+*** Answer:
+Route53:
+  Geolocation routing policy – Use when you want to route traffic
+based on the location of your users.
+  Geoproximity routing policy – 
+when you want to route traffic based on the location of your resources
+and, optionally, shift traffic from resources in one location to
+resources in another.
 
 
+** Question  :drill:
+Lambda feature to redirect traffic to new version; its advantage;
+name of implementation setting
 
-Lambda feature to redirect traffic to new version; it's advantage; name of implementation setting
+*** Answer:
+answer here
  - Traffic shifting
  - easy backoff
  - routing-config
  Bonus - two versions only
 
-In API gateway, distinguish HTTP PROXY and HTTP integration
-  - proxy simply maps path and HTTP method
-  - HTTP aka HTTP custom - allows you to specify how data in request/response is mapped to methods
-   
-Diff between AWS and HTTP integration in API Gateway?
+
+** Question                                                  :drill:practice:
+ Diff between AWS and HTTP integration in API Gateway?
+*** Answer:
    AWS is and AWS_PROXY for lambda -- proxy is simple mapping
    HTPP and HTTP proxy for ec2 -- proxy is simple mapping
 
-
-
-
-What is always projected into a dynamodb index?
+** dynamo projection                                          :drill:
+   What is always projected into a dynamodb index?
+*** Answer:
   - the primary key attributes of the base table
 
-the [primary key attributes] of the [base table] are always projected into a dynamo index
-
-Name it
+** Ec2 requirement for ecs                                            :drill:
 the [ec2 agent] runs on ec2 instances in ECS
 
-What is a task in EC2
-Same as a container - the running reification of an images
 
-
-For scaling in ECS, ASGs work with [services] in a cluser
-
-
-
-What are two launch types for containers
-EC2 launch type and fargate launchtype
-
+** distinction fargate/ec2                                    :drill:
 Main diff Fargate EC2
+*** Answer:
 Fargate is "serverless" -- you don't manage the EC2 instances.  You
 are still responsible/able to configure EC2 instaces iwth EC2
 
-What do you need on an EC2 instance to connect to EC2 clusert
-the EC2
+** ECS Scaling                                                :drill:
+For scaling in ECS, ASGs work with [services] in a cluser
 
-Can you put on premises machines into ecs cluster?
-No - only Ec2 can run the necessary agent
+** Container launch types                                     :drill:
+What are two launch types for containers
+*** Answer:
+EC2 launch type and fargate launchtype
 
-Where do you find the agent?
+** Question  :drill:
+There are 8 pseuodoparameters
+
+Guess what they are
+*** Answer:
+What services are the associated with and what are they
+ = AccountID / NotificationARNs / NoValue / Partition
+   Recion / StackID / StackName / URLSuffix
+
+suffix is like amazonaws.com or amazonaws.com.cn
+partion is liek china, gov or aws
+
+** EC2 agent                                                  :drill:
+Where do you find the agent whe insance is on ec2
+*** Answer:
 /etc/ecs/ecs.config
 
-How many containers can be described in a task devinition file?
+** Question  :drill:
+How many containers can be described in a task definition file?
+*** Answer:
 up to 10
+
+* scrap/in progress
+  
+
+
+
 
 Difference between IAM taks for Fargate and AWS
  - Fargate can only have roles attached to tasks
@@ -4595,9 +4658,6 @@ in what context do you have to worry about bucket names being valid dns names
 
 
 
-2 things required to allow specified clients  to get up-to-desults from API Gateway
- - 1 you configure: Tick on require authorization in Cache Settings
- - 2 they configure: include header Cache-Control: max-age=0
 
 Define multicontainer docker environment
   - Ec2 thing -- multiple containers per instance
@@ -4690,8 +4750,6 @@ cloudwatch event vs metric
  - event is a state change in aws resource
  - metric is a measurement sent to cloudwatch
 
-define cloudwatch event
-  delivers a near real-time stream of system events that describe changes in Amazon Web Services (AWS) resources.
 
 cloudwatch lods, descrite it
   cloudwatch logs [centralizes logs] from systems, apps, and aws services
@@ -4733,12 +4791,6 @@ when specified as a return value in the Fn::If intrinsic function.
 
 
 
-There are 8 pseuodoparameters
-What services are the associated with and what are they
- = AccountID / NotificationARNs / NoValue / Partition
-   Recion / StackID / StackName / URLSuffix
-suffix is like amazonaws.com or amazonaws.com.cn
-partion is liek china, gov or aws
 
 What is the MOST likely cause of this issue?
 (view)	
