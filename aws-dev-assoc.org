@@ -34,6 +34,218 @@ How many read replicas can you have?
 Up to 5 for M-M-O-P-SS
 Up to 15 for Aurora
 
+** Question  :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       1cf23e79-07be-48f4-94c8-85466c60460d
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:29]
+   :END:
+What does WAF block? / what "level"
+
+*** answer
+    it is HTTP/HTTPS
+
+    AWS WAF gives you control over how traffic reaches your
+    applications by enabling you to create security rules that control
+    bot traffic and block common attack patterns, such as SQL
+    injection or cross-site scripting. You can also customize rules
+    that filter out specific traffic patterns.
+
+** Lambda - searching xray                                        :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       5065f71f-667f-4a29-ad20-71053f365045
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:32]
+   :END:
+What is the lambda API method you call to get back segment data, with
+a filter
+*** Answer:
+GetTraceSummaries
+
+
+** Question  :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       8468b455-4956-4662-adef-27c95f5378a5
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:29]
+   :END:
+Elastic beanstalk -- rollback deploy -- what are the two easiest
+*** Answer:
+Immutable -- you just terminate new instance
+Blue/Green -- you switch the traffic back to blue (swap the url)
+
+
+** Global Secondary                                           :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       50d05678-24c3-44e1-b09d-78b29774962d
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:31]
+   :END:
+In DynamoDB, what feature is unavailable if you query a global secondary index?
+*** Answer:
+These queries can not have consistent read, they are always eventually consistent
+
+** ECS placement                                              :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       d898c6dc-0d03-4034-9df5-de6181ce3774
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:30]
+   :END:
+Difference of task and service placement strategy in ECS (defaults)
+*** Answer:
+
+    When you run tasks with the RunTask API action, tasks are placed
+    randomly in a cluster.
+
+    When you launch and terminate tasks with the CreateService API
+    action, the service scheduler spreads the tasks across the
+    Availability Zones (and the instances within the zones) in a
+    cluster.
+
+** Question  :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       93420833-84a0-47b7-b952-1add8333d8af
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:29]
+   :END:
+What is the DSL for placing tasks in ECS?
+*** Answer:
+Cluster Query Language
+    
+
+
+** Question  :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       a65c35ab-a7cf-4dad-9eec-045a01270299
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:31]
+   :END:
+How to set up xray -- what are config names?
+  1) Elastic bean stalk
+  2) ECS instances
+*** Answer:
+1) xray-daemon.config
+2) user data scripts
+
+** API identify                                                       :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       ffb19d92-3b4d-4971-8d19-812293ab630f
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:30]
+   :END:
+GetTraceSummaries
+*** What is it from
+It is Lambda Xray and returns segments.  Supports a filter
+
+
+{
+   "EndTime": number,
+   "FilterExpression": "string",
+   "NextToken": "string",
+   "Sampling": boolean,
+   "SamplingStrategy": { 
+      "Name": "string",
+      "Value": number
+   },
+   "StartTime": number,
+   "TimeRangeType": "string"
+}
+
+
+** Bots                                                               :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       733e605a-d93b-431f-90b0-c9d1d8067802
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:30]
+   :END:
+what service is associated with monitoring bot traffice
+*** answer
+    WAF
+    Also injection attacks, other recognized traffic patterns --
+    you can ibnstall various rules packages
+** Cloudwatch monitoring                                      :drill:
+   SCHEDULED: <2022-01-10 Mon>
+   :PROPERTIES:
+   :ID:       e435617b-d730-4059-93ce-4eaebe8654d6
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 20:30]
+   :END:
+
+   What is the default and detailed monitoring collection times for
+   cloudwatch metrics?
+*** Answer:
+Default is 5 minutes and detailed is one minute
+
+
 ** RDS Replication                                            :drill:
    SCHEDULED: <2022-01-10 Mon>
 :PROPERTIES:
