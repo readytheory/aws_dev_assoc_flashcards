@@ -302,6 +302,25 @@ It is Lambda Xray and returns segments.  Supports a filter
    "TimeRangeType": "string"
 }
 
+** Api Xray - GetTraceSummaries                               :drill:
+   :PROPERTIES:
+   :ID:       89f7bf33-e268-40d1-8a9c-e1e80b1b2e81
+   :END:
+What does GetTraceSummaries do, and how do you get detail
+*** Answer:
+
+Retrieves IDs and annotations for traces available for a specified
+time frame using an optional filter. To get the full traces, pass the
+trace IDs to BatchGetTraces.
+
+** Lambda API                                                 :drill:
+   :PROPERTIES:
+   :ID:       9018a9c8-2578-49f8-a863-d93cf8a546df
+   :END:
+What is api name for getting traces, optionally with filter
+*** Answer:
+GetTraceSummaries
+
 
 ** Bots                                                               :drill:
    SCHEDULED: <2022-01-10 Mon>
@@ -339,6 +358,55 @@ what service is associated with monitoring bot traffice
    cloudwatch metrics?
 *** Answer:
 Default is 5 minutes and detailed is one minute
+
+** RDS Enhanced monitoring                                    :drill:
+   :PROPERTIES:
+   :ID:       16c3bc6d-1dbb-4045-b2e3-7bcdd0eab4bf
+   :END:
+Enhanced Monitoring is available for all DB instance classes except
+for the [db.m1.small] instance class
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       3af4d588-6649-4b2f-bd97-d0c3dc13d928
+   :END:
+If your LDAP is not compatible with SAML what do you use to integrate
+LDAP to IAM?
+*** Answer:
+Create a Custom Identity Broker to get credentials from STS
+
+
+** KMS                                                        :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       5d409fbf-611c-403b-a4b6-ebabf8b1fb3f
+:END:
+
+You create KMS keys in AWS KMS.
+
+[Symmetric KMS keys and the private keys of asymmetric KMS key] never [leave AWS KMS unencrypted]. 
+
+___?
+*** Answer:
+answer here
+
+** RDS Enyhanced Monitoring                                   :drill:
+   :PROPERTIES:
+   :ID:       21da8e0b-f4f4-443f-afe4-0e210a02324c
+   :END:
+What is RDS Enhanced monitoring?
+*** Answer:
+
+Pricing: cloudwatch logs
+    
+    Amazon RDS provides metrics in real time for the operating system
+    (OS) that your DB instance runs on.
+
+    You can view all the system metrics and process information for
+    your RDS DB instances on the console.
+
+    You can manage which metrics you want to monitor for each instance
+    and customize the dashboard according to your requirements.
 
 
 ** RDS Replication                                            :drill:
@@ -765,17 +833,17 @@ slow query log
     AfterBlockTraffic
 
 ** Subscription                                               :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-14 Fri>
    :PROPERTIES:
    :ID:       eb0e2475-edeb-43a2-9bf6-75b35e976a71
-   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_LAST_INTERVAL: 4.285
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
-   :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
+   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.333
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:40]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 06:02]
    :END:
  "The AWS Access Key ID needs a subscription for the service."  What?
 *** Answer:
@@ -979,17 +1047,17 @@ What is feature that allows push to mobile apps?
 SNS - push notifications
 
 ** Three services CodeDeploy can target                               :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       1c451dc7-78fc-4f99-bfc9-23cb0081ed9d
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 30.7556
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.7
+   :DRILL_AVERAGE_QUALITY: 4.2
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 06:53]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:42]
    :END:
 What are they?
 *** Answer:
@@ -1865,17 +1933,17 @@ You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
 **** A
      Standard and High - 1 minute and 1 second
 *** Avaialble alarms                                         :drill:memorize:
-    SCHEDULED: <2022-01-07 Fri>
+    SCHEDULED: <2022-01-14 Fri>
     :PROPERTIES:
     :ID:       b23d4b66-683c-439e-98ea-864639c84921
-    :DRILL_LAST_INTERVAL: 8.9629
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 8
-    :DRILL_FAILURE_COUNT: 3
-    :DRILL_AVERAGE_QUALITY: 2.625
+    :DRILL_LAST_INTERVAL: 3.995
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 10
+    :DRILL_FAILURE_COUNT: 4
+    :DRILL_AVERAGE_QUALITY: 2.6
     :DRILL_EASE: 2.18
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:53]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2022-01-10 Mon 06:02]
     :END:
     What are available resoutions for cloudwatch alarm?
 **** A
@@ -2071,18 +2139,18 @@ Application Load Balancers do not support cookie values that are [URL encoded].
     33.3 gig (and smaller) to 5.3 gig (and larger)
 
 
-** Fireshose destinations                                     :drill:
-   SCHEDULED: <2022-01-07 Fri>
+** Firehose destinations                                              :drill:
+   SCHEDULED: <2022-01-19 Wed>
    :PROPERTIES:
    :ID:       329d346b-fa6e-44af-b60b-fd33e289beb0
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 8.9861
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.36
+   :DRILL_EASE: 2.22
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:23]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:39]
    :END:
 Guess 11 destination
 *** Answer:
@@ -2606,39 +2674,60 @@ What are two measures for pricing ALB
      Cnofiguration is immutable, older & deprecated
 
 ** Rollback                                                           :drill:
+   :PROPERTIES:
+   :ID:       6f356d0f-1338-437e-84ca-fbb75a86fadc
+   :END:
 How to rollback an immutable deplog
 *** Answer:
 Terminate an ASG
 
 ** Definie ASG                                                        :drill:
+   :PROPERTIES:
+   :ID:       5528ce5c-adf6-43a7-9db1-b3e0c242245a
+   :END:
 What is an autoscaling group
 *** Answer:
  a collection of Amazon EC2 instances that are treated as a logical
  grouping for the purposes of automatic scaling and management.
 
 ** Define desired capacity                                    :drill:
+   :PROPERTIES:
+   :ID:       5bffe374-50fe-4acb-b6a7-cdb04e69bca4
+   :END:
 Context wher you talk about desired capacity
 *** Answer:
 AutoScaling group
 
 ** ASG instances                                                      :drill:
+   :PROPERTIES:
+   :ID:       d36d5e89-af98-4d2b-86db-b4416858f164
+   :END:
 What kinds of "purchase option" instances does an ASG launch -- what provisioning category?
 *** Answer:
 On Demand, Spot, or both
 
 
 ** Rollback                                                   :drill:
+   :PROPERTIES:
+   :ID:       8854f442-436f-4a94-b479-92e37addb0b9
+   :END:
 How do you rollback a blue/green elastic beanstalk deployment
 *** Answer:
 Swap the url
 
 
 ** Blue Green Elastic Beanstalk/DB                                    :drill:
+   :PROPERTIES:
+   :ID:       d0bb551f-19d2-48bd-8a57-4797cfcf112d
+   :END:
 If your app uses a database, what is requirement when updating it blue/green?
 *** Answer:
 Db has to be independent of the app
 
 ** inline app code in Cloud Formation                                 :drill:
+   :PROPERTIES:
+   :ID:       39f62fd9-f781-4945-be02-c98562a01118
+   :END:
 If you hav code to run  in a lambda function that you want to
 include in the CF template (inline) what parameter to the lambda section?
 *** Answer:
@@ -2962,18 +3051,27 @@ Keyword for CodeDeploy
    - also e.g. number of instances that must be healthy
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       b8dc14d1-ed4b-4ea5-a6e7-6b6e7525e1cb
+   :END:
 Two sam commands to deploy code from PC to cloud
 *** Answer:
 sam package
 sam deploy
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       993c7e7a-e091-4679-942a-235eeb76d61d
+   :END:
 What does `sam publish` do?
 *** Answer:
 Puts sam template in a repo (the AWS Serverless Repo)
 
 
 ** Clouformation helper scripts                               :drill:
+   :PROPERTIES:
+   :ID:       d07d72d4-4c7c-447f-aabc-60aece077750
+   :END:
 What are the 4 clouformation helper scripts
 *** Answer:
 
@@ -2994,21 +3092,33 @@ when changes are detected.
 acronym: ismg
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       f90391d8-5ef1-42a4-9261-bd5d615c066b
+   :END:
 Step Functions vs SWF -- Which has visual workflows
 *** Answer:
 Step function
 
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       6a0700d9-7809-4e35-82f9-9a5c074ac22e
+   :END:
 SWF vs Step functions -- what is nature of the programming you provide?
 *** Answer:
 SWF -- you write "deciders" in java
 Step functions -- declarative json
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       6d9bffb4-ece2-4a25-843b-8667f8f607fc
+   :END:
 Step functions provides [serverless orchestration] for modern workflows
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       6e45e74f-fab0-4987-9ea9-50165eb4ed91
+   :END:
 AWS Secrets manager -- how can does it rotate secrets
 *** Answer:
 For some AWS databases, it's built in
@@ -3019,6 +3129,9 @@ you enable rotation for a secret for another database or service, you
 must create the code for the Lambda rotation function.
 
 ** S3 select                                                  :drill:
+   :PROPERTIES:
+   :ID:       72c76d58-9831-4ad7-806e-4c172eecb63d
+   :END:
 What formats can s3 select process
 *** Answer:
     CSV, JSON, and Parquet - Objects must be in CSV, JSON, or Parquet format.
@@ -3027,6 +3140,9 @@ What formats can s3 select process
 
 
 ** Dynamo GSI consistency                                     :drill:
+   :PROPERTIES:
+   :ID:       bf5ad08a-43c2-4999-9576-63955183887f
+   :END:
 Querying global secondary index, can you specify strong consistency?
 *** Answer:
 No, evenutal only.
@@ -3037,6 +3153,9 @@ in your query results, which a local secondary index can provide but a
 global secondary index cannot
 
 ** Dynamo GSI thruput                                         :drill:
+   :PROPERTIES:
+   :ID:       56aa1f8b-a84c-4ded-89e0-fc953f3d59a5
+   :END:
 Does a GSI share the main table's provisioned WCU/RCUs?
 
 *** Answer:
@@ -3046,12 +3165,18 @@ Does a GSI share the main table's provisioned WCU/RCUs?
  separate from those of the table.
 
 ** Global Secondary index                                             :drill:
+   :PROPERTIES:
+   :ID:       6596bb6d-61f7-49d5-9ceb-c43fb6611e85
+   :END:
 WCU consideratios when using GSIs in Dynamo DB
 *** Answer:
 Provisioned WCU should be at least as high as base because writing to
 base entails writing to GSI
 
 ** GSI Storage space Dyanmo                                           :drill:
+   :PROPERTIES:
+   :ID:       5ee6db69-0204-4cc4-8a3e-c443473692a7
+   :END:
 How does a GSI effect storage
 *** Answer:
 When an application writes an item to a table, DynamoDB automatically
@@ -3076,6 +3201,9 @@ secondary index key attributes.
 
 
 ** CloudFormation bad deploy                                          :drill:
+   :PROPERTIES:
+   :ID:       6ad06658-f7a8-4904-9d14-5499a3a4ef77
+   :END:
 What feature is invoked if CF deploy goes wrong
 *** Answer:
 cloud formation Rollback trigger
@@ -3088,6 +3216,9 @@ rolls back the entire stack operation.
 
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       0fdb8efe-e09c-4a30-b617-b93a6c4af771
+   :END:
 The [AWS Flow Framework] lets developers use asynchronous programming in the development of their
 SWF applications.
 *** Answer:
@@ -5552,17 +5683,17 @@ PutMetricData
   
 
 ** Question                                                  :drill:practice:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-02 Wed>
    :PROPERTIES:
    :ID:       a43038e7-dfc4-4cce-ad2c-32261b9a0ddb
-   :DRILL_LAST_INTERVAL: 9.6346
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 23.2098
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.25
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:42]
+   :DRILL_AVERAGE_QUALITY: 3.2
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:48]
    :END:
 lambda DLQ vs on-failure queue?
 *** Answer:
@@ -5572,17 +5703,17 @@ On-Failure can include more details
 DLQ has redrive support
 
 ** CF deploy from s3                                              :drill:fix:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-06 Sun>
    :PROPERTIES:
    :ID:       6a39f60e-0c73-4349-a69d-4b52d77cf356
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 26.791
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_AVERAGE_QUALITY: 3.6
    :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:56]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:49]
    :END:
  cloud formation to deploy lambda from s3, does bucket have to be in same region we run CF in?
 *** Answer:
@@ -6215,17 +6346,17 @@ answer here
     
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-06 Sun>
    :PROPERTIES:
    :ID:       d3912bf4-2a35-40c0-b59e-a99126d4f3d0
-   :DRILL_LAST_INTERVAL: 10.3376
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 26.702
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:56]
+   :DRILL_AVERAGE_QUALITY: 4.333
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:47]
    :END:
 What is a local secondary index?
 *** Answer:
@@ -6233,17 +6364,17 @@ What is a local secondary index?
 
 
 ** Question                                                  :drill:practice:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-09 Wed>
    :PROPERTIES:
    :ID:       3e3fb1a5-fc77-40c4-b890-00b78ff5fd8b
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 29.7131
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_AVERAGE_QUALITY: 4.667
    :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:43]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:47]
    :END:
 How do you control acces to ECR docker repo?
 *** Answer:
@@ -6307,26 +6438,28 @@ https://www.freecodecamp.org/news/amazon-ecs-terms-and-architecture-807d8c4960fd
    you can use [aws access keys] using [credential helper] over https with the CLI
 
 ** distinguish cloudtrail and clouwatch                               :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-06 Sun>
    :PROPERTIES:
    :ID:       ce2db68b-bd3a-438a-b384-8be606a1766c
-   :DRILL_LAST_INTERVAL: 10.3376
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 26.702
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:44]
+   :DRILL_AVERAGE_QUALITY: 4.333
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:49]
    :END:
   distinguish cloudtrail and clouwatch
 *** answer
 Cloudwatch - performance/health  (a guy watching a dashboard)
 Cloudtrail - auditing (think footprints and sleuth)
 
-Cloudwatch is a monitoring service that gives you visibility into the performance and health of your AWS resources and applications, whereas
+Cloudwatch is a monitoring service that gives you visibility into the
+performance and health of your AWS resources and applications, whereas
 
-AWS Cloudtrail is a service that logs AWS account activity and API usage for risk auditing, compliance and monitoring.
+AWS Cloudtrail is a service that logs AWS account activity and API
+usage for risk auditing, compliance and monitoring.
 
 ** Firehose vs Kinesis Data Streams                                   :drill:
    SCHEDULED: <2022-02-01 Tue>
@@ -6349,18 +6482,18 @@ AWS Cloudtrail is a service that logs AWS account activity and API usage for ris
 
     
 ** Load Balancer conectivity                                  :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-01-14 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       86a25a48-6221-40be-b9fd-8bf33f1361d0
-:DRILL_LAST_INTERVAL: 10.7143
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.5
-:DRILL_EASE: 2.6
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:38]
+:DRILL_LAST_INTERVAL: 4.285
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.7
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2022-01-10 Mon 06:04]
 :END:
 
 You must ensure that your load balancer can communicate with
@@ -6576,17 +6709,17 @@ For WebSocket APIs, only request parameter-based authorizers are supported.
     No.  FIFO and standard  -- standard is best effort, at least once
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-02-07 Mon>
    :PROPERTIES:
    :ID:       3c59807a-f4bd-4baf-a8f9-2d994d95faad
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 27.733
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
-   :DRILL_EASE: 2.6
+   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:43]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:37]
    :END:
 In API Gateway - what is that allows you to publish different versions aka dev, test -- to different urls from same code
 *** Answer:
@@ -6649,19 +6782,19 @@ No - only Ec2 can run the necessary agent
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       addfa695-4a53-4cd7-8470-711b23aba029
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 30.7556
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.7
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:43]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:46]
    :END:
-2 things required to allow specified clients  to get up-to-desults from API Gateway
+2 things required to allow specified clients  to get up-to-date-desults from API Gateway
 *** Answer:
  - 1 you configure: Tick on require authorization in Cache Settings
  - 2 they configure: include header Cache-Control: max-age=0
@@ -6707,17 +6840,17 @@ the [primary key attributes] of the [base table] are always projected into a dyn
 
 
 ** API gateway integrations                                  :drill:practice:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-02-07 Mon>
    :PROPERTIES:
    :ID:       a409925f-1774-4008-96ef-b627d77d9cb6
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 27.733
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
-   :DRILL_EASE: 2.6
+   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:42]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:41]
    :END:
 In API gateway, distinguish HTTP PROXY and HTTP integration
 *** Answer:
@@ -6751,17 +6884,17 @@ resources in another.
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-14 Fri>
    :PROPERTIES:
    :ID:       4bd4ac9c-7d4e-4551-8c37-5b2c3885b488
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:40]
+   :DRILL_LAST_INTERVAL: 3.995
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 2.833
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 06:04]
    :END:
 Lambda feature to redirect traffic to new version; its advantage;
 name of implementation setting
@@ -6775,17 +6908,17 @@ answer here
 
 
 ** Question                                                  :drill:practice:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       489b425b-9754-4076-9044-e57f72a1e418
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 30.7556
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.7
+   :DRILL_AVERAGE_QUALITY: 4.25
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:33]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:46]
    :END:
  Diff between AWS and HTTP integration in API Gateway?
 *** Answer:
@@ -6919,22 +7052,30 @@ Where do you find the ECS agent instance env variables  on ec2
 /etc/ecs/ecs.confige
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-06 Sun>
    :PROPERTIES:
    :ID:       9782c2fc-897e-46a0-8519-beb9b34a36a8
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 26.791
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
+   :DRILL_AVERAGE_QUALITY: 4.333
    :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:57]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 06:00]
    :END:
+ECS:
 How many containers can be described in a task definition file?
 *** Answer:
 up to 10
 
+** ECS networking                                             :drill:
+ECS Networking best practice:
+
+Do not use UID 0 when using [the host network mode]
+
+*** Why
+    Because it is root
 
 ** EC                                                                 :drill:
    SCHEDULED: <2022-01-09 Sun>
@@ -7242,17 +7383,17 @@ Guess how to query the credential endpoint in ec2 running in ECS?
 curl 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-29 Sat>
    :PROPERTIES:
    :ID:       106ff445-d0c1-42b9-a9af-1d7dfb306fc8
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 19.2482
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.22
+   :DRILL_EASE: 2.08
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:56]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:36]
    :END:
 Can you apply IAM roles to containers after they are launched?
 *** Answer:
@@ -7333,6 +7474,25 @@ Define multicontainer docker environment
   - ECS thing: multiple containers per instance
     What for (tentative) "to let you get the most"
        - fast communicating over docker network?
+
+They are available in Elastic beanstalk -
+  - needs Dockerrun.aws.json
+  - You can't build them with dockerfile, have to be in ECR
+
+** BeanStalk Multicontainer                                   :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: hide1cloze
+:ID:       2a256448-b00d-4065-b433-8628da536fc8
+:END:
+
+Building custom images [during deployment] with a Dockerfile is not
+supported by the multicontainer Docker platform on Elastic
+Beanstalk. Build your images and [deploy them to an online repository]
+before creating an Elastic Beanstalk environment.
+
+Specify images by name in Dockerrun.aws.json.
+
+    
 
 
 ** Beanstalk worker env                                      :drill:practice:
@@ -7461,17 +7621,17 @@ Can you use efs on windows
 
 
 ** SQS Feature                                                :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-21 Fri>
    :PROPERTIES:
    :ID:       fd59610c-3cbc-42a2-adde-857079ae2a14
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 11.0911
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:18]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:40]
    :END:
 Which types of SQS queue allow deduplication key?
 *** Answer:
@@ -7515,18 +7675,26 @@ EFS Provisioned Throughput mode is for applications that require [a greater
 ratio of throughput to storage capacity] than allowed by Bursting
 Throughput mode.
 
-** S3 Access for signed urls                                  :drill:
-   SCHEDULED: <2022-01-07 Fri>
+** Origin Access Identity                                     :drill:
+Define Origin Access Identity 
+*** Answer:
+
+Create an origin access identity, which is a special CloudFront user,
+and associate the origin access identity with your distribution.
+
+
+
+** S3 Access for signed urls                                 :drill:practice:
    :PROPERTIES:
    :ID:       c8563f12-781d-43b5-a6e6-9293b60e68c9
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 1.667
+   :DRILL_LAST_INTERVAL: 0.0
+   :DRILL_REPEATS_SINCE_FAIL: 1
+   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 1.25
    :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 08:10]
+   :DRILL_LAST_QUALITY: 0
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:38]
    :END:
 Three steps to make s3 content only accessible via Cloudfront
 *** Answer:
@@ -7745,17 +7913,17 @@ write activity, we recommend that your applications connect to the
 primary endpoint instead of connecting directly to the primary.
 
 ** cognito sync                                                       :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-19 Wed>
    :PROPERTIES:
    :ID:       a861eea6-1ea4-4058-897e-408e74e47ebf
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 8.9861
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.36
+   :DRILL_EASE: 2.22
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 08:07]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:45]
    :END:
    Amazon Cognito Sync is an AWS service and client library that
    enables [cross-device] syncing of application-related user data.
@@ -7763,23 +7931,23 @@ primary endpoint instead of connecting directly to the primary.
    Guess what?  App-sync is now recommended
 
 ** Code Commit                                                        :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-21 Fri>
    :PROPERTIES:
    :ID:       86f05337-5371-4450-a8ef-8125bb0f508a
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 11.0911
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:33]
+   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:44]
    :END:
 Besides SSH, how can you connect?
 *** Answer:
 git credentials -- Via IAM -- a login/password over https
 AWS access keys + credential helper (comes with CLI) -- over https
-   
+git-remote-codecommit   
 ** CodeBuild                                                  :drill:
    SCHEDULED: <2022-01-17 Mon>
    :PROPERTIES:
@@ -7821,6 +7989,110 @@ The CodeBuild "driver" file, [buildspec.yml], defines a series of [phases]
 
 
 
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       050ad770-4fc4-4d9b-9206-87d0b840ea09
+   :END:
+distinguish access advisor and access analyzer
+*** Answer:
+Analyzer - finds objects you share with other AWS accts, esp. s3 & IAM roles
+
+Advisor -- See what you should curtail
+
+AWS Identity and Access Management (IAM) access advisor uses data
+analysis to help you set permission guardrails confidently by
+providing service last accessed information for your accounts,
+organizational units (OUs), and your organization managed by AWS
+Organizations. Permission guardrails help control which services your
+developers and applications can access. By analyzing last accessed
+information, you can determine the services not used by IAM users and
+roles. You can implement permissions guardrails using service control
+policies (SCPs) that restrict access to those services.
+
+** RDS Cross region                                           :drill:
+   :PROPERTIES:
+   :ID:       ebd49cba-2e8e-4892-bbc1-610995c7e30d
+   :END:
+The Amazon RDS Cross-Region Automated Backups feature enables [disaster
+recovery] capability for mission-critical databases by providing you
+the ability to restore your database to a specific point in time
+within your backup retention period. This allows you to quickly resume
+operations in the event that the primary AWS Region becomes
+unavailable.
+
+** RDS Disaster recovery                                              :drill:
+   :PROPERTIES:
+   :ID:       a9679472-fc1f-4944-95fc-4ac1a8c11b6c
+   :END:
+RDS feature that allows quick recover if all a/zs in a region fail 
+*** name it
+The Amazon RDS Cross-Region Automated Backups
+
+** Scenario (Tutorials dojo practice test 4)                          :drill:
+   :PROPERTIES:
+   :ID:       c5ba7a55-f7ef-46d8-a14d-f72967631242
+   :END:
+Existing, populated Index with Composite Key A+B
+You need A+C with with strong consistency
+What to do?
+*** Answer:
+Make a new database.
+Need a LSI for strong consistency
+Since you need an LSI that doesn't exist you need a new database
+** Dynamo DB 500 errors                                               :drill:
+   :PROPERTIES:
+   :ID:       cc3da66d-e2d2-40c7-82a8-d06efccc1958
+   :END:
+During heavy load I sometimes get a 500 error on a dynamo db table.  Why
+*** Answer:
+Maybe Strongly Consistent -- if lot of delay, can get a 500
+
+** DynamoDB - consistency                                             :drill:
+   :PROPERTIES:
+   :ID:       dd8816ab-2711-4f31-afc2-9c9752972206
+   :END:
+DynamoDb - What supports / doesn't support strongly consistent read?
+*** Answer:
+On base tables, on LSIs
+Not on Global
+A strongly consistent read might not be available if there is a
+network delay or outage. In this case, DynamoDB may return a server
+error (HTTP 500).
+
+** Dynamo return data                                         :drill:
+   :PROPERTIES:
+   :ID:       b11243c3-bc29-4ccf-8dd4-5b39d29e73e2
+   :END:
+When you want to track your cost in WCU for CRUD operations, what
+do you set in the api
+*** Answer:
+
+ReturnCOnsumedCapacity
+
+For write:
+TOTAL — returns the total number of write capacity units consumed.
+
+INDEXES — returns the total number of write capacity units consumed, with subtotals for the table and any secondary indexes that were affected by the operation.
+
+NONE — no write capacity details are returned. (This is the default.)
+
+
+** Dynamo api                                                 :drill:
+   :PROPERTIES:
+   :ID:       21831b65-4b31-476e-9444-4e105bb1193f
+   :END:
+Besides the 4 basic CRUD api calls, there are two API calls for multi rows.
+
+*** What are they 
+
+
+    BatchGetItem — Read up to 100 items from one or more tables.
+
+    BatchWriteItem — Create or delete up to 25 items in one or more tables.
+
+
+
+
    
 * scrap/in progress
 
@@ -7834,13 +8106,11 @@ The CodeBuild "driver" file, [buildspec.yml], defines a series of [phases]
      what is a DNS record that round-bobins to  replica nodes
 
 
-define cognito sync
 
 "lambda functions as container images" ?
 
 when there are multiple targets, what does codedeploy deploy to first?
 
-what are signed urls for
 
 Learn the metrics available for ASG scaling tracking
 
@@ -7949,7 +8219,7 @@ Iam roles for tasks
 Port for x-ray in container
 2000 UDP
 
-distinguish access advisor and access analyzer 
+
 
 Cause for 500 server error in dynamodb
 Network delay or outages and strongly consistent read
@@ -8038,6 +8308,8 @@ change. However, the deployment to Elastic Beanstalk is taking a very
 long time due to resolving dependencies on all of your 100 target EC2
 instance.s and this one:
 
+Check this link for details about ECS launching
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html
 
 Questions about KMS/Headers give easy ruleouts by specifying Algorithm question doesn't mention
 Always something about binpack
