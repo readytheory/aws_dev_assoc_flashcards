@@ -10,7 +10,102 @@
     
 * AWS flashcards
 
-  ** Transparent Data Encryption  :drill:
+
+** Lambda storage                                             :drill:
+   :PROPERTIES:
+   :ID:       72ec5661-da8f-4ab0-a61d-5a4ed5ef15cb
+   :END:
+
+For lambda  appending to existing files, [EFS] is a preferred option to using Amazon S3.
+
+** Lambda storage                                             :drill:
+   :PROPERTIES:
+   :ID:       504b8ec4-6d41-4bbb-8b12-a3ccc5c0c0df
+   :END:
+Lambda, size of /tmp storage area
+*** Answer:
+512 Meg
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       bbe7e234-ac23-4237-9ebd-143fd2d4fe15
+   :END:
+Maximnum size s3 object
+*** Answer:
+5 TiB
+
+** Limits - Dynamo                                                    :drill:
+   :PROPERTIES:
+   :ID:       d96f10fd-420d-4021-8bf7-158928869bf2
+   :END:
+Max local secondary indices/table
+*** Answer:
+5
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       1d982c65-7252-42a0-af86-1a53dd5fb1a9
+   :END:
+___?
+*** Answer:
+answer here
+
+** Iam Versions                                               :drill:
+   :PROPERTIES:
+   :ID:       4b41ba26-b7a3-4ef1-991b-76e79030e94d
+   :END:
+How many versions of an IAM policy are kept
+*** Answer:
+5,
+inline policies NOT versioned
+
+In the policy, there is a Version: element, that is like 2013-09-11, different thing
+
+
+** Cloudformation Snippets                                            :drill:
+   :PROPERTIES:
+   :ID:       8b014b83-06b2-45b3-adcc-77d6b9fbed07
+   :END:
+How do you include snippets stored in S3 with cloudformation?
+*** Answer:
+AWS::Include
+
+
+** S3                                                         :drill:
+   :PROPERTIES:
+   :ID:       59de9b29-3389-4cf9-a181-312352a24679
+   :END:
+What uniquely identifies S3 Object?
+*** Answer:
+Bucket + Key + version
+
+** Service: Shield                                            :drill:
+   :PROPERTIES:
+   :ID:       0d2e8a61-addf-4c6b-a65a-7f7f3a5a4a32
+   :END:
+What is AWS Shield
+*** Answer:
+DDoS mitigation operating at level 3 and 4
+
+
+** Fanout                                                             :drill:
+   :PROPERTIES:
+   :ID:       3a8c19fd-2418-49cd-938f-1b4283e86271
+   :END:
+Describe Fanout
+*** Answer:
+SNS receives message and sends to multiple SQS based on content
+
+
+
+
+
+  
+  
+** Transparent Data Encryption                                        :drill:
+   :PROPERTIES:
+   :ID:       34875bd0-6995-4a83-9bf3-b034542537b2
+   :END:
 What products have Transparent Data Encyption
 *** Answer:
 RDS Oracle
@@ -818,23 +913,6 @@ Use IAM database authentication when your application requires fewer
 than 200 new IAM database authentication connections per second.
 
 
-** Question  :drill:
-   SCHEDULED: <2022-01-07 Fri>
-   :PROPERTIES:
-   :ID:       3327134c-1433-403f-909b-67274576293d
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
-   :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:40]
-   :END:
-___?
-*** Answer:
-answer here
-
 ** Data Pipleline failue                                              :drill:
    SCHEDULED: <2022-01-10 Mon>
    :PROPERTIES:
@@ -884,17 +962,17 @@ Alternatives to console for monitoring mysql logs
     The console is  for logs going to cloudwatch
 
 ** Push to mobile apps                                                :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-21 Fri>
    :PROPERTIES:
    :ID:       649a8311-763d-4b9d-a2a4-ec2b405a7bc3
-   :DRILL_LAST_INTERVAL: 4.435
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 11.9834
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 4.25
-   :DRILL_EASE: 2.8
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:18]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.66
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-09 Sun 11:59]
    :END:
 What is feature that allows push to mobile apps?
 *** Answer:
@@ -1251,17 +1329,17 @@ yum install -y /home/ec2-user/xray.rpm
 **** answer
      no, cloudwatch charges apply
 *** What charges apply to flow logs                                   :drill:
-    SCHEDULED: <2022-01-08 Sat>
+    SCHEDULED: <2022-01-13 Thu>
     :PROPERTIES:
     :ID:       1a7e763f-9ece-45ae-a730-fb5ea363ad88
-    :DRILL_LAST_INTERVAL: 9.648
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 8
-    :DRILL_FAILURE_COUNT: 3
-    :DRILL_AVERAGE_QUALITY: 2.875
+    :DRILL_LAST_INTERVAL: 3.86
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 10
+    :DRILL_FAILURE_COUNT: 4
+    :DRILL_AVERAGE_QUALITY: 2.9
     :DRILL_EASE: 2.36
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:45]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2022-01-09 Sun 11:54]
     :END:
 .
 **** answer
@@ -2047,17 +2125,17 @@ appspec.yml in root directory of the source code
 
 
 ** CodeDeploy                                                 :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-19 Wed>
    :PROPERTIES:
    :ID:       5e47bef8-2ffb-4c4e-a327-a6f1e7dc3783
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 11.0911
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:39]
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:35]
    :END:
 Code Deploy redployment
 
@@ -2106,17 +2184,17 @@ instance sizes in a region, making it easier for you to take advantage
 of the RI’s discounted rate.
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-19 Wed>
    :PROPERTIES:
    :ID:       40a580cb-7b2d-4475-8c41-8d27ac747af0
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 11.0911
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:43]
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:37]
    :END:
 Permissions for Dynamo: is update a superset of insert?
 *** Answer:
@@ -2527,6 +2605,71 @@ What are two measures for pricing ALB
 **** answer
      Cnofiguration is immutable, older & deprecated
 
+** Rollback                                                           :drill:
+How to rollback an immutable deplog
+*** Answer:
+Terminate an ASG
+
+** Definie ASG                                                        :drill:
+What is an autoscaling group
+*** Answer:
+ a collection of Amazon EC2 instances that are treated as a logical
+ grouping for the purposes of automatic scaling and management.
+
+** Define desired capacity                                    :drill:
+Context wher you talk about desired capacity
+*** Answer:
+AutoScaling group
+
+** ASG instances                                                      :drill:
+What kinds of "purchase option" instances does an ASG launch -- what provisioning category?
+*** Answer:
+On Demand, Spot, or both
+
+
+** Rollback                                                   :drill:
+How do you rollback a blue/green elastic beanstalk deployment
+*** Answer:
+Swap the url
+
+
+** Blue Green Elastic Beanstalk/DB                                    :drill:
+If your app uses a database, what is requirement when updating it blue/green?
+*** Answer:
+Db has to be independent of the app
+
+** inline app code in Cloud Formation                                 :drill:
+If you hav code to run  in a lambda function that you want to
+include in the CF template (inline) what parameter to the lambda section?
+*** Answer:
+Zipfile -- can take 4096 bytes, else you give it a s3 location
+insline only goes with nodejs and python
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Lambda function with cfn-response.
+Resources:
+  primer:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: nodejs12.x
+      Role: arn:aws:iam::123456789012:role/lambda-role
+      Handler: index.handler
+      Code:
+        ZipFile: |
+          var aws = require('aws-sdk')
+          var response = require('cfn-response')
+          exports.handler = ....
+
+
+
+** Mnemonic Launch Templates                                  :drill:
+   :PROPERTIES:
+   :ID:       a0dc7ca9-ba10-413d-a2e0-113b858e4608
+   :END:
+Which is newer -- ec2 launch configurations or launch templates
+*** Answer:
+crusty container
+tasty templates
 
 ** IAM Resource based policy                                          :drill:
    SCHEDULED: <2022-01-17 Mon>
@@ -2818,6 +2961,141 @@ Keyword for CodeDeploy
  Deployment Configuration
    - also e.g. number of instances that must be healthy
 
+** Question  :drill:
+Two sam commands to deploy code from PC to cloud
+*** Answer:
+sam package
+sam deploy
+
+** Question  :drill:
+What does `sam publish` do?
+*** Answer:
+Puts sam template in a repo (the AWS Serverless Repo)
+
+
+** Clouformation helper scripts                               :drill:
+What are the 4 clouformation helper scripts
+*** Answer:
+
+
+cfn-init: Use to retrieve and interpret resource metadata, install
+packages, create files, and start services.
+
+cfn-signal: Use to signal with a CreationPolicy or WaitCondition, so
+you can synchronize other resources in the stack when the prerequisite
+resource or application is ready.
+
+cfn-get-metadata: Use to retrieve metadata for a resource or path to a
+specific key.
+
+cfn-hup: Use to check for updates to metadata and execute custom hooks
+when changes are detected.
+
+acronym: ismg
+
+** Question  :drill:
+Step Functions vs SWF -- Which has visual workflows
+*** Answer:
+Step function
+
+
+** Question  :drill:
+SWF vs Step functions -- what is nature of the programming you provide?
+*** Answer:
+SWF -- you write "deciders" in java
+Step functions -- declarative json
+
+** Question  :drill:
+Step functions provides [serverless orchestration] for modern workflows
+
+** Question  :drill:
+AWS Secrets manager -- how can does it rotate secrets
+*** Answer:
+For some AWS databases, it's built in
+for others there is a lambda function you customize
+
+Use the generic rotation function template to rotate secrets. Before
+you enable rotation for a secret for another database or service, you
+must create the code for the Lambda rotation function.
+
+** S3 select                                                  :drill:
+What formats can s3 select process
+*** Answer:
+    CSV, JSON, and Parquet - Objects must be in CSV, JSON, or Parquet format.
+    UTF-8 - UTF-8 is the only encoding type Amazon S3 Select supports.
+    GZIP or BZIP2 - CSV and JSON files can be compressed using GZIP or BZIP2.
+
+
+** Dynamo GSI consistency                                     :drill:
+Querying global secondary index, can you specify strong consistency?
+*** Answer:
+No, evenutal only.
+
+ - In general, you should use global secondary indexes rather than local
+secondary indexes. The exception is when you need strong consistency
+in your query results, which a local secondary index can provide but a
+global secondary index cannot
+
+** Dynamo GSI thruput                                         :drill:
+Does a GSI share the main table's provisioned WCU/RCUs?
+
+*** Answer:
+
+ A global secondary index has no size limitations and has its own
+ provisioned throughput settings for read and write activity that are
+ separate from those of the table.
+
+** Global Secondary index                                             :drill:
+WCU consideratios when using GSIs in Dynamo DB
+*** Answer:
+Provisioned WCU should be at least as high as base because writing to
+base entails writing to GSI
+
+** GSI Storage space Dyanmo                                           :drill:
+How does a GSI effect storage
+*** Answer:
+When an application writes an item to a table, DynamoDB automatically
+copies the correct subset of attributes to any global secondary
+indexes in which those attributes should appear.
+
+The amount of space used by an index item is the sum of the following:
+
+    The size in bytes of the base table primary key (partition key and sort key)
+
+    The size in bytes of the index key attribute
+
+    The size in bytes of the projected attributes (if any)
+
+    100 bytes of overhead per index item
+
+To estimate the storage requirements for a global secondary index, you
+can estimate the average size of an item in the index and then
+multiply by the number of items in the base table that have the global
+secondary index key attributes.
+
+
+
+** CloudFormation bad deploy                                          :drill:
+What feature is invoked if CF deploy goes wrong
+*** Answer:
+cloud formation Rollback trigger
+
+CloudFormation monitors the specified alarms during the stack create
+or update operation, and for the specified amount of time after all
+resources have been deployed. If any of the alarms goes to ALARM state
+during the stack operation or the monitoring period, CloudFormation
+rolls back the entire stack operation.
+
+
+** Question  :drill:
+The [AWS Flow Framework] lets developers use asynchronous programming in the development of their
+SWF applications.
+*** Answer:
+answer here
+
+
+
+   
 ** Dev env                                                            :drill:
    SCHEDULED: <2022-01-26 Wed>
    :PROPERTIES:
@@ -3725,6 +4003,9 @@ distinguish
   is the maximum number of data points returned from a single call
   
 ** Cloudwatch metrics                                         :drill:
+   :PROPERTIES:
+   :ID:       c10590d9-10bf-406c-ba89-dc0aa945e1da
+   :END:
 For the GetMetricStatistics call, what is maximum number of datapoints you
 can retrieve?
 *** Answer:
@@ -3853,17 +4134,17 @@ can retrieve?
 
 
 ** lambda                                                             :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-13 Thu>
    :PROPERTIES:
    :ID:       2ecb20e6-2653-49ed-acf1-83a3df771437
-   :DRILL_LAST_INTERVAL: 3.855
+   :DRILL_LAST_INTERVAL: 3.99
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 5
-   :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.2
-   :DRILL_EASE: 2.32
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 08:09]
+   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 2.429
+   :DRILL_EASE: 2.42
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-09 Sun 11:55]
    :END:
  what configuration to lambda, beside permissions and routing, is needed for lambda to
  process items from a stream or queue
@@ -4525,6 +4806,65 @@ API gateway also allows for multip value parameters
     E.g. for rotating
     Can also use it to reencrypt with same key, changing the encryption context ?
 
+
+** Dynamo keys                                                :drill:
+   :PROPERTIES:
+   :ID:       bec5d381-143c-4785-9cab-ceeb9c9b20a0
+   :END:
+For dynamo keys what are valid data types
+*** Answer:
+Number, String or binary
+
+** Dynamo keys                                                        :drill:
+   :PROPERTIES:
+   :ID:       318ffa43-ffe2-49f0-9634-f5ed78dc7787
+   :END:
+   For binary partition/sort keys there are length restrictions
+
+*** What are they
+
+ - For a simple primary key, the maximum length of the first attribute
+   value (the partition key) is 2048 bytes.
+
+ - For a composite primary key, the maximum length of the second
+   attribute value (the sort key) is 1024 bytes.
+   
+** Dynamo limits on RCU/WCU                                           :drill:
+   :PROPERTIES:
+   :ID:       f2567672-21cc-4dea-a6ea-ba62e33fbdff
+   :END:
+Max RCU, Max WCU
+*** Answer:
+RCU - 3000 per partition
+WCU - 1000 per partition
+
+
+** KMS encryption context  :drill:
+   :PROPERTIES:
+   :ID:       761d05d5-c082-4ec3-ac6a-74c907b22a9f
+   :END:
+What is...
+*** What is encryption context
+An additional layer of authentication for your KMS API calls utilizing
+encryption context. The encryption context is a key-value pair of
+additional data that you want associated with AWS KMS-protected
+information.
+
+
+Now the decrypting party will need to have
+ - IAM permissions to AWS KMS,
+ - a CMK policy that allows them to use the key in the requested fashion,
+ - finally know the expected encryption context values.
+    
+You can use the encryption context inside your policies to enforce
+tighter controls for your encrypted resources. Because the encryption
+context is logged in CloudTrail, you can get more insight into the
+usage of your keys from an audit perspective.
+
+ - the encryption context is not encrypted and will be visible within
+CloudTrail logs. The encryption context should not be considered
+sensitive information and should not require secrecy.
+    
 ** KMS def                                                            :drill:
    SCHEDULED: <2022-01-11 Tue>
    :PROPERTIES:
@@ -4572,17 +4912,17 @@ Examples https://docs.aws.amazon.com/kms/latest/developerguide/determining-acces
   "Condition": {"Bool": {"kms:GrantIsForAWSResource": true}}
 }
 ** KMS -- how to manually rotate keys                                 :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-18 Tue>
    :PROPERTIES:
    :ID:       0da45212-acf0-4718-9a24-68452c23a218
-   :DRILL_LAST_INTERVAL: 4.0
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 10.352
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:29]
+   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:33]
    :END:
    for CMKs, how do you manually rotate keys
 
@@ -5153,17 +5493,17 @@ or
   an alarm watches [a single action] over [a specified time period]
 
 ** Cloudwatch custom metrics                                 :drill:practice:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-01 Tue>
    :PROPERTIES:
    :ID:       77d6782c-e439-4ef0-97b8-38e0e86147a6
-   :DRILL_LAST_INTERVAL: 9.628
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 24.0122
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.25
-   :DRILL_EASE: 2.32
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:57]
+   :DRILL_AVERAGE_QUALITY: 3.6
+   :DRILL_EASE: 2.42
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:38]
    :END:
  - what is Api name and some parms to add a custom metric
 *** Answer:
@@ -5273,17 +5613,17 @@ Provisioned Throughput mode
   you can instantly provision the throughput of your file system independent of the amount of data stored
 
 ** Bursting Credits                                           :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-17 Mon>
    :PROPERTIES:
    :ID:       af93d7fb-8074-4ea8-8379-4895b8419674
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 8.2681
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.75
+   :DRILL_AVERAGE_QUALITY: 3.0
    :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 08:10]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-09 Sun 11:59]
    :END:
 What is allotment of bursting credits on new file system
 *** Answer:
@@ -5591,17 +5931,17 @@ Maxiumum body of Lambda function call
 
 As a container, -- You can deploy Lambda function as container image with the maximum size of 10GB.
 ** IAM to use coname/users/XYX/ buckets                               :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-01-31 Mon>
    :PROPERTIES:
    :ID:       822d6aee-ad32-4ae6-ab05-52272a11b401
-   :DRILL_LAST_INTERVAL: 9.3103
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 23.2385
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.25
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-30 Thu 06:54]
+   :DRILL_AVERAGE_QUALITY: 3.6
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:34]
    :END:
    How can you set up to easiliy create sibling folders limited to different EE names?
 
@@ -5741,17 +6081,17 @@ Lambda - [LATEST (with a dollar sign)] is aka [unpublished]
     ALB access log:  troubleshooting access/performance -- latencies, etc.
       -- Access logging is disabled by default
 ** ALB Feature                                                :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-17 Mon>
    :PROPERTIES:
    :ID:       b8f30f5f-5c59-4336-b3a9-1a0545624fd4
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 9.3103
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_AVERAGE_QUALITY: 3.0
    :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:32]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:32]
    :END:
 What feature in ALB can capture when the request was received, the
 client's IP address, latencies, request paths, and server responses.
@@ -5759,17 +6099,17 @@ client's IP address, latencies, request paths, and server responses.
 Access Log
 
 ** Access Log                                                 :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-18 Tue>
    :PROPERTIES:
    :ID:       b255396a-28fd-47a5-b695-7af6b6a1be18
-   :DRILL_LAST_INTERVAL: 4.0
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 10.0
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 4.0
    :DRILL_EASE: 2.5
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:35]
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:36]
    :END:
 With what service is Access Log associated
 *** Answer:
@@ -6254,17 +6594,17 @@ In API Gateway - what is that allows you to publish different versions aka dev, 
    Lets you reference the value from API setup
 
 ** Question                                                  :drill:practice:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-31 Mon>
    :PROPERTIES:
    :ID:       d01a929f-1b73-4d57-a265-b73f434cc712
-   :DRILL_LAST_INTERVAL: 9.3103
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 23.2385
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.5
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:46]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:35]
    :END:
 What is task definition
 *** Answer:
@@ -6749,17 +7089,17 @@ assigned an [Instance Profile] which contains a [Role].
 
 
 ** Ec2 IAM assignment                                                 :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-01 Tue>
    :PROPERTIES:
    :ID:       a1c4b755-813d-4507-9711-db0f566e9303
-   :DRILL_LAST_INTERVAL: 9.648
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 24.0814
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.5
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:44]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:36]
    :END:
 
 If you use the AWS Management Console to create a [role] for Amazon EC2,
@@ -6823,17 +7163,17 @@ underlying hardware to reduce correlated failures.
     
     
 ** ECS                                                                :drill:
-   SCHEDULED: <2022-01-08 Sat>
+   SCHEDULED: <2022-02-01 Tue>
    :PROPERTIES:
    :ID:       3f216484-ed42-4a70-bf1a-28a69b3522fe
-   :DRILL_LAST_INTERVAL: 9.648
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 24.0814
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.5
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:42]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:32]
    :END:
    In ECS, multiple ec2 machines may be used.
    Each [ec2 instance] is conntect to the [ecs cluster]
@@ -7197,17 +7537,17 @@ Give the origin access identity permission to read the files in your bucket.
 Remove permission for anyone else to use Amazon S3 URLs to read the files
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-18 Tue>
    :PROPERTIES:
    :ID:       99e54ff1-5567-49f2-80d0-abc2680a8256
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 9.6346
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.0
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:29]
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:31]
    :END:
 What are the two EFS storage classes?
 *** Answer:
@@ -7300,17 +7640,17 @@ Must be region-unique
 
 
 ** Distinguish                                                        :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-18 Tue>
    :PROPERTIES:
    :ID:       f33df5b8-c673-4121-8681-ee6d7a88b9f8
-   :DRILL_LAST_INTERVAL: 4.0
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 10.352
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 13:39]
+   :DRILL_AVERAGE_QUALITY: 4.5
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:35]
    :END:
  codedeploy and codepipeline?
 *** answer
@@ -7319,17 +7659,17 @@ Must be region-unique
 
 
 ** Define                                                             :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-18 Tue>
    :PROPERTIES:
    :ID:       f435a844-28db-4177-9e61-f5c92238c664
-   :DRILL_LAST_INTERVAL: 4.0
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 10.0
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 4.0
    :DRILL_EASE: 2.5
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:19]
+   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:34]
    :END:
    elasticache node
 
@@ -7363,35 +7703,35 @@ Must be region-unique
 
 
 ** HA for Redis                                                       :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-19 Wed>
    :PROPERTIES:
    :ID:       b13e3441-acac-4fdf-a63b-35d234cfad79
-   :DRILL_LAST_INTERVAL: 4.0
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 10.0
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_AVERAGE_QUALITY: 3.333
    :DRILL_EASE: 2.5
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:17]
+   :DRILL_LAST_REVIEWED: [2022-01-09 Sun 12:00]
    :END:
 How to ensure HA for redis
 *** answer
       multiple read replicas in different A/Zs
       
 ** attaching to redis                                                 :drill:
-   SCHEDULED: <2022-01-07 Fri>
+   SCHEDULED: <2022-01-17 Mon>
    :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       3dc3d716-af9c-4e8d-8533-2a1e1e5e27d8
-:DRILL_LAST_INTERVAL: 3.86
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 1
+:DRILL_LAST_INTERVAL: 8.9861
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 2
 :DRILL_FAILURE_COUNT: 0
 :DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
+:DRILL_EASE: 2.22
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2022-01-03 Mon 21:21]
+:DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:30]
 :END:
 
   For write activity, apps should connect to the [primary endpoint]
