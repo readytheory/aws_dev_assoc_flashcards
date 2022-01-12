@@ -485,6 +485,9 @@ There is also default and high resolution for metrics with 1 second resultion
   and 10 second alarms
 
 ** Question                                                           :drill:
+   :PROPERTIES:
+   :ID:       a3d8d1b6-adaa-429c-8f80-51d500b4f9ac
+   :END:
 What is time period for Cloudwatch high resolution alarm?
 *** Answer:
 10 seconds
@@ -517,9 +520,18 @@ Create a Custom Identity Broker to get credentials from STS
 
 
 ** KMS                                                        :drill:
+   SCHEDULED: <2022-01-16 Sun>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       5d409fbf-611c-403b-a4b6-ebabf8b1fb3f
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 2
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:48]
 :END:
 
 You create KMS keys in AWS KMS.
@@ -531,8 +543,17 @@ ___?
 answer here
 
 ** RDS Enyhanced Monitoring                                   :drill:
+   SCHEDULED: <2022-01-16 Sun>
    :PROPERTIES:
    :ID:       21da8e0b-f4f4-443f-afe4-0e210a02324c
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:41]
    :END:
 What is RDS Enhanced monitoring?
 *** Answer:
@@ -2814,16 +2835,34 @@ What are two measures for pricing ALB
      Cnofiguration is immutable, older & deprecated
 
 ** Rollback                                                           :drill:
+   SCHEDULED: <2022-01-16 Sun>
    :PROPERTIES:
    :ID:       6f356d0f-1338-437e-84ca-fbb75a86fadc
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:46]
    :END:
 How to rollback an immutable deplog
 *** Answer:
 Terminate an ASG
 
 ** Definie ASG                                                        :drill:
+   SCHEDULED: <2022-01-16 Sun>
    :PROPERTIES:
    :ID:       5528ce5c-adf6-43a7-9db1-b3e0c242245a
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:44]
    :END:
 What is an autoscaling group
 *** Answer:
@@ -2839,8 +2878,17 @@ Context wher you talk about desired capacity
 AutoScaling group
 
 ** ASG instances                                                      :drill:
+   SCHEDULED: <2022-01-16 Sun>
    :PROPERTIES:
    :ID:       d36d5e89-af98-4d2b-86db-b4416858f164
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.5
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:40]
    :END:
 What kinds of "purchase option" instances does an ASG launch -- what provisioning category?
 *** Answer:
@@ -2866,8 +2914,17 @@ Swap the url
 
 
 ** Blue Green Elastic Beanstalk/DB                                    :drill:
+   SCHEDULED: <2022-01-16 Sun>
    :PROPERTIES:
    :ID:       d0bb551f-19d2-48bd-8a57-4797cfcf112d
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_FAILURE_COUNT: 0
+   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:46]
    :END:
 If your app uses a database, what is requirement when updating it blue/green?
 *** Answer:
@@ -2957,17 +3014,17 @@ What is only IAM resource based policy?
       - Trusted advisor makes cost recommendations and performance, and is premium service
       
 **** distinguish                                                      :drill:
-     SCHEDULED: <2022-01-12 Wed>
+     SCHEDULED: <2022-03-15 Tue>
      :PROPERTIES:
      :ID:       8fc08668-27fa-4094-8ede-41a84ed1342a
-     :DRILL_LAST_INTERVAL: 25.2548
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_LAST_INTERVAL: 62.1268
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 4
      :DRILL_FAILURE_COUNT: 0
      :DRILL_AVERAGE_QUALITY: 4.0
      :DRILL_EASE: 2.46
      :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-18 Sat 03:54]
+     :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:46]
      :END:
           Distinguish Trusted advisor and Xray
 
@@ -3189,17 +3246,17 @@ Codecommit
 Keyword for CodeDeploy
 
 ** Code Deploy                                                        :drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-01-31 Mon>
    :PROPERTIES:
    :ID:       9fa5e077-8193-4ffb-bb28-6c8a9652c04d
-   :DRILL_LAST_INTERVAL: 8.8569
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 9
+   :DRILL_LAST_INTERVAL: 18.9449
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 10
    :DRILL_FAILURE_COUNT: 4
-   :DRILL_AVERAGE_QUALITY: 2.444
-   :DRILL_EASE: 2.18
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 07:54]
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.04
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:40]
    :END:
 
    For code deploy
@@ -3368,8 +3425,17 @@ Provisioned WCU should be at least as high as base because writing to
 base entails writing to GSI
 
 ** GSI Storage space Dyanmo                                           :drill:
+   SCHEDULED: <2022-01-16 Sun>
    :PROPERTIES:
    :ID:       5ee6db69-0204-4cc4-8a3e-c443473692a7
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:48]
    :END:
 How does a GSI effect storage
 *** Answer:
@@ -3507,17 +3573,17 @@ answer here
 
    
 ** Tell me                                                   :drill:practice:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-22 Tue>
    :PROPERTIES:
    :ID:       2675f3d1-eb12-47b7-bac4-012114ae49f4
-   :DRILL_LAST_INTERVAL: 19.2482
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 41.2296
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.6
+   :DRILL_AVERAGE_QUALITY: 2.833
    :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-24 Fri 11:00]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:42]
    :END:
    Two things you need 
 
@@ -4270,17 +4336,17 @@ distinguish
 *** set page size with 
      With limit keyword
 **  Dynamo                                       :suspect:drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-24 Thu>
    :PROPERTIES:
    :ID:       c61beff0-11ec-4224-a074-3143d2cddd22
-   :DRILL_LAST_INTERVAL: 19.2482
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 42.6733
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-24 Fri 10:59]
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.18
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:47]
    :END:
     a Dynamo Shadow table
 *** it is aka  
@@ -4387,6 +4453,9 @@ can retrieve?
     layers
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       a6ee6f12-e6cc-4bf5-9987-f6b16f663af0
+   :END:
 Use cases for aws data pipeline
 *** Answer:
 
@@ -4403,6 +4472,9 @@ SQL queries directly against databases, or execute custom applications
 running on Amazon EC2 or in your own datacenter.
 
 ** Name it                                                    :drill:
+   :PROPERTIES:
+   :ID:       81aacd76-6f33-4079-adba-b75eb65d266c
+   :END:
 
 [AWS Data Pipeline] is a web service that helps you reliably process
 and move data between different AWS compute and storage services, as
@@ -6670,17 +6742,17 @@ IAM
 
 
 ** Lambda                                                             :drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-07 Mon>
    :PROPERTIES:
    :ID:       b15894e3-8ebf-4089-a2a1-9737d1486473
-   :DRILL_LAST_INTERVAL: 9.9715
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 25.7564
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.25
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:17]
+   :DRILL_AVERAGE_QUALITY: 3.6
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:40]
    :END:
 Lambda - (currency)LATEST  is aka [unpublished]
 
@@ -6710,18 +6782,18 @@ vs Service:  a service keeps running, a task will finish
 https://www.freecodecamp.org/news/amazon-ecs-terms-and-architecture-807d8c4960fd/
   
 ** code commit exotics                                       :drill:practice:
-   SCHEDULED: <2022-01-10 Mon>
+   SCHEDULED: <2022-01-16 Sun>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       8d57eda7-e807-4821-a566-4f6e4893e19e
-:DRILL_LAST_INTERVAL: 10.3376
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
-:DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.46
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2021-12-31 Fri 16:23]
+:DRILL_LAST_INTERVAL: 4.135
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 4
+:DRILL_FAILURE_COUNT: 1
+:DRILL_AVERAGE_QUALITY: 3.75
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:48]
 :END:
    you can use [aws access keys] using [credential helper] over https with the CLI
 
@@ -7214,34 +7286,34 @@ answer here
    HTPP and HTTP proxy for ec2 -- proxy is simple mapping
 
 ** dynamo projection                                          :drill:
-   SCHEDULED: <2022-01-10 Mon>
+   SCHEDULED: <2022-02-09 Wed>
    :PROPERTIES:
    :ID:       9ec7e1f3-3d75-4cfe-b173-5ea59fea46f3
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 27.733
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
-   :DRILL_EASE: 2.6
+   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-31 Fri 16:23]
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:28]
    :END:
    What is always projected into a dynamodb index?
 *** Answer:
   - the primary key attributes of the base table
 
 ** Ec2 requirement for ecs                                            :drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       e50b1b52-8096-48b2-9980-f7f9eda1044f
-   :DRILL_LAST_INTERVAL: 10.7143
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 28.7036
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.75
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-01 Sat 18:31]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:45]
    :END:
 the [ec2 agent] runs on ec2 instances in ECS
 
@@ -7426,17 +7498,17 @@ Do not use UID 0 when using [the host network mode]
     per Availability Zone per group.
 
 ** ECS                                                                :drill:
-   SCHEDULED: <2022-01-10 Mon>
+   SCHEDULED: <2022-02-06 Sun>
    :PROPERTIES:
    :ID:       b821df13-8796-4134-9828-b74221c0f54b
-   :DRILL_LAST_INTERVAL: 10.3376
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 24.9033
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
+   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_EASE: 2.32
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-31 Fri 15:55]
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:30]
    :END:
    When Amazon ECS places tasks, it uses a 4 step process to pick (an) instance(s)
    What is that?
@@ -7630,39 +7702,76 @@ underlying hardware to reduce correlated failures.
     
     
 ** Question  :drill:
-   SCHEDULED: <2022-01-10 Mon>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       f1baecac-491e-4b90-af08-074569cc7edb
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 28.6705
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-30 Thu 06:58]
+   :DRILL_AVERAGE_QUALITY: 3.25
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:28]
    :END:
 What's a periodic task?
 *** Answer:
  -in elastic beanstalk, cron based submission to queues
 
 ** Question                                                  :drill:practice:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-06 Sun>
    :PROPERTIES:
    :ID:       02c73808-e691-477e-a9ed-2e3fff69fa0f
-   :DRILL_LAST_INTERVAL: 9.9715
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 24.8889
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.8
+   :DRILL_AVERAGE_QUALITY: 3.0
    :DRILL_EASE: 2.46
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:20]
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:38]
    :END:
 Difference between IAM task for Fargate and EC2
 *** Answer:
  - Fargate can only have roles attached to tasks
  - EC2 can have roles on both instances and tasks
+
+** Question                                                           :drill:
+Can containers in ECS access container instsance profile credentials
+*** Answer:
+They can.  And container instances have profiles that should be limited.
+
+Containers that are running on your container instances are not
+prevented from accessing the credentials that are supplied to the
+container instance profile (through the Amazon EC2 instance metadata
+server). We recommend that you limit the permissions in your container
+instance role to the minimal list of permissions shown in Amazon ECS
+container instance IAM role.
+
+
+** Question  :drill:
+What limits should you place on ec2 instaces in acs to prevent
+them getting credentials thru network?
+*** Answer:
+
+    awsvpc networks: you set agent config vairable ECS_AWSVPC_BLOCK_IMDS
+    bridge networks: iptables
+    
+To prevent containers in tasks that use the awsvpc network mode from
+accessing the credential information supplied to the container
+instance profile (while still allowing the permissions that are
+provided by the task role), set the ECS_AWSVPC_BLOCK_IMDS agent
+configuration variable to true in the agent configuration file and
+restart the agent. For more information, see Amazon ECS container
+agent configuration.
+
+To prevent containers in tasks that use the bridge network mode from
+accessing the credential information supplied to the container
+instance profile (while still allowing the permissions that are
+provided by the task role) by running the following iptables command
+on your container instances. Note that this command does not affect
+containers in tasks that use the host or awsvpc network modes. For
+more information, see Network mode.
 
 
 ** Credentials on ECS                                         :drill:
@@ -7757,17 +7866,17 @@ in what context do you have to worry about bucket names being valid dns names
 
 
 ** Multicontainer                                             :drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-05 Sat>
    :PROPERTIES:
    :ID:       177cbb42-4154-4c05-9d1a-b8a08a974e7d
-   :DRILL_LAST_INTERVAL: 10.0
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 24.12
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:18]
+   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_EASE: 2.36
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:39]
    :END:
 Define multicontainer docker environment
 *** Answer:
@@ -7858,34 +7967,34 @@ An Elastic beanstalk [worker environment] allows you to queue up tasks
 Standard queues offer [at least once] delivery and [best effort] ordering
 
 ** SQS idempotency                                            :drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-02 Wed>
    :PROPERTIES:
    :ID:       9ac7da35-7e6e-4def-822e-f81e535968ef
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 20.6501
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 07:54]
+   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:30]
    :END:
 Queue based apps should be idempotent meaning:
 *** Answer:
   - they are okay if the process a message multiple times
 
 ** Dynamo Local Secondary Index                               :drill:
-   SCHEDULED: <2022-01-12 Wed>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
    :ID:       37b06c67-96a0-4dbf-af30-94dc812e59bf
-   :DRILL_LAST_INTERVAL: 9.648
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 23.271
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_AVERAGE_QUALITY: 3.667
    :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:11]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-12 Wed 17:39]
    :END:
 For dynamoDb - three requirements for local secondary index
 *** Answer:
