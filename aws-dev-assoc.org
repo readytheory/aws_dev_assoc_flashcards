@@ -1,5 +1,5 @@
 -*- eval: (progn (set-register ?o  ":PROPERTIES:\n:DRILL_CARD_TYPE: hide1cloze\n:END:\n") (set-register ?i  "** Question  :drill:\n___?\n*** Answer:\nanswer here\n")) -*-
-#+TAGS: drill(d) fix(x) inferred(I) memorize(m)  practice(p) youtube(y)
+#+TAGS: drill(d) fix(x) inferred(I) memorize(m)  practice(p) youtube(y) demo(o)
 
 * Not covered
   - lightsail
@@ -15,6 +15,17 @@
     no questions about cognito app sync 
     
 * AWS flashcards
+
+** Question  :drill:
+Does AWS recommend alternative to SQS?
+*** Answer:
+Yes for existing apps, AWS MQ, industry standard API
+  - SQS they say is more lightweight
+
+** SQS purge                                                          :drill:
+How long does it take to purge a queue
+*** Answer:
+Up to 60 seconds regardless of size
 
   
 ** Question  :drill:
@@ -607,17 +618,17 @@ time frame using an optional filter. To get the full traces, pass the
 trace IDs to BatchGetTraces.
 
 ** Lambda API                                                 :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-01-27 Thu>
    :PROPERTIES:
    :ID:       9018a9c8-2578-49f8-a863-d93cf8a546df
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 9.6346
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:44]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 06:40]
    :END:
 What is api name for getting traces, optionally with filter
 *** Answer:
@@ -935,6 +946,9 @@ header on the preflight request must match an AllowedHeader element
 The [ACLs and policies] continue to apply when you enable [CORS] on the bucket.
 
 ** Service to help with IAM policies                          :drill:
+   :PROPERTIES:
+   :ID:       cb8d267e-15c6-4a43-9e42-b1a7c8db6df3
+   :END:
 Policy generation with [IAM Access Analyzer] generates a fine-grained
 policy based on the access activity captured in your logs. This means
 that after you build and run an application, you can generate policies
@@ -3503,17 +3517,17 @@ Keyword for CodeDeploy
    - also e.g. number of instances that must be healthy
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-01-28 Fri>
    :PROPERTIES:
    :ID:       b8dc14d1-ed4b-4ea5-a6e7-6b6e7525e1cb
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
+   :DRILL_LAST_INTERVAL: 11.0911
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 2
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.6
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:35]
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 06:45]
    :END:
 Two sam commands to deploy code from PC to cloud
 *** Answer:
@@ -3950,17 +3964,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 
 
 ** transfer acceleration                                              :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       79decd39-d32a-438d-b8a4-082e24986ac3
-   :DRILL_LAST_INTERVAL: 9.648
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 24.0814
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-05 Wed 07:14]
+   :DRILL_AVERAGE_QUALITY: 3.333
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 06:40]
    :END:
    describe 
 
@@ -4448,17 +4462,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 
 	      
 **  How do you recover dtaa keys from KMS                    :drill:practice:
-   SCHEDULED: <2022-01-14 Fri>
+   SCHEDULED: <2022-03-04 Fri>
    :PROPERTIES:
    :ID:       bb3f0f54-7c55-4937-a40b-ce27b468c322
-   :DRILL_LAST_INTERVAL: 19.9491
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 45.843
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-25 Sat 08:49]
+   :DRILL_AVERAGE_QUALITY: 3.75
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 06:40]
    :END:
 How do you 
 
@@ -5429,18 +5443,44 @@ If you have to extend [visibility timeout] for SQS message to more than
     Lambda+ECS are always some kind of blue/green
     ECS/on prem can be all at once
 
+** SQS Visibility Timeout                                             :drill:
+What is Visbility timout?
+Min, Max, default?
+*** Answer:
+
+
+To prevent other consumers from processing the message again, Amazon
+SQS sets a visibility timeout, a period of time during which Amazon
+SQS prevents other consumers from receiving and processing the
+message.
+
+The default visibility timeout for a message is 30
+seconds.
+
+The minimum is 0 seconds.
+
+The maximum is 12 hours.
+    
+** SQS Short Polling                                          :drill:
+Short polling occurs when the WaitTimeSeconds parameter of a ReceiveMessage request is set to 0 in one of two ways
+*** What are they:
+    The ReceiveMessage call sets WaitTimeSeconds to 0.
+
+    The ReceiveMessage call doesn’t set WaitTimeSeconds, but the queue
+attribute ReceiveMessageWaitTimeSeconds is set to 0. 
+    
 ** SQS polling errors                                                 :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-02-05 Sat>
    :PROPERTIES:
    :ID:       1e5888cd-8ffd-4ab1-8480-f46edbc63ecc
-   :DRILL_LAST_INTERVAL: 8.88
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_LAST_INTERVAL: 19.021
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 7
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.833
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 08:37]
+   :DRILL_AVERAGE_QUALITY: 2.857
+   :DRILL_EASE: 2.08
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 07:05]
    :END:
 
    In SQS, To avoid HTTP errors, make sure that the HTTP response
@@ -6898,24 +6938,37 @@ invocation modes today.
 :END:
 Lambda - [LATEST (with a dollar sign)] is aka [unpublished]
 
+** SQS Limits                                                 :drill:
+What is inflight limit?
+*** Answer:
+FIFO 20K
+Regular 120K
+
+** SQS Limits                                                 :drill:
+Max size SQS Message
+*** Answer:
+256K
+
+    
+
 ** SQS Queue Quotas                                                   :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-01-27 Thu>
    :PROPERTIES:
    :ID:       2cdbea31-f99d-49ea-b6da-e4d0d503ac7d
-   :DRILL_LAST_INTERVAL: 3.995
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 9.624
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 4
-   :DRILL_AVERAGE_QUALITY: 2.876
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 06:58]
+   :DRILL_AVERAGE_QUALITY: 2.89
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 06:59]
    :END:
    if you hit inflight limit, what happens?
 
 *** answer
-    Short Polling queue:  you get an error message
-    Long polling Queue: nothing
+    Short Polling queue:  you get an error message (Overlimit)
+    Long polling Queue: no error message (but get message doesn't get anything)
 
     
 ** ALB performance                                                    :drill:
@@ -8508,6 +8561,9 @@ and associate the origin access identity with your distribution.
 
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       007ec946-fbc5-484f-8648-e9a406c1ad7f
+   :END:
 What is origin access identity
 *** Answer:
 a special CloudFront user to restrict access to S3 data
@@ -8820,17 +8876,17 @@ The CodeBuild "driver" file, [buildspec.yml], defines a series of [phases]
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-01-21 Fri>
    :PROPERTIES:
    :ID:       050ad770-4fc4-4d9b-9206-87d0b840ea09
-   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_LAST_INTERVAL: 3.995
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 2
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.0
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:58]
+   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 07:06]
    :END:
 distinguish access advisor and access analyzer
 *** Answer:
@@ -8840,7 +8896,7 @@ analyzer: An "all eyes" on yr bucket
 
 Analyzer - finds objects you share with other AWS accts, esp. s3 & IAM roles
 
-Advisor -- See what you should curtail
+Advisor -- See what you should curtail - e.g. with an SCP
 
 AWS Identity and Access Management (IAM) access advisor uses data
 analysis to help you set permission guardrails confidently by
@@ -8975,17 +9031,17 @@ NONE — no write capacity details are returned. (This is the default.)
 
 
 ** Dynamo api                                                 :drill:
-   SCHEDULED: <2022-01-15 Sat>
+   SCHEDULED: <2022-01-26 Wed>
    :PROPERTIES:
    :ID:       21831b65-4b31-476e-9444-4e105bb1193f
-   :DRILL_LAST_INTERVAL: 3.86
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 9.3103
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_AVERAGE_QUALITY: 3.0
    :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:58]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 06:45]
    :END:
 Besides the 4 basic CRUD api calls, there are two API calls for multi rows.
 
@@ -9229,6 +9285,8 @@ https://stackoverflow.com/questions/49828259/when-deploying-django-into-aws-farg
 
 Lambd disk capacity of /tmp
 
+SQS gotchas
+https://tomgregory.com/3-surprising-facts-about-aws-sqs-fifo-queues/
 
 ** Pricing clusters                                                   :fix-drill:
    SCHEDULED: <2022-01-05 Wed>
