@@ -18,6 +18,238 @@
 
 ** Question  :drill:
    :PROPERTIES:
+   :ID:       1c68beea-f792-4f4e-96f1-e530c7edbe2c
+   :END:
+How do you call a private api endpoint 
+*** Answer:
+Thru VPC endpoints
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       60ac781b-beb6-45fa-b49b-1d6088854955
+   :END:
+You can't connect to regional or edge optimized gaeteways when
+you're in same VPC as a private endpoint of an API Gateway.  How
+to get around that?
+*** Answer:
+You can connect to them via theiry public dsns.
+
+  
+** SQS ordering                                               :drill:
+   :PROPERTIES:
+   :ID:       193817a8-056e-426e-bb54-9abfa68d9c94
+   :END:
+   Attribute needed in sqs for sequencing
+*** Answer:
+MessageGroupId
+
+Messages with same group id delivered to one consumer at a time.  All
+the messages that need to stay in order get same Id
+
+** Boto3 client/resource which is which                               :drill:
+   :PROPERTIES:
+   :ID:       f7218d99-90ab-48de-b4e4-832b05552cc5
+   :END:
+Boto 3
+   Which is the more rudimentary, client or resource
+*** Answer:
+client is nearly call-to-call match to api, so more rudimentary
+than resource which gathers AWS api functionality into an
+OO api
+
+Resource doesn't have access to every little thing, but provides
+pagination.   Client is available within aws
+
+** DynamoDB TTL                                               :drill:
+   :PROPERTIES:
+   :ID:       a128a860-1559-4bd8-a799-aeb0303bc4ba
+   :END:
+How ttl works in dynamo
+
+*** Answer:
+Create an expiration time field and set it as TTL field
+
+Two processes,
+  -one that marks records expired
+  -one that deletes expired run
+
+**** bonus
+     the scanning and deleting don't have a monetary cost
+     You can update the ttl and it will be honored
+     epxressed in seconds
+     More than 5 years old records are not deleted
+
+** What is this role                                          :drill:
+   :PROPERTIES:
+   :ID:       5daf3478-800b-4e7e-b94e-417332e60f41
+   :END:
+What is AssumeRoleWithWebIdentity 
+*** Answer:
+For logging in from Google/Facebook/Amazon/OpenId
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       1e8da51e-127c-45a9-84cd-29aa9c84b4ec
+   :END:
+Dynamo - when do these happen?
+RequestLimitExceeded 
+ThrottlingException
+ProvisionedThroughputExceededException
+*** Answer:
+RequestLimitExceeded  -- This is exceeding your accounts setting
+Throttling
+Provisionedthroughputexceededexception - What you set for teh table
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       002e5355-b82d-4e9c-998c-bf44f29cee8e
+   :END:
+Can a subnet have several route tables? Can a route table be used
+by several subnets?
+*** Answer:
+A subnet can only be associated with one route table at a time, but
+you can associate multiple subnets with the same subnet route table
+
+
+** Notable error codes                                        :drill:
+   :PROPERTIES:
+   :ID:       769c249d-b697-4ee5-b0bd-12180559474b
+   :END:
+Tell me the meaning of HTTP codes 503-504 and 403
+*** Answer:
+
+403 is forbidden 503 is service unavailable and 504 is gateway timeout
+** S3 eventual consistence                                    :drill:
+   :PROPERTIES:
+   :ID:       c8e2cd61-4df8-453a-93f3-7c4a741dd42e
+   :END:
+Subtlety in S3 eventual consistency: new objects vs existing obj. writes
+*** Answer:
+  For new objects read after write.
+  For overwrites and deleted
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       d75b0b01-1034-46b2-a0d0-5deccd90e2f5
+   :END:
+Lambda distinguish between provisioned and reserved concurrency
+*** Answer:
+Reserve concurrency limits the amount that can be taken and guarantees
+it will be available
+
+provisioned actually gets everything ready and eliminates latency
+
+
+** Distinction                                                :drill:
+   :PROPERTIES:
+   :ID:       956da378-d996-4de7-9bee-083dcdbe4bfb
+   :END:
+Distinguish between high resolution and detailed monitoring
+*** Answer:
+Detailed monitoring is associated with ec2 and it gets one minute
+high resolution is associated with cloud watch and is one second
+
+
+** Lambda Alias                                               :drill:
+   :PROPERTIES:
+   :ID:       06d35bf0-c9a7-46ca-8a2c-f4b5e9440f3f
+   :END:
+Can one lambda alias point to another alias?
+*** Answer:
+No
+
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       e8003f16-6278-4699-9f5c-1a3556bc3a15
+   :END:
+What service uses canary deployment
+
+*** Answer:
+It is a Lambda thing, not an Elastic Beanstalk thing
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       b0077eab-36fb-45d2-9439-cbad7d9da1fc
+   :END:
+In replicated buckets, how are deletes promulgated
+
+*** Answer:
+They aren't: If you specify an object version ID to delete, Amazon S3
+deletes that object version in the source bucket. But it doesn't
+replicate the deletion in the destination bucket. In other words, it
+doesn't delete the same object version from the destination
+bucket. This protects data from malicious deletions.
+
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       ec8ef9ab-959c-42cd-abc6-b800eb76fd00
+   :END:
+Bucket Replication: Requirements for replication
+*** Answer:
+The source bucket owner must have the source and destination AWS
+Regions enabled for their account. The destination bucket owner must
+have the destination Region-enabled for their account.
+
+For more information about enabling or disabling an AWS Region, see
+AWS Service Endpoints in the AWS General Reference.
+
+Both source and destination buckets must have versioning enabled. For
+more information about versioning, see Using versioning in S3 buckets.
+
+Amazon S3 must have permissions to replicate objects from the source
+bucket to the destination bucket or buckets on your behalf.
+
+If the owner of the source bucket doesn't own the object in the
+bucket, the object owner must grant the bucket owner READ and READ_ACP
+permissions with the object access control list (ACL). For more
+information, see Access control list (ACL) overview.
+
+If the source bucket has S3 Object Lock enabled, the destination
+buckets must also have S3 Object Lock enabled.
+
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       3f0c5f01-2605-4aee-adba-4376386ce421
+   :END:
+Use cases for same region Bucket Replication
+
+Cross region is good for HA/distaster, but why same?
+*** Answer:
+
+Aggregate logs into a single bucket — If you store logs in multiple
+buckets or across multiple accounts, you can easily replicate logs
+into a single, in-Region bucket. This allows for simpler processing of
+logs in a single location.
+
+Configure live replication between production and test accounts — If
+you or your customers have production and test accounts that use the
+same data, you can replicate objects between those multiple accounts,
+while maintaining object metadata.
+
+Abide by data sovereignty laws — You might be required to store
+multiple copies of your data in separate AWS accounts within a certain
+Region. Same-Region replication can help you automatically replicate
+critical data when compliance regulations don't allow the data to
+leave your country.
+
+
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       a378d33d-c7d6-45b2-be7e-4a625ea40594
+   :END:
+Three ECS deployment tupes
+*** Answer:
+Blue/Green
+Rolling
+External (using third party or home grown)
+
+
+  
+** Question  :drill:
+   :PROPERTIES:
    :ID:       ae66166d-277d-41ca-a3cb-1c67ea5b9006
    :END:
 Does AWS recommend alternative to SQS?
@@ -35,6 +267,42 @@ or memory consumption.
 *** Answer:
 AWS Fault Injection Simulator
 
+
+** REST vs HTTP                                               :drill:
+   :PROPERTIES:
+   :ID:       72beb5f3-4024-42e4-9b44-b80f47497ed5
+   :END:
+API Gateway - REST vs HTTP --
+  - security features offered by one and not the other
+*** Answer:
+
+Only REST has:
+  Certificates for backend authentication
+  AWS WAF
+  Resource policies
+
+Both have mutual TLS
+
+** API Gateway Missing HTTP features                                  :drill:
+   :PROPERTIES:
+   :ID:       8fb89d39-a140-489d-849d-efef576d8cee
+   :END:
+In API gateway
+REST api is older than HTTP.  HTTP is faster+cheaper
+What are important features missing in HTTP
+
+*** Some missing :
+Only REST has
+  - Control via IAM resource 
+
+
+** Question  :drill:
+   :PROPERTIES:
+   :ID:       9ae4202e-96c7-4762-9b48-b48dd0874663
+   :END:
+REST / HTTP -- which does  /  doesn't suppor 
+*** Answer:
+answer here
 
     
 ** SQS purge                                                          :drill:
@@ -334,17 +602,17 @@ Set it smaller with LIMIT ... then it will take more requests
 but use fewer RCU at a time
 
 ** Cloudwatch                                                 :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-09 Wed>
    :PROPERTIES:
    :ID:       e69302b2-b8e1-4667-ad77-0c24ca4ad124
-   :DRILL_LAST_INTERVAL: 4.0
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 10.352
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 16:05]
+   :DRILL_AVERAGE_QUALITY: 3.75
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:45]
    :END:
 Default Metric resolution in cloudwatch?
 *** Answer:
@@ -412,17 +680,17 @@ In the policy, there is a Version: element, that is like 2013-09-11, different t
 
 
 ** Cloudformation Snippets                                            :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-05 Sat>
    :PROPERTIES:
    :ID:       8b014b83-06b2-45b3-adcc-77d6b9fbed07
-   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_LAST_INTERVAL: 4.285
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
-   :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 06:35]
+   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 3.167
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:13]
    :END:
 How do you include snippets stored in S3 with cloudformation?
 *** Answer:
@@ -506,17 +774,17 @@ RDS Oracle
 RDS SQl Server
 
 ** RDS Read replicas                                          :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-19 Sat>
    :PROPERTIES:
    :ID:       ec66cced-9b56-4f35-aa75-53e7c53a5e07
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 19.9491
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_AVERAGE_QUALITY: 3.333
    :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:29]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:44]
    :END:
 How many read replicas can you have?
 *** Answer:
@@ -524,17 +792,17 @@ Up to 5 for M-M-O-P-SS
 Up to 15 for Aurora
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-03 Thu>
    :PROPERTIES:
    :ID:       1cf23e79-07be-48f4-94c8-85466c60460d
-   :DRILL_LAST_INTERVAL: 10.3376
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
-   :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:52]
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:55]
    :END:
 What does WAF block? / what "level"
 
@@ -548,17 +816,17 @@ What does WAF block? / what "level"
     that filter out specific traffic patterns.
 
 ** Lambda - searching xray                                        :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-08 Tue>
    :PROPERTIES:
    :ID:       5065f71f-667f-4a29-ad20-71053f365045
-   :DRILL_LAST_INTERVAL: 3.995
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 9.4841
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 5
-   :DRILL_AVERAGE_QUALITY: 2.625
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 16:06]
+   :DRILL_AVERAGE_QUALITY: 2.667
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:46]
    :END:
 What is the lambda API method you call to get back segment data, with
 a filter
@@ -567,17 +835,17 @@ GetTraceSummaries
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-25 Fri>
    :PROPERTIES:
    :ID:       8468b455-4956-4662-adef-27c95f5378a5
-   :DRILL_LAST_INTERVAL: 10.0
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 25.88
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:46]
+   :DRILL_AVERAGE_QUALITY: 4.333
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:39]
    :END:
 Elastic beanstalk -- rollback deploy -- what are the two easiest
 *** Answer:
@@ -586,17 +854,17 @@ Blue/Green -- you switch the traffic back to blue (swap the url)
 
 
 ** Global Secondary                                           :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-03-02 Wed>
    :PROPERTIES:
    :ID:       50d05678-24c3-44e1-b09d-78b29774962d
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 30.9885
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.7
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:39]
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:50]
    :END:
 In DynamoDB, what feature is unavailable if you query a global secondary index?
 *** Answer:
@@ -627,17 +895,17 @@ Difference of task and service placement strategy in ECS (defaults)
     cluster.
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-13 Sun>
    :PROPERTIES:
    :ID:       93420833-84a0-47b7-b952-1add8333d8af
-   :DRILL_LAST_INTERVAL: 4.435
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 12.8526
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.6
-   :DRILL_EASE: 2.8
+   :DRILL_AVERAGE_QUALITY: 3.833
+   :DRILL_EASE: 2.9
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 06:34]
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:33]
    :END:
 What is the DSL for placing tasks in ECS?
 *** Answer:
@@ -646,17 +914,17 @@ Cluster Query Language
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-18 Fri>
    :PROPERTIES:
    :ID:       a65c35ab-a7cf-4dad-9eec-045a01270299
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 19.9491
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_AVERAGE_QUALITY: 3.333
    :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:40]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:51]
    :END:
 How to set up xray -- what are config names?
   1) Elastic bean stalk
@@ -666,17 +934,17 @@ How to set up xray -- what are config names?
 2) user data scripts
 
 ** API identify                                                       :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-28 Mon>
    :PROPERTIES:
    :ID:       ffb19d92-3b4d-4971-8d19-812293ab630f
-   :DRILL_LAST_INTERVAL: 10.7143
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 28.7036
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:47]
+   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:53]
    :END:
 GetTraceSummaries
 *** What is it from
@@ -735,17 +1003,17 @@ GetTraceSummaries
 
 
 ** Bots                                                               :drill:
-   SCHEDULED: <2022-01-22 Sat>
+   SCHEDULED: <2022-03-01 Tue>
    :PROPERTIES:
    :ID:       733e605a-d93b-431f-90b0-c9d1d8067802
-   :DRILL_LAST_INTERVAL: 10.7143
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 28.7036
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 06:56]
+   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:27]
    :END:
 what service is associated with monitoring bot traffice
 *** answer
@@ -753,17 +1021,17 @@ what service is associated with monitoring bot traffice
     Also injection attacks, other recognized traffic patterns --
     you can ibnstall various rules packages
 ** Cloudwatch monitoring                                              :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-23 Wed>
    :PROPERTIES:
    :ID:       e435617b-d730-4059-93ce-4eaebe8654d6
-   :DRILL_LAST_INTERVAL: 9.6346
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 23.7011
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 4.0
    :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:28]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:48]
    :END:
 
    What is the default and detailed monitoring collection times for
@@ -781,17 +1049,17 @@ There is also default and high resolution for metrics with 1 second resultion
   and 10 second alarms
 
 ** Question                                                           :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-03 Thu>
    :PROPERTIES:
    :ID:       a3d8d1b6-adaa-429c-8f80-51d500b4f9ac
-   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_LAST_INTERVAL: 4.14
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
-   :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 16:06]
+   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_FAILURE_COUNT: 4
+   :DRILL_AVERAGE_QUALITY: 2.857
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:55]
    :END:
 What is time period for Cloudwatch high resolution alarm?
 *** Answer:
@@ -800,17 +1068,17 @@ Remeber to distinguish high resoultion metrics which are 1 second granularity
 and high res alarms, 10 seconds
 
 ** RDS Enhanced monitoring                                    :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       16c3bc6d-1dbb-4045-b2e3-7bcdd0eab4bf
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
-   :DRILL_FAILURE_COUNT: 0
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_FAILURE_COUNT: 1
    :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:57]
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 08:17]
    :END:
 Enhanced Monitoring is available for all DB instance classes except
 for the [db.m1.small] instance class
@@ -835,18 +1103,18 @@ Create a Custom Identity Broker to get credentials from STS
 
 
 ** KMS                                                        :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-11 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       5d409fbf-611c-403b-a4b6-ebabf8b1fb3f
-:DRILL_LAST_INTERVAL: 4.0
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 9.648
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.75
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:29]
+:DRILL_AVERAGE_QUALITY: 2.8
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:03]
 :END:
 
 You create KMS keys in AWS KMS.
@@ -886,36 +1154,36 @@ Pricing: cloudwatch logs
 
 
 ** RDS Replication                                            :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-03-01 Tue>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       00b0e451-accc-44e8-95c7-40f97ca673c9
-:DRILL_LAST_INTERVAL: 9.3103
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 23.2385
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.0
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2022-01-16 Sun 14:09]
+:DRILL_AVERAGE_QUALITY: 3.4
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:28]
 :END:
 For RDS Replicas, there are two types.  A [standby] replica must be deployed in
-same region, while a [read] replica can be stored in a difference than the
-primary db reference.
+same region, while a [read] replica can be stored in a different region than the
+primary db.
 
 ** HA OLTP RDS                                                :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-02-10 Thu>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       c8aa9bbd-2278-4ae9-9eed-a2497beb8194
-:DRILL_LAST_INTERVAL: 9.3103
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.25
-:DRILL_EASE: 2.36
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:42]
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.167
+:DRILL_EASE: 2.46
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2022-02-06 Sun 08:17]
 :END:
 
 RDS:
@@ -929,17 +1197,17 @@ predictable performance.
 
   
 ** Dynamo Locking                                             :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-19 Sat>
    :PROPERTIES:
    :ID:       5ef49ac6-e29b-4980-8bb8-81216033cbe5
-   :DRILL_LAST_INTERVAL: 9.3103
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 21.1996
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.5
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:48]
+   :DRILL_AVERAGE_QUALITY: 3.333
+   :DRILL_EASE: 2.22
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:33]
    :END:
 What locking strategy involves checking to see if a record has been
 updated before updating/deleting?
@@ -955,17 +1223,17 @@ With global tables it will not work, they always use last-writer-wins
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.OptimisticLocking.html 
 
 ** Presigned                                                  :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-02-20 Sun>
    :PROPERTIES:
    :ID:       d0c888af-8e14-4fc1-8e01-02ed342b9f51
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 19.2482
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.5
-   :DRILL_EASE: 2.22
+   :DRILL_AVERAGE_QUALITY: 2.6
+   :DRILL_EASE: 2.08
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 14:07]
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:06]
    :END:
 How long are presigned urls good
 *** Answer:
@@ -976,17 +1244,17 @@ Depends credentials, max:
 
 
 ** CORS                                                       :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-03-02 Wed>
    :PROPERTIES:
    :ID:       638cb926-e66e-4e9b-90f7-e2a1152feb7b
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 30.9885
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.7
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 21:40]
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:47]
    :END:
 What do you configure with CORS?
 *** Answer:
@@ -1028,18 +1296,18 @@ header on the preflight request must match an AllowedHeader element
 
 
 ** S3 items                                                   :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-23 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       54b46583-15d5-4965-8887-c21dd6493d33
-:DRILL_LAST_INTERVAL: 10.0
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 2
+:DRILL_LAST_INTERVAL: 24.12
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 3
 :DRILL_FAILURE_COUNT: 0
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2022-01-11 Tue 06:44]
+:DRILL_AVERAGE_QUALITY: 3.667
+:DRILL_EASE: 2.36
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:51]
 :END:
 
 The [ACLs and policies] continue to apply when you enable [CORS] on the bucket.
@@ -1061,17 +1329,17 @@ validate existing policies
 
 
 ** S3 access analyzer                                                 :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-07 Mon>
    :PROPERTIES:
    :ID:       25822b35-c483-4abe-b68c-774bebcccd9f
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 8.1517
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.75
-   :DRILL_EASE: 2.04
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 16:04]
+   :DRILL_AVERAGE_QUALITY: 2.778
+   :DRILL_EASE: 1.9
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:42]
    :END:
 When you enable Access Analyzer, an IAM construct called  [service-linked role] is created in the current account.
 It grants permission to Access Analyzer to interact with AWS resources on your behalf.
@@ -1103,17 +1371,17 @@ What are 5 datatypes of CloudFormation params
     AWS-specific paramter types E.g. AWS::EC2::Image::Id
 
 ** CloudFormation -parm validation                                    :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-22 Tue>
    :PROPERTIES:
    :ID:       9e7df430-2775-4e0e-a108-46727da9c047
-   :DRILL_LAST_INTERVAL: 9.6346
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 22.8725
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.8
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:10]
+   :DRILL_AVERAGE_QUALITY: 2.833
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:50]
    :END:
 What is the name of the property that takes a validation regexp
 *** Answer:
@@ -1127,18 +1395,18 @@ What is the name of the property that takes a validation regexp
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       96c529fc-8aa7-4bf0-adb4-17a458b6c8ee
-:DRILL_LAST_INTERVAL: 4.14
+:DRILL_LAST_INTERVAL: 4.285
 :DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 4
-:DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.75
-:DRILL_EASE: 2.6
+:DRILL_TOTAL_REPEATS: 6
+:DRILL_FAILURE_COUNT: 2
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.7
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:08]
+:DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:44]
 :END:
 
 For Provisioned IOPS ssd:
@@ -1349,17 +1617,17 @@ details.answer here
 
 
 ** ASG counts                                                         :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       19f2030a-06aa-4902-8211-5602662c1a11
-   :DRILL_LAST_INTERVAL: 3.995
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 10.1713
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.5
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:07]
+   :DRILL_AVERAGE_QUALITY: 3.8
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:40]
    :END:
 Usually Autoscaling won't create more instances than desired capacity
 *** The exception is when
@@ -1474,17 +1742,17 @@ than 200 new IAM database authentication connections per second.
 
 
 ** Data Pipleline failue                                              :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-24 Thu>
    :PROPERTIES:
    :ID:       bb61e8b9-0dc1-471b-9cf4-5f094c5c8cb4
-   :DRILL_LAST_INTERVAL: 9.6346
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 23.7011
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.2
+   :DRILL_AVERAGE_QUALITY: 3.333
    :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 20:56]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:24]
    :END:
 Q: What happens if a Data Pipeline activity fails?
 
@@ -1522,17 +1790,17 @@ Alternatives to console for monitoring mysql logs
     The console is  for logs going to cloudwatch
 
 ** Push to mobile apps                                                :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-03 Thu>
    :PROPERTIES:
    :ID:       649a8311-763d-4b9d-a2a4-ec2b405a7bc3
-   :DRILL_LAST_INTERVAL: 11.9834
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 5
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 3.715
    :DRILL_EASE: 2.66
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-09 Sun 11:59]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:55]
    :END:
 What is feature that allows push to mobile apps?
 *** Answer:
@@ -1618,33 +1886,33 @@ Does fargate offer CPU bursting
     Ubuntu
     Windows Server (2012 R2 and newer)
 *** how to launch xray on an ec2 instance                             :drill:
-    SCHEDULED: <2022-01-24 Mon>
+    SCHEDULED: <2022-02-12 Sat>
     :PROPERTIES:
     :ID:       e9fc70c3-6356-4d7e-b0d2-ac50f767dad3
-    :DRILL_LAST_INTERVAL: 4.135
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 7
+    :DRILL_LAST_INTERVAL: 10.5277
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 8
     :DRILL_FAILURE_COUNT: 2
-    :DRILL_AVERAGE_QUALITY: 3.429
+    :DRILL_AVERAGE_QUALITY: 3.5
     :DRILL_EASE: 2.56
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:29]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:00]
     :END:
     ______________________________________
 **** A
      With a user data script
 *** Xray on ec2                                                       :drill:
-    SCHEDULED: <2022-01-25 Tue>
+    SCHEDULED: <2022-03-23 Wed>
     :PROPERTIES:
     :ID:       6182556d-e4be-4678-a877-a08cee149fa6
-    :DRILL_LAST_INTERVAL: 23.1879
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 13
+    :DRILL_LAST_INTERVAL: 49.5989
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 14
     :DRILL_FAILURE_COUNT: 7
-    :DRILL_AVERAGE_QUALITY: 2.538
-    :DRILL_EASE: 2.18
+    :DRILL_AVERAGE_QUALITY: 2.571
+    :DRILL_EASE: 2.04
     :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:09]
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:06]
     :END:
     You install a [user data script] and assign [an instance profile] to get xray trace from ec2
 **** bonus
@@ -1874,17 +2142,17 @@ yum install -y /home/ec2-user/xray.rpm
 **** definition
      capture IP traffic between Network interfaces Of VPC
 *** Are flow logs free?                                               :drill:
-    SCHEDULED: <2022-01-19 Wed>
+    SCHEDULED: <2022-03-21 Mon>
     :PROPERTIES:
     :ID:       98d12379-77c6-4005-8e52-3f5a1977f244
-    :DRILL_LAST_INTERVAL: 22.1527
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 7
+    :DRILL_LAST_INTERVAL: 51.3943
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 8
     :DRILL_FAILURE_COUNT: 2
-    :DRILL_AVERAGE_QUALITY: 2.857
+    :DRILL_AVERAGE_QUALITY: 3.0
     :DRILL_EASE: 2.32
     :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:44]
+    :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:29]
     :END:
 .
 **** answer
@@ -1941,22 +2209,37 @@ yum install -y /home/ec2-user/xray.rpm
 ** RDS
 ** Athena
 
+** Autoscaling and Placement strategies                               :drill:
+   :PROPERTIES:
+   :ID:       67db4e38-29d3-48d5-b181-79c67fbb7ec1
+   :END:
+Name three autoscaling policy types,
+and three placement strategies
+
+*** Answer:
+Autoscaling policy types: step scalling, target tracking and simple (simple not us    
+EC2 Placement : binpack, random, spread
+
+
+ASG:
+
+
 ** Auto scaling
 
 *** term policies
 
 **** default                                                          :drill:
-     SCHEDULED: <2022-01-23 Sun>
+     SCHEDULED: <2022-04-13 Wed>
      :PROPERTIES:
      :ID:       aa3096a5-b114-460b-8954-67b338f7def4
-     :DRILL_LAST_INTERVAL: 26.791
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 5
+     :DRILL_LAST_INTERVAL: 72.0946
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 6
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 3.6
-     :DRILL_EASE: 2.6
-     :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:43]
+     :DRILL_AVERAGE_QUALITY: 3.833
+     :DRILL_EASE: 2.7
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:33]
      :END:
      what is default autoscaling term (scale-in) strategy?
 
@@ -1969,17 +2252,17 @@ yum install -y /home/ec2-user/xray.rpm
 *** health checks
 
 **** types                                                            :drill:
-     SCHEDULED: <2022-01-25 Tue>
+     SCHEDULED: <2022-02-20 Sun>
      :PROPERTIES:
      :ID:       b8b32a13-3c91-438f-bef7-25edfb0bc38c
-     :DRILL_LAST_INTERVAL: 8.5576
-     :DRILL_REPEATS_SINCE_FAIL: 3
-     :DRILL_TOTAL_REPEATS: 8
+     :DRILL_LAST_INTERVAL: 18.6556
+     :DRILL_REPEATS_SINCE_FAIL: 4
+     :DRILL_TOTAL_REPEATS: 9
      :DRILL_FAILURE_COUNT: 2
-     :DRILL_AVERAGE_QUALITY: 2.875
+     :DRILL_AVERAGE_QUALITY: 3.0
      :DRILL_EASE: 2.18
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:52]
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:05]
      :END:
      what are types of ASG health checks
 
@@ -2043,25 +2326,27 @@ yum install -y /home/ec2-user/xray.rpm
 
       
 
+
+
 *** types                                                :practice:drill:memorize:
-    SCHEDULED: <2022-01-19 Wed>
+    SCHEDULED: <2022-02-03 Thu>
     :PROPERTIES:
     :ID:       35db9392-7d71-49c5-bcd0-a0887d267163
-    :DRILL_LAST_INTERVAL: 22.3854
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 9
-    :DRILL_FAILURE_COUNT: 4
-    :DRILL_AVERAGE_QUALITY: 2.556
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 11
+    :DRILL_FAILURE_COUNT: 5
+    :DRILL_AVERAGE_QUALITY: 2.636
     :DRILL_EASE: 2.18
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:41]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:55]
     :END:
-    Name three autoscaling strategies
+    Name three autoscaling policy types
 
 **** they are
      - Target tracking - responds to alarm
      - Simple - usually not recommended , reevaluates after cooldown
-     - Step scaling - varies adjustments 
+     - Step scaling - varies adjustments on size of breach with multiple measures
 
 
 
@@ -2150,17 +2435,17 @@ sustain one write request per second or [4] write capacity units for a
 transactional write request.
 *** Dynamo limits
 **** What is the item size limit for DynamoDb                         :drill:
-     SCHEDULED: <2022-01-24 Mon>
+     SCHEDULED: <2022-04-12 Tue>
      :PROPERTIES:
      :ID:       4b532143-f584-4243-b45f-01fde0a5ea58
-     :DRILL_LAST_INTERVAL: 25.88
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 6
+     :DRILL_LAST_INTERVAL: 69.6431
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 7
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 3.5
-     :DRILL_EASE: 2.6
+     :DRILL_AVERAGE_QUALITY: 3.714
+     :DRILL_EASE: 2.7
      :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:49]
+     :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:58]
      :END:
      What is the item size limit for DynamoDb 
      :PROPERTIES:
@@ -2203,33 +2488,33 @@ transactional write request.
 ***** How?
       LastEvaluatedKey
 **** Dynamo Query return limits                                       :drill:
-     SCHEDULED: <2022-01-18 Tue>
+     SCHEDULED: <2022-02-02 Wed>
      :PROPERTIES:
      :ID:       87a1efa0-fefb-4cdc-93c5-5325310e327b
-     :DRILL_LAST_INTERVAL: 30.9885
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 3
-     :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 5.0
+     :DRILL_LAST_INTERVAL: 4.0
+     :DRILL_REPEATS_SINCE_FAIL: 2
+     :DRILL_TOTAL_REPEATS: 5
+     :DRILL_FAILURE_COUNT: 1
+     :DRILL_AVERAGE_QUALITY: 3.8
      :DRILL_EASE: 2.8
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-18 Sat 03:55]
+     :DRILL_LAST_QUALITY: 4
+     :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:27]
      :END:
      A  dynamo query can return [1 mb] of data
 ***** Notes
       It applies to query and scan same way
 **** Name of indicator there are more results in dynamo               :drill:
-     SCHEDULED: <2022-01-22 Sat>
+     SCHEDULED: <2022-03-27 Sun>
      :PROPERTIES:
      :ID:       dafa1a24-7d88-4bb2-8069-6e9a60361266
-     :DRILL_LAST_INTERVAL: 22.4564
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 7
+     :DRILL_LAST_INTERVAL: 54.861
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 8
      :DRILL_FAILURE_COUNT: 2
-     :DRILL_AVERAGE_QUALITY: 3.143
-     :DRILL_EASE: 2.36
-     :DRILL_LAST_QUALITY: 4
-     :DRILL_LAST_REVIEWED: [2021-12-31 Fri 16:06]
+     :DRILL_AVERAGE_QUALITY: 3.375
+     :DRILL_EASE: 2.46
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:30]
      :END:
      What's the indictor there are more records and when do you get it
 ***** answer
@@ -2242,17 +2527,17 @@ transactional write request.
 that is up to 1 MB per second per partition
 ** Cloudwatch
 ***  in cloudwatch:      :drill:
-    SCHEDULED: <2022-01-24 Mon>
+    SCHEDULED: <2022-04-12 Tue>
     :PROPERTIES:
     :ID:       fe912613-50a9-44a9-bd5f-9eaf0ad88c1c
-    :DRILL_LAST_INTERVAL: 27.7286
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_LAST_INTERVAL: 69.5711
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 5
     :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 3.75
-    :DRILL_EASE: 2.6
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:43]
+    :DRILL_AVERAGE_QUALITY: 3.6
+    :DRILL_EASE: 2.46
+    :DRILL_LAST_QUALITY: 3
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:56]
     :END:
     For configuring CW alarms - 
 ****  period vs evaluation period.
@@ -2276,34 +2561,34 @@ that is up to 1 MB per second per partition
 **** A
      No there have to be X breaches in the evaluation period
 *** Alarm criter cloudwatch                                           :drill:
-    SCHEDULED: <2022-01-21 Fri>
+    SCHEDULED: <2022-04-13 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       8282f4c2-44d4-441e-9cb9-3fa7f2b174ef
-:DRILL_LAST_INTERVAL: 27.733
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 4
+:DRILL_LAST_INTERVAL: 72.0226
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 5
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 4.0
-:DRILL_EASE: 2.7
-:DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2021-12-24 Fri 11:11]
+:DRILL_AVERAGE_QUALITY: 3.8
+:DRILL_EASE: 2.56
+:DRILL_LAST_QUALITY: 3
+:DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:24]
 :END:
         To trigger a [cloudwatch alarm] there must be X breaches in an [evaluation period]
 **** bonus
      X is datapoints to alarm
 *** Triggering - counter name                                         :drill:
-    SCHEDULED: <2022-01-23 Sun>
+    SCHEDULED: <2022-02-04 Fri>
     :PROPERTIES:
     :ID:       c7475b4b-c692-4827-a99e-1b3708f5f983
-    :DRILL_LAST_INTERVAL: 25.7358
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 8
-    :DRILL_FAILURE_COUNT: 4
-    :DRILL_AVERAGE_QUALITY: 2.626
+    :DRILL_LAST_INTERVAL: 4.0
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 10
+    :DRILL_FAILURE_COUNT: 5
+    :DRILL_AVERAGE_QUALITY: 2.7
     :DRILL_EASE: 2.42
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:45]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:46]
     :END:
     the count of breaches that will trigger cloudwatch alarm is called [datapoints to alarm]
 *** Define cloudwatch  "metric math"                              :drill:fix:
@@ -2327,47 +2612,47 @@ that is up to 1 MB per second per partition
      metrics.
 
 *** Cloudwatch take                                                   :drill:
-    SCHEDULED: <2022-01-22 Sat>
+    SCHEDULED: <2022-04-18 Mon>
     :PROPERTIES:
     :ID:       05837a88-f21e-4c2c-84f6-415e7d7ab143
-    :DRILL_LAST_INTERVAL: 27.733
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 4
+    :DRILL_LAST_INTERVAL: 77.2364
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 5
     :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 3.75
-    :DRILL_EASE: 2.7
+    :DRILL_AVERAGE_QUALITY: 4.0
+    :DRILL_EASE: 2.8
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-25 Sat 08:46]
+    :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:27]
     :END:
     Cloudwatch is basically a [metrics repository]
 *** Does Cloudwatch give totals for all regions?                      :drill:
-    SCHEDULED: <2022-01-25 Tue>
+    SCHEDULED: <2022-05-01 Sun>
     :PROPERTIES:
     :ID:       a056b84b-443f-44ea-adf5-e0e301398045
-    :DRILL_LAST_INTERVAL: 30.7556
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_LAST_INTERVAL: 89.1297
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 4
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.8
+    :DRILL_EASE: 2.9
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-25 Sat 08:46]
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:04]
     :END:
     _____________________________________
 **** A.
      No - cloudwatch is region-by-region 
 *** Can you add custom metrics to Cloudwatch                          :drill:
-    SCHEDULED: <2022-01-25 Tue>
+    SCHEDULED: <2022-05-06 Fri>
     :PROPERTIES:
     :ID:       4fb189ae-8f1d-4ee7-a094-8559f3ed2d7d
-    :DRILL_LAST_INTERVAL: 30.7556
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_LAST_INTERVAL: 89.1297
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 4
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.8
+    :DRILL_EASE: 2.9
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-25 Sat 08:46]
+    :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:30]
     :END:
     can you?
 **** A
@@ -2426,22 +2711,28 @@ You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
 **** A
      Standard and High - 1 minute and 1 second
 *** Avaialble alarms                                         :drill:memorize:
-    SCHEDULED: <2022-01-25 Tue>
+    SCHEDULED: <2022-02-05 Sat>
     :PROPERTIES:
     :ID:       b23d4b66-683c-439e-98ea-864639c84921
-    :DRILL_LAST_INTERVAL: 8.8569
-    :DRILL_REPEATS_SINCE_FAIL: 3
-    :DRILL_TOTAL_REPEATS: 11
-    :DRILL_FAILURE_COUNT: 4
-    :DRILL_AVERAGE_QUALITY: 2.727
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 13
+    :DRILL_FAILURE_COUNT: 5
+    :DRILL_AVERAGE_QUALITY: 2.769
     :DRILL_EASE: 2.18
     :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2022-01-16 Sun 14:10]
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:14]
     :END:
     What are available resoutions for cloudwatch alarm?
 **** A
-     10 second, 30 second and any multipe of 60 second
-     High resolution: 1 second
+     Alarm: 10 second and 30 second is high reolution
+        -high resolution custom metrics are 1 second,
+	- regular custom metrics are 1 minute
+     You only set high resolution alarm on high resolution metric
+
+     Any multiple of 60 seconds is a regular resolution
+     
+
      
     
 
@@ -2455,17 +2746,17 @@ You must install [CloudWatch Agent] to get EC2 [memory/disk utilization] metrics
 ** Load balancers
 
 *** offloading                                                        :drill:
-    SCHEDULED: <2022-01-21 Fri>
+    SCHEDULED: <2022-04-30 Sat>
     :PROPERTIES:
     :ID:       ed19f801-ea4a-46f9-ba26-bedcb49735fe
-    :DRILL_LAST_INTERVAL: 30.9885
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_LAST_INTERVAL: 89.8047
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 4
     :DRILL_FAILURE_COUNT: 0
     :DRILL_AVERAGE_QUALITY: 5.0
-    :DRILL_EASE: 2.8
+    :DRILL_EASE: 2.9
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:40]
+    :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:52]
     :END:
 
 what type of ELB does TLS offloading
@@ -2474,34 +2765,34 @@ what type of ELB does TLS offloading
      both
 
 *** health checks                                                     :drill:
-    SCHEDULED: <2022-01-20 Thu>
+    SCHEDULED: <2022-04-23 Sat>
     :PROPERTIES:
     :ID:       74e45f73-dbd1-42e5-9c8c-c7ecdf8860aa
-    :DRILL_LAST_INTERVAL: 29.946
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 3
+    :DRILL_LAST_INTERVAL: 83.3996
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 4
     :DRILL_FAILURE_COUNT: 0
-    :DRILL_AVERAGE_QUALITY: 4.667
-    :DRILL_EASE: 2.7
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-21 Tue 06:37]
+    :DRILL_AVERAGE_QUALITY: 4.75
+    :DRILL_EASE: 2.8
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:44]
     :END:
     what is flaw not making ELB health checks when using ELB?
 
 **** answer
      ELB can route to instances that failed the EC2 health check
 *** Cloud watch                                                       :drill:
-    SCHEDULED: <2022-01-23 Sun>
+    SCHEDULED: <2022-02-10 Thu>
     :PROPERTIES:
     :ID:       50197b9d-e835-4f2b-b724-777847715d6c
-    :DRILL_LAST_INTERVAL: 4.14
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 10
+    :DRILL_LAST_INTERVAL: 10.1968
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 11
     :DRILL_FAILURE_COUNT: 4
-    :DRILL_AVERAGE_QUALITY: 3.101
-    :DRILL_EASE: 2.38
+    :DRILL_AVERAGE_QUALITY: 3.274
+    :DRILL_EASE: 2.48
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2022-01-19 Wed 06:35]
+    :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:35]
     :END:
     How ofen does ELB write to cloudwatch
 
@@ -2544,17 +2835,17 @@ what type of ELB does TLS offloading
     :END:
     there is a [many-to-many] relationship between target groups and ASGs
 *** and auto scaling                                                  :drill:
-    SCHEDULED: <2022-01-19 Wed>
+    SCHEDULED: <2022-03-30 Wed>
     :PROPERTIES:
     :ID:       3f2305bd-9035-4e8b-88c1-26771d6403d9
-    :DRILL_LAST_INTERVAL: 24.9136
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 5
+    :DRILL_LAST_INTERVAL: 59.8176
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 6
     :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 3.4
-    :DRILL_EASE: 2.32
-    :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-25 Sat 08:46]
+    :DRILL_AVERAGE_QUALITY: 3.667
+    :DRILL_EASE: 2.42
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:51]
     :END:
     what does ELB operate on when it scales out/scales in?
 
@@ -2596,17 +2887,17 @@ what type of ELB does TLS offloading
   
 
 *** limitation                                                        :drill:
-    SCHEDULED: <2022-01-26 Wed>
+    SCHEDULED: <2022-02-10 Thu>
     :PROPERTIES:
     :ID:       92ab0500-66e7-489a-8b81-bfe9cb172368
-    :DRILL_LAST_INTERVAL: 26.6646
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 6
-    :DRILL_FAILURE_COUNT: 2
-    :DRILL_AVERAGE_QUALITY: 3.167
-    :DRILL_EASE: 2.56
-    :DRILL_LAST_QUALITY: 4
-    :DRILL_LAST_REVIEWED: [2021-12-30 Thu 07:04]
+    :DRILL_LAST_INTERVAL: 4.285
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 8
+    :DRILL_FAILURE_COUNT: 3
+    :DRILL_AVERAGE_QUALITY: 3.001
+    :DRILL_EASE: 2.66
+    :DRILL_LAST_QUALITY: 5
+    :DRILL_LAST_REVIEWED: [2022-02-06 Sun 08:17]
     :END:
 Application Load Balancers do not support cookie values that are [URL encoded].
 
@@ -2635,17 +2926,17 @@ Application Load Balancers do not support cookie values that are [URL encoded].
 gp3 discs have base rate 3000 IOPS 125 MB/s free
 
 ** Firehose destinations                                              :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-02 Wed>
    :PROPERTIES:
    :ID:       329d346b-fa6e-44af-b60b-fd33e289beb0
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
-   :DRILL_FAILURE_COUNT: 0
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_FAILURE_COUNT: 1
    :DRILL_AVERAGE_QUALITY: 3.0
    :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:39]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:50]
    :END:
 Guess 11 destination
 *** Answer:
@@ -2688,17 +2979,17 @@ appspec.yml in root directory of the source code
 
 
 ** CodeDeploy                                                 :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-28 Mon>
    :PROPERTIES:
    :ID:       5e47bef8-2ffb-4c4e-a327-a6f1e7dc3783
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 29.946
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_AVERAGE_QUALITY: 4.667
    :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:35]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:31]
    :END:
 Code Deploy redployment
 
@@ -2747,17 +3038,17 @@ instance sizes in a region, making it easier for you to take advantage
 of the RI’s discounted rate.
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-03-02 Wed>
    :PROPERTIES:
    :ID:       40a580cb-7b2d-4475-8c41-8d27ac747af0
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 30.9885
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.7
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:37]
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:38]
    :END:
 Permissions for Dynamo: is update a superset of insert?
 *** Answer:
@@ -2766,17 +3057,17 @@ key doesn't exist.
 
 
 ** Security groups                                     :drill:practice:drill:
-    SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
     :PROPERTIES:
     :ID:       032a4b89-7c27-4d31-bb32-5e0fdd3f4ed9
-    :DRILL_LAST_INTERVAL: 23.2385
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 10
-    :DRILL_FAILURE_COUNT: 4
-    :DRILL_AVERAGE_QUALITY: 2.899
-    :DRILL_EASE: 2.46
+    :DRILL_LAST_INTERVAL: 4.14
+    :DRILL_REPEATS_SINCE_FAIL: 2
+    :DRILL_TOTAL_REPEATS: 12
+    :DRILL_FAILURE_COUNT: 5
+    :DRILL_AVERAGE_QUALITY: 2.916
+    :DRILL_EASE: 2.56
     :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-31 Fri 16:16]
+    :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:43]
     :END:
     How does security work with ELB listeners
     Must allow for health checks on back end listerns
@@ -2858,17 +3149,17 @@ Differences alb and nlb
       both, but not default for either
 
 *** Static/Elastic IPs                                                :drill:
-    SCHEDULED: <2022-01-23 Sun>
+    SCHEDULED: <2022-02-10 Thu>
     :PROPERTIES:
     :ID:       4d8bad99-c911-46cf-8982-7356ba26d165
-    :DRILL_LAST_INTERVAL: 3.855
-    :DRILL_REPEATS_SINCE_FAIL: 2
-    :DRILL_TOTAL_REPEATS: 5
+    :DRILL_LAST_INTERVAL: 8.8318
+    :DRILL_REPEATS_SINCE_FAIL: 3
+    :DRILL_TOTAL_REPEATS: 6
     :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 3.4
-    :DRILL_EASE: 2.32
+    :DRILL_AVERAGE_QUALITY: 3.333
+    :DRILL_EASE: 2.18
     :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2022-01-19 Wed 06:34]
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:55]
     :END:
     Where can you use static and elastic ips with Elastic load balancers?
 **** Answer
@@ -2885,17 +3176,17 @@ Differences alb and nlb
 ***** Answer
       Yes, but disabled by default
 **** Format DNS name                                         :memorize:drill:
-     SCHEDULED: <2022-01-23 Sun>
+     SCHEDULED: <2022-02-10 Thu>
      :PROPERTIES:
      :ID:       40b3c80c-ee44-4075-82fb-a47969f30ecf
-     :DRILL_LAST_INTERVAL: 4.14
-     :DRILL_REPEATS_SINCE_FAIL: 2
-     :DRILL_TOTAL_REPEATS: 9
+     :DRILL_LAST_INTERVAL: 10.1968
+     :DRILL_REPEATS_SINCE_FAIL: 3
+     :DRILL_TOTAL_REPEATS: 10
      :DRILL_FAILURE_COUNT: 3
-     :DRILL_AVERAGE_QUALITY: 3.333
-     :DRILL_EASE: 2.38
+     :DRILL_AVERAGE_QUALITY: 3.5
+     :DRILL_EASE: 2.48
      :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:07]
+     :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:40]
      :END:
      Format of DNS name of ALB
 ***** answer
@@ -2957,17 +3248,17 @@ Differences alb and nlb
       It doesn't.  ALB makes node in public and you connect
       
 **** Pricing ALB - two measures                             :drill:
-     SCHEDULED: <2022-01-21 Fri>
+     SCHEDULED: <2022-03-18 Fri>
      :PROPERTIES:
      :ID:       43526031-7ec0-44d9-bbf2-c3e53bcfc200
-     :DRILL_LAST_INTERVAL: 20.6501
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 6
+     :DRILL_LAST_INTERVAL: 46.2356
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 7
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 3.333
-     :DRILL_EASE: 2.32
-     :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-31 Fri 16:04]
+     :DRILL_AVERAGE_QUALITY: 3.285
+     :DRILL_EASE: 2.18
+     :DRILL_LAST_QUALITY: 3
+     :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:25]
      :END:
 What are two measures for pricing ALB
 
@@ -2990,17 +3281,17 @@ What are two measures for pricing ALB
       (Number of rules processed - 10 free rules).
 
 **** Which OSI level is App load balancer working on                  :drill:
-     SCHEDULED: <2022-01-18 Tue>
+     SCHEDULED: <2022-04-28 Thu>
      :PROPERTIES:
      :ID:       5e69d6f8-8145-4a7f-b21a-76659813a8a5
-     :DRILL_LAST_INTERVAL: 30.9885
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_LAST_INTERVAL: 89.8047
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 4
      :DRILL_FAILURE_COUNT: 0
      :DRILL_AVERAGE_QUALITY: 5.0
-     :DRILL_EASE: 2.8
+     :DRILL_EASE: 2.9
      :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-18 Sat 03:55]
+     :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:43]
      :END:
      Which OSI level is App load balancer working on
 ***** Answer
@@ -3023,17 +3314,17 @@ What are two measures for pricing ALB
       level 4 the Network layer.
 ** Cloud formation
 *** define CF stack sets                                              :drill:
-    SCHEDULED: <2022-01-18 Tue>
+    SCHEDULED: <2022-03-21 Mon>
     :PROPERTIES:
     :ID:       21a8d348-4d41-43ef-b4c8-e9ffba625e01
-    :DRILL_LAST_INTERVAL: 23.2194
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 5
+    :DRILL_LAST_INTERVAL: 51.9882
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 6
     :DRILL_FAILURE_COUNT: 1
-    :DRILL_AVERAGE_QUALITY: 3.2
-    :DRILL_EASE: 2.32
+    :DRILL_AVERAGE_QUALITY: 3.167
+    :DRILL_EASE: 2.18
     :DRILL_LAST_QUALITY: 3
-    :DRILL_LAST_REVIEWED: [2021-12-26 Sun 08:44]
+    :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:45]
     :END:
     stack sets =
 **** A
@@ -3074,18 +3365,18 @@ What are two measures for pricing ALB
 **** bonus
      the physical are "outside" of CF
 *** What does a CF template describe                                  :drill:
-    SCHEDULED: <2022-01-20 Thu>
+    SCHEDULED: <2022-04-06 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       aa808fc7-0a00-4afd-9134-8c62288b8e5c
-:DRILL_LAST_INTERVAL: 24.8958
-:DRILL_REPEATS_SINCE_FAIL: 4
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 65.6004
+:DRILL_REPEATS_SINCE_FAIL: 5
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 3.8
-:DRILL_EASE: 2.56
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.66
 :DRILL_LAST_QUALITY: 5
-:DRILL_LAST_REVIEWED: [2021-12-26 Sun 08:32]
+:DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:44]
 :END:
     [end state] of the [infrastructure] you are privisioning or changing
 *** define                                                            :drill:
@@ -3106,17 +3397,17 @@ What are two measures for pricing ALB
     [runtime values] are assigned  in CF templates with [instrinsic functions]
 *** functions
 **** Name function that gets a value from mapping section             :drill:
-     SCHEDULED: <2022-01-22 Sat>
+     SCHEDULED: <2022-04-18 Mon>
      :PROPERTIES:
      :ID:       052a13bf-f064-409b-a96f-30e473938e21
-     :DRILL_LAST_INTERVAL: 28.6705
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 3
+     :DRILL_LAST_INTERVAL: 77.0663
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 4
      :DRILL_FAILURE_COUNT: 0
-     :DRILL_AVERAGE_QUALITY: 4.333
-     :DRILL_EASE: 2.56
-     :DRILL_LAST_QUALITY: 3
-     :DRILL_LAST_REVIEWED: [2021-12-24 Fri 11:14]
+     :DRILL_AVERAGE_QUALITY: 4.5
+     :DRILL_EASE: 2.66
+     :DRILL_LAST_QUALITY: 5
+     :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:27]
      :END:
      name?
 ***** Answer
@@ -3144,6 +3435,13 @@ What are two measures for pricing ALB
 ***** Answer
       FindInMap[MapName, TopLevelKey, SecondLevelKey]
     
+** CF run-time values                                                 :drill:
+   :PROPERTIES:
+   :ID:       5fe8cdcb-fc25-4987-bf0b-f8424fad0e3d
+   :END:
+In cloudformation, how do you specify runtime-create objects?
+*** Answer:
+Intrinsic Functions
 
     
 ** Service Distinctions
@@ -3219,17 +3517,17 @@ Context wher you talk about desired capacity
 AutoScaling group
 
 ** ASG instances                                                      :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-12 Sat>
    :PROPERTIES:
    :ID:       d36d5e89-af98-4d2b-86db-b4416858f164
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 10.7143
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_AVERAGE_QUALITY: 3.75
    :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:32]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:57]
    :END:
 What kinds of "purchase option" instances does an ASG launch -- what provisioning category?
 *** Answer:
@@ -3326,6 +3624,9 @@ crusty container
 tasty templates
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       c99ab999-1cc5-44ad-ba39-2bf4684297e8
+   :END:
 IAM - A bit academic
 
 What are there places where IAM uses policies?
@@ -3375,17 +3676,17 @@ What is only IAM resource based policy?
 ** Trusted Advisor
 
 **** disinguish                                           :drill:
-     SCHEDULED: <2022-01-21 Fri>
+     SCHEDULED: <2022-03-31 Thu>
      :PROPERTIES:
      :ID:       41ee5153-cf54-4038-b8c6-9eb4bcd69add
-     :DRILL_LAST_INTERVAL: 23.9544
-     :DRILL_REPEATS_SINCE_FAIL: 4
-     :DRILL_TOTAL_REPEATS: 6
+     :DRILL_LAST_INTERVAL: 59.5267
+     :DRILL_REPEATS_SINCE_FAIL: 5
+     :DRILL_TOTAL_REPEATS: 7
      :DRILL_FAILURE_COUNT: 1
-     :DRILL_AVERAGE_QUALITY: 3.667
-     :DRILL_EASE: 2.42
+     :DRILL_AVERAGE_QUALITY: 3.857
+     :DRILL_EASE: 2.52
      :DRILL_LAST_QUALITY: 5
-     :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:32]
+     :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:51]
      :END:
      Distinguish Trusted advisor and Insprector
 
@@ -3444,6 +3745,14 @@ What is only IAM resource based policy?
 **** A
      Beanstalk: .zip or .war ; CF .yaml/.json
 
+** CF                                                         :drill:
+   :PROPERTIES:
+   :ID:       45a92ef8-2745-4f75-9e77-7ca1e15d2f40
+   :END:
+What is needed for CF template to do stuff with IAM
+*** Answer:
+When deploying, add 
+   --capabilities CAPABILITY_IAM
 
 
 ** Associations
@@ -3485,18 +3794,18 @@ What is only IAM resource based policy?
 
 
 *** association template                                              :drill:
-    SCHEDULED: <2022-01-25 Tue>
+    SCHEDULED: <2022-04-28 Thu>
     :PROPERTIES:
     :DRILL_CARD_TYPE: hide1cloze
     :ID:       8a5bfe07-de84-4bcc-ba35-e1cd59694c0c
-    :DRILL_LAST_INTERVAL: 30.7556
-    :DRILL_REPEATS_SINCE_FAIL: 4
-    :DRILL_TOTAL_REPEATS: 6
+    :DRILL_LAST_INTERVAL: 86.1157
+    :DRILL_REPEATS_SINCE_FAIL: 5
+    :DRILL_TOTAL_REPEATS: 7
     :DRILL_FAILURE_COUNT: 2
-    :DRILL_AVERAGE_QUALITY: 3.5
+    :DRILL_AVERAGE_QUALITY: 3.571
     :DRILL_EASE: 2.8
-    :DRILL_LAST_QUALITY: 5
-    :DRILL_LAST_REVIEWED: [2021-12-25 Sat 15:23]
+    :DRILL_LAST_QUALITY: 4
+    :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:06]
     :END:
     [man in tne middle attack] and [DNS spoofing]
     Are remedied by DNSSEC
@@ -3578,17 +3887,17 @@ don't need to make changes to exisitng code
 
 
 ** CodeDeploy                                                         :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-03-26 Sat>
    :PROPERTIES:
    :ID:       4b90c2ef-a262-4ac1-a68a-001138bccff6
-   :DRILL_LAST_INTERVAL: 24.12
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 56.9232
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_AVERAGE_QUALITY: 3.2
    :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-25 Sat 09:11]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:44]
    :END:
 
    Code can deploy application content that runs on a server and is stored in 
@@ -3608,17 +3917,17 @@ Codecommit
 
    
 ** What service                                                       :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-04-09 Sat>
    :PROPERTIES:
    :ID:       5d4a9697-70d7-4f02-bf55-59b8bd7f8f20
-   :DRILL_LAST_INTERVAL: 26.7536
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 67.6599
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:38]
+   :DRILL_AVERAGE_QUALITY: 4.25
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:32]
    :END:
  1) Automate software installation and 2) reduce manual errors
 
@@ -3682,17 +3991,17 @@ Puts sam template in a repo (the AWS Serverless Repo)
 
 
 ** Clouformation helper scripts                               :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-11 Fri>
    :PROPERTIES:
    :ID:       d07d72d4-4c7c-447f-aabc-60aece077750
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 10.3376
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.5
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:33]
+   :DRILL_AVERAGE_QUALITY: 2.6
+   :DRILL_EASE: 2.46
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:02]
    :END:
 What are the 4 clouformation helper scripts
 *** Answer:
@@ -3765,19 +4074,19 @@ Step functions -- declarative json
 Step functions provides [serverless orchestration] for modern workflows
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-05 Sat>
    :PROPERTIES:
    :ID:       6e45e74f-fab0-4987-9ea9-50165eb4ed91
-   :DRILL_LAST_INTERVAL: 3.995
+   :DRILL_LAST_INTERVAL: 4.14
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
-   :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:31]
+   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 3.167
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:14]
    :END:
-AWS Secrets manager -- how can does it rotate secrets
+AWS Secrets manager  -- how can does it rotate secrets for databases?
 *** Answer:
 For some AWS databases, it's built in
 for others there is a lambda function you customize
@@ -3949,17 +4258,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 
    
 ** Dev env                                                            :drill:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-04-30 Sat>
    :PROPERTIES:
    :ID:       0a1340d7-33a4-45b0-adb4-05fa7f4ebbfc
-   :DRILL_LAST_INTERVAL: 29.7131
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 82.751
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.667
-   :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:47]
+   :DRILL_AVERAGE_QUALITY: 4.75
+   :DRILL_EASE: 2.8
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:32]
    :END:
      
  What development environment 
@@ -4043,17 +4352,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
     A deployment package and an execution role
 
 ** Lamda config pkgs                                                  :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-03-01 Tue>
    :PROPERTIES:
    :ID:       eadfd751-b307-4574-9ec4-f8791946cca8
-   :DRILL_LAST_INTERVAL: 11.592
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 32.4344
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 3.75
-   :DRILL_EASE: 2.9
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 08:37]
+   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_EASE: 2.76
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:43]
    :END:
     
     Lambda supports two types of deployment packages: [container images] and [.zip file archives].
@@ -4063,17 +4372,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
     container images come from  ECR
 
 ** MPU - rule of thumb                                                :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-05 Sat>
    :PROPERTIES:
    :ID:       574aa5a9-0853-4ce0-bd17-eabeb2ee4062
-   :DRILL_LAST_INTERVAL: 27.7286
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.333
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:42]
+   :DRILL_LAST_INTERVAL: 4.285
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.8
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:14]
    :END:
      Object size where you should start considering multi-part upload
 
@@ -4117,17 +4426,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
     network path.
 
 ** Bucket names                                                       :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-03-31 Thu>
    :PROPERTIES:
    :ID:       ed3a0cdb-a74c-4f28-b75c-8e33cdd17933
-   :DRILL_LAST_INTERVAL: 24.9136
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 59.8176
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.667
-   :DRILL_EASE: 2.32
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:33]
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.42
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:47]
    :END:
       Restriction on bucket names for Transfer acceleration
 *** name 2
@@ -4154,17 +4463,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
        - stale data -- IF you only refresh when there is a miss
 
 ** Elasticache strategies                                             :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-04-19 Tue>
    :PROPERTIES:
    :ID:       f180ad1c-80e3-4689-95c7-74dd3e8addc3
-   :DRILL_LAST_INTERVAL: 28.7036
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 77.2414
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_AVERAGE_QUALITY: 4.5
    :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:42]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:04]
    :END:
       What is write-thru
 
@@ -4172,17 +4481,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
       elasticache strategy, contrast with lazy loading -- db writes mean cache writes, no stale data
 
 ** Elasticache strategies                                             :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-03-31 Thu>
    :PROPERTIES:
    :ID:       6e2b0d9c-7327-4bd2-a6e8-13991bc99963
-   :DRILL_LAST_INTERVAL: 24.9136
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 59.8176
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.8
-   :DRILL_EASE: 2.32
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 06:48]
+   :DRILL_AVERAGE_QUALITY: 3.167
+   :DRILL_EASE: 2.42
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:53]
    :END:
       The penalties for Lazy Loading and Write-thru
 
@@ -4246,17 +4555,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
        dependencies
 
 ** lambda alias                                                       :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-04-13 Wed>
    :PROPERTIES:
    :ID:       d43387c7-34a4-4e51-8ff7-cc0a5a723e5d
-   :DRILL_LAST_INTERVAL: 26.791
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 72.0946
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.333
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:33]
+   :DRILL_AVERAGE_QUALITY: 4.5
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:35]
    :END:
       What is
 
@@ -4266,17 +4575,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 	  A pointer to a specific lambda version
 
 ** Configure rest API                                                 :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-03-13 Sun>
    :PROPERTIES:
    :ID:       00cdf927-5064-4a56-8796-b1e6b97655ac
-   :DRILL_LAST_INTERVAL: 18.3527
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 9
+   :DRILL_LAST_INTERVAL: 40.6879
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 10
    :DRILL_FAILURE_COUNT: 4
-   :DRILL_AVERAGE_QUALITY: 2.667
-   :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-05 Wed 07:15]
+   :DRILL_AVERAGE_QUALITY: 2.9
+   :DRILL_EASE: 2.18
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:37]
    :END:
 
        [Stage variables] are name-value pairs that you can define as
@@ -4339,17 +4648,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 *** lambda authorizer return, when is it used?
     A lambda autorizer is used by API gateway and returns a string which is a policy document
 ** API Gateway custom domain                                          :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-04-14 Thu>
    :PROPERTIES:
    :ID:       04f44086-e6d0-41b1-8227-92abdb250964
-   :DRILL_LAST_INTERVAL: 26.791
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 72.0946
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.6
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-28 Tue 22:45]
+   :DRILL_AVERAGE_QUALITY: 3.833
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:56]
    :END:
 	  Drawback to not using a path on Custom domain for API Gateway
 *** drawback
@@ -4393,38 +4702,43 @@ It is a Java thing now; there was a library for Ruby but will not be developed
    lambda default and max execution time limits
 *** Default/max
     3 seconds / 900 seconds
-** Gateway API non-public                                         :drill:fix:
-   SCHEDULED: <2022-01-19 Wed>
+** Gateway API types                                    :drill:fix:
+   SCHEDULED: <2022-02-13 Sun>
    :PROPERTIES:
    :ID:       b8fb54e8-1ae8-4300-9bd5-6435b5c2c56e
-   :DRILL_LAST_INTERVAL: 7.9786
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 11
+   :DRILL_LAST_INTERVAL: 14.9359
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 12
    :DRILL_FAILURE_COUNT: 5
-   :DRILL_AVERAGE_QUALITY: 2.545
-   :DRILL_EASE: 1.94
+   :DRILL_AVERAGE_QUALITY: 2.583
+   :DRILL_EASE: 1.8
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 06:54]
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:49]
    :END:
 
    "Endpoint type" in API gateway
 
-   Three endpoint types
+   
 
-*** The name
+*** Name Three endpoint types
 
 
-    A hostname for an API in API Gateway that is deployed to a
-    specific Region. The hostname is of the form
-    {api-id}.execute-api.{region}.amazonaws.com. The following types
-    of API endpoints are supported:
-
-        Edge-optimized API endpoint
+        Edge-optimized API endpoint -- This is the default endpoint type for API Gateway REST APIs.
 
         Private API endpoint
 
         Regional API endpoint
 
+** Gateway API headers                                        :drill:
+   :PROPERTIES:
+   :ID:       3f953c94-62e6-497b-b092-c1b7b511f2fd
+   :END:
+
+   There are three API gateway types.  What are they and what do they do to request headers.
+*** Answer:
+The default, Edge Optimized, capitalizes headers -- for example, Cookie
+
+The other two, Private and Regional, pass headers thru as-received
 	       
 ** VTL identify                                              :drill:practice:
    SCHEDULED: <2022-02-25 Fri>
@@ -4478,27 +4792,50 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 	      A [model] is required for generating a [strongly typed SDK] of an API.  (Gateway API)
 
 ** API Gateway's internal interface                                   :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-04-01 Fri>
    :PROPERTIES:
    :ID:       620877c4-ee32-473f-9bbf-f2142224cf7e
-   :DRILL_LAST_INTERVAL: 24.0576
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 61.2506
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-26 Sun 08:31]
+   :DRILL_AVERAGE_QUALITY: 4.25
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:38]
    :END:
-  What's this: he internal interface of a WebSocket API route or REST
+  What's this: the internal interface of a WebSocket API route or REST
   API method in API Gateway, in which you map the body of a route
   request or the parameters and body of a method request to the
   formats required by the backend.
 
 *** it is
 
-	      An integration request
-** API Gateway's internal intervace                                   :drill:
+    	      An integration request
+
+** Identify this                                              :drill:
+   :PROPERTIES:
+   :ID:       ce5bb7ef-9b63-48ca-b50e-ec2890b38acf
+   :END:
+A point-in-time snapshot of your API Gateway API. To be available for
+clients to use, the deployment must be associated with one or more API
+stages.
+*** What is the AWS term for that?
+API Deployment 
+
+** API Gateway                                                        :drill:
+   :PROPERTIES:
+   :ID:       96770594-5382-4807-8821-bb0e3ffcb629
+   :END:
+What is "An API Deployment"
+*** Answer:
+
+A point-in-time snapshot of your API Gateway API. To be available for
+clients to use, the deployment must be associated with one or more API
+stages.
+
+
+** API Gateway's internal interface                                   :drill:
    SCHEDULED: <2022-01-31 Mon>
    :PROPERTIES:
    :ID:       ef50f701-d6aa-43de-b0d9-9aaae7f76082
@@ -4519,17 +4856,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 
 	      And integration response
 ** API Gateway distinguish integration request/response               :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-04-10 Sun>
    :PROPERTIES:
    :ID:       7353bad1-a440-4091-95da-923b8a3e7027
-   :DRILL_LAST_INTERVAL: 25.88
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 69.6431
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.75
-   :DRILL_EASE: 2.6
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-25 Sat 09:17]
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:44]
    :END:
 	      Api gateway: integration request vs integration response
 *** distinction
@@ -4537,17 +4874,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 	      integration response - map the backend result to a response the client can use
 
 ** Creating HTTP API                                                  :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-03-11 Fri>
    :PROPERTIES:
    :ID:       d8db47d0-7151-4b72-b0b9-92ce4d087f74
-   :DRILL_LAST_INTERVAL: 18.0052
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 9
+   :DRILL_LAST_INTERVAL: 38.009
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 10
    :DRILL_FAILURE_COUNT: 4
-   :DRILL_AVERAGE_QUALITY: 2.667
-   :DRILL_EASE: 2.04
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-07 Fri 08:19]
+   :DRILL_AVERAGE_QUALITY: 2.9
+   :DRILL_EASE: 2.14
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:05]
    :END:
 	      You can use [quick create] to simplify creating an HTTP API.
 
@@ -4574,17 +4911,17 @@ It is a Java thing now; there was a library for Ruby but will not be developed
 
 	      
 ** SAM reusable components                                            :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-03-11 Fri>
    :PROPERTIES:
    :ID:       b965fcfb-654b-46c4-ae90-319463d47b0f
-   :DRILL_LAST_INTERVAL: 17.7133
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_LAST_INTERVAL: 37.9419
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 8
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.857
+   :DRILL_AVERAGE_QUALITY: 3.0
    :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 08:34]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:58]
    :END:
 	      In SAM a common pattern of components that can be included  in templates is a [nested application]
 
@@ -4614,17 +4951,17 @@ How do you
    :END:
 
 **  distinguish between                                               :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-04-12 Tue>
    :PROPERTIES:
    :ID:       9a41e787-ba5a-4721-83ca-3ce776c9a742
-   :DRILL_LAST_INTERVAL: 26.791
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 72.0946
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.333
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-25 Sat 15:33]
+   :DRILL_AVERAGE_QUALITY: 4.5
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:47]
    :END:
 distinguish
 *** annotations and metadata for xray
@@ -4648,34 +4985,34 @@ distinguish
 *** it captures
   Time ordered item level modifications
 ** xray                                                               :drill:
-   SCHEDULED: <2022-01-22 Sat>
+   SCHEDULED: <2022-04-16 Sat>
    :PROPERTIES:
    :ID:       9a7414a1-fa1b-4c47-9304-f2bcaa23e894
-   :DRILL_LAST_INTERVAL: 27.733
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 74.6295
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.667
+   :DRILL_AVERAGE_QUALITY: 4.5
    :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2021-12-25 Sat 09:24]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:25]
    :END:
   How are 
 ***  x-ray annotations used
     For use with filter expressions.
     Also for grouping data and console or API
 ** define                                                             :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-03-14 Mon>
    :PROPERTIES:
    :ID:       8a8dfae6-5f9c-46a7-93af-dc61b6561de2
-   :DRILL_LAST_INTERVAL: 19.9491
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_LAST_INTERVAL: 42.731
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 7
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.667
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-31 Fri 15:55]
+   :DRILL_AVERAGE_QUALITY: 2.715
+   :DRILL_EASE: 2.08
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:39]
    :END:
   What is a 
 *** gateway endpoint - 3 items
@@ -4683,39 +5020,46 @@ distinguish
   No internet
   It is a VPC feature
 ** Keys                                                               :drill:
-   SCHEDULED: <2022-01-22 Sat>
+   SCHEDULED: <2022-03-29 Tue>
    :PROPERTIES:
    :ID:       2b9b2239-3b74-4633-9770-9f47d9042713
-   :DRILL_LAST_INTERVAL: 24.12
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 56.9232
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.4
+   :DRILL_AVERAGE_QUALITY: 3.5
    :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-29 Wed 06:45]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:26]
    :END:
 
   What type of keys 
 *** allow for an audit trail?
    KMS key management service customer master keys
 ** lambda tmp                                                         :drill:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-04-30 Sat>
    :PROPERTIES:
    :ID:       1df0e1f8-355c-49c3-a5bf-5fe6b3b51c57
-   :DRILL_LAST_INTERVAL: 29.7131
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 82.751
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.667
-   :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:37]
+   :DRILL_AVERAGE_QUALITY: 4.75
+   :DRILL_EASE: 2.8
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:45]
    :END:
    
    What is typically stored in /temp for lambda
 *** typically:
-   Database connection
+   Files from previous invocations, but it is not guaranteed to last
+   any particular amount of time
+
+** Question  :drill:
+Feature to keep a RDS connection pool for lambda
+*** Answer:
+Database proxy
+   
 ** Dyanamo                                                            :drill:
    SCHEDULED: <2022-01-26 Wed>
    :PROPERTIES:
@@ -4737,17 +5081,17 @@ distinguish
 *** of access can be eventually consistent?
     Reads
 ** Cloud Formation                                                    :drill:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-04-14 Thu>
    :PROPERTIES:
    :ID:       d3cb572b-744b-4764-859b-4e7fb1c5b994
-   :DRILL_LAST_INTERVAL: 24.8862
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_LAST_INTERVAL: 66.8941
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 7
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.167
-   :DRILL_EASE: 2.56
+   :DRILL_AVERAGE_QUALITY: 3.429
+   :DRILL_EASE: 2.66
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-01 Sat 18:23]
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:32]
    :END:
 
     How to set values in cloud formation to vary by region (like env vars)
@@ -4756,33 +5100,33 @@ distinguish
 *** Bonus
     FindInMap intrinsic fiunction
 **  What is the CloudFormation 'output' section for?                  :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-03-24 Thu>
    :PROPERTIES:
    :ID:       3dc4ebc0-1559-4019-ac40-5a15385d763c
-   :DRILL_LAST_INTERVAL: 24.12
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 54.9212
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.667
-   :DRILL_EASE: 2.36
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.22
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-25 Sat 09:19]
+   :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:42]
    :END:
    "output"
 ***  is for
      Cross stack data, returning Val's
 **   How to control page size on dynamodb                             :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-04-17 Sun>
    :PROPERTIES:
    :ID:       5aa9bbcb-728e-4585-b05d-27e72786249c
-   :DRILL_LAST_INTERVAL: 27.7286
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 74.6177
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.333
-   :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2021-12-27 Mon 20:34]
+   :DRILL_AVERAGE_QUALITY: 4.5
+   :DRILL_EASE: 2.7
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:59]
    :END:
    in dynamo db 
 *** set page size with 
@@ -4970,17 +5314,17 @@ well as on-premises data sources, at specified intervals.
    :END:
 
 ** limits for mem in lambda                                           :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-12 Sat>
    :PROPERTIES:
    :ID:       b39a3bec-32e8-4650-858b-26f57b0b0cd6
-   :DRILL_LAST_INTERVAL: 4.435
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 11.9834
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 3.625
-   :DRILL_EASE: 2.8
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:07]
+   :DRILL_AVERAGE_QUALITY: 3.556
+   :DRILL_EASE: 2.66
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:42]
    :END:
  what are min/max memory  for lambda func
 *** they are...
@@ -5005,17 +5349,17 @@ well as on-premises data sources, at specified intervals.
 
 
 ** lambda                                                             :drill:
-   SCHEDULED: <2022-01-22 Sat>
+   SCHEDULED: <2022-03-20 Sun>
    :PROPERTIES:
    :ID:       72a5512e-2694-4a43-a38a-920a64eae1ab
-   :DRILL_LAST_INTERVAL: 21.6744
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 48.1172
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.333
+   :DRILL_AVERAGE_QUALITY: 3.5
    :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2021-12-31 Fri 16:19]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:26]
    :END:
   
  Likely reason you'd get InvalidParameterValueException from CLI from a script to deploy a lambda?
@@ -5029,17 +5373,17 @@ well as on-premises data sources, at specified intervals.
 
 
 ** verb how to call a lambda function from cli                        :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-12 Sat>
    :PROPERTIES:
    :ID:       82aa5833-b747-4243-a64a-43186715343a
-   :DRILL_LAST_INTERVAL: 4.14
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_LAST_INTERVAL: 10.7143
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 8
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.428
+   :DRILL_AVERAGE_QUALITY: 3.5
    :DRILL_EASE: 2.6
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:30]
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:04]
    :END:
  the keyword is aws lambda [--invoke]
 
@@ -5055,17 +5399,17 @@ well as on-premises data sources, at specified intervals.
 
 
 ** lambda                                                             :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-05 Sat>
    :PROPERTIES:
    :ID:       2ecb20e6-2653-49ed-acf1-83a3df771437
-   :DRILL_LAST_INTERVAL: 9.9471
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 8
-   :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.625
-   :DRILL_EASE: 2.42
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-13 Thu 07:05]
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 10
+   :DRILL_FAILURE_COUNT: 4
+   :DRILL_AVERAGE_QUALITY: 2.4
+   :DRILL_EASE: 2.28
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:14]
    :END:
  what configuration to lambda, beside permissions and routing, is needed for lambda to
  process items from a stream or queue
@@ -5111,17 +5455,17 @@ well as on-premises data sources, at specified intervals.
  resource is higher level, OO, not complete
 
 ** lambda permissions                                                 :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-04-10 Sun>
    :PROPERTIES:
    :ID:       4069c06f-e51e-4fe5-ac61-c0c7ae1cfb44
-   :DRILL_LAST_INTERVAL: 24.0814
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 62.5394
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.46
+   :DRILL_AVERAGE_QUALITY: 4.25
+   :DRILL_EASE: 2.56
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-01 Sat 18:27]
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:31]
    :END:
  How does S3 get right to invoke lambda?
 
@@ -5189,17 +5533,17 @@ well as on-premises data sources, at specified intervals.
   - blue / green deployment
 
 ** lambda zipfile size                                                :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-03-25 Fri>
    :PROPERTIES:
    :ID:       7abf79cc-44a8-4ab7-9b74-656640a17f29
-   :DRILL_LAST_INTERVAL: 23.2098
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 51.9667
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.667
-   :DRILL_EASE: 2.32
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.18
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-01 Sat 18:30]
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:59]
    :END:
  What is size limit of zip file for lambda to upload
 *** max is
@@ -5421,17 +5765,17 @@ What does enable multi valued headers do?
      -> name: [Fred, Flinstone]
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-03-26 Sat>
    :PROPERTIES:
    :ID:       e14ea5b6-1c38-435e-b6b5-30435bb4ceff
-   :DRILL_LAST_INTERVAL: 22.4564
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 52.9971
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_AVERAGE_QUALITY: 3.75
    :DRILL_EASE: 2.36
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:09]
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:00]
    :END:
 An Amazon SQS message has three basic states:
 *** Answer:
@@ -5548,17 +5892,17 @@ If you have to extend [visibility timeout] for SQS message to more than
    The maxium time you can set polling to in SQS is [20 seconds]
 
 ** CodeDeploy                                                         :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
    :ID:       4016ffad-3a16-41cf-9df2-9428071c9e7f
-   :DRILL_LAST_INTERVAL: 10.3376
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 6
-   :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.667
-   :DRILL_EASE: 2.46
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_FAILURE_COUNT: 4
+   :DRILL_AVERAGE_QUALITY: 2.626
+   :DRILL_EASE: 2.32
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:11]
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:45]
    :END:
    Vocab = What does CodeDeploy target in the case of
    - Lambda
@@ -5725,17 +6069,17 @@ or
 setting the Viewer Protocol Policy to use HTTPS Only
      
 ** Multi valued headers                                      :drill:practice:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-03-28 Mon>
    :PROPERTIES:
    :ID:       d2877fad-5b98-4359-853f-181a00318021
-   :DRILL_LAST_INTERVAL: 20.6501
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 49.5809
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.2
-   :DRILL_EASE: 2.32
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.42
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-05 Wed 21:23]
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:46]
    :END:
 An Advanced feature of [Application Load Balancer] is multi-valued headers
 *** bonus
@@ -5820,17 +6164,17 @@ WCU - 1000 per partition
 
 
 ** KMS encryption context  :drill:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-03-03 Thu>
    :PROPERTIES:
    :ID:       761d05d5-c082-4ec3-ac6a-74c907b22a9f
-   :DRILL_LAST_INTERVAL: 9.6346
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 24.8862
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.46
+   :DRILL_AVERAGE_QUALITY: 3.75
+   :DRILL_EASE: 2.56
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 16:00]
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:32]
    :END:
 What is...
 *** What is encryption context
@@ -5855,17 +6199,17 @@ CloudTrail logs. The encryption context should not be considered
 sensitive information and should not require secrecy.
     
 ** KMS def                                                            :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-20 Sun>
    :PROPERTIES:
    :ID:       684830b7-36e5-426a-8d7b-b4d4fc94fe96
-   :DRILL_LAST_INTERVAL: 9.3103
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 21.1996
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.75
-   :DRILL_EASE: 2.36
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 20:56]
+   :DRILL_AVERAGE_QUALITY: 2.8
+   :DRILL_EASE: 2.22
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:43]
    :END:
 Define KMS Key policy
 *** Answer:
@@ -5900,18 +6244,18 @@ Examples https://docs.aws.amazon.com/kms/latest/developerguide/determining-acces
   "Resource": "*",
   "Condition": {"Bool": {"kms:GrantIsForAWSResource": true}}
 }
-** KMS -- how to manually rotate keys                                 :drill:
-   SCHEDULED: <2022-01-18 Tue>
+** KMS -- how to manually rotate keys                        :drill:practice:
+   SCHEDULED: <2022-02-02 Wed>
    :PROPERTIES:
    :ID:       0da45212-acf0-4718-9a24-68452c23a218
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.667
-   :DRILL_EASE: 2.6
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 3.6
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:33]
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:28]
    :END:
    for CMKs, how do you manually rotate keys
 
@@ -5976,17 +6320,17 @@ The most common usage of KMS encrypt method is to
 Reduces responses FROM milliseconds TO microseconds
 
 ** Server Side Encryption                                     :drill:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-03 Thu>
    :PROPERTIES:
    :ID:       7f45ce23-1ad3-4358-846e-e28d31537460
-   :DRILL_LAST_INTERVAL: 19.2482
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-01 Sat 18:28]
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.2
+   :DRILL_EASE: 2.18
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:54]
    :END:
 If you use customer keys for encrypting s3, what three headers to you need 
 *** Answer:
@@ -6031,16 +6375,16 @@ What is custom visibility timeout for?
 Stop multiple consumers from getting a message that is being processed
 
 ** Lambda modify behavior                                         :drill:fix:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
-   :DRILL_LAST_INTERVAL: 3.995
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 10.1713
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 4
-   :DRILL_AVERAGE_QUALITY: 2.875
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:09]
+   :DRILL_AVERAGE_QUALITY: 3.111
+   :DRILL_EASE: 2.56
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:31]
    :ID:       7096a1c0-9b58-4563-8a49-e6f6fb8965eb
    :END:
    From CLI how to modify lambda behavior without changing ARN?
@@ -6109,17 +6453,17 @@ Name of AWS managed role that is template for EC2 instances on ECS
 
 
 ** application passwords                                     :drill:practice:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-02 Wed>
    :PROPERTIES:
    :ID:       02622f48-f7c4-4e0f-b676-0d9f4dbf7d6e
-   :DRILL_LAST_INTERVAL: 8.2681
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 7
-   :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-11 Tue 06:41]
+   :DRILL_LAST_INTERVAL: 3.86
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 9
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 2.889
+   :DRILL_EASE: 1.94
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:49]
    :END:
    [Secrets Manager] provides an API your code can call to get the
    password for a database, and it provides for automatic rotation
@@ -6173,34 +6517,34 @@ What is Lambda provisioned concurrency?
 
 
 ** RDS proxy                                                 :drill:practice:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-03 Thu>
    :PROPERTIES:
    :ID:       9ef90cf5-914f-46c3-979c-3d68aedbd879
-   :DRILL_LAST_INTERVAL: 3.72
+   :DRILL_LAST_INTERVAL: 4.285
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 7
-   :DRILL_FAILURE_COUNT: 2
+   :DRILL_TOTAL_REPEATS: 9
+   :DRILL_FAILURE_COUNT: 3
    :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.18
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:41]
+   :DRILL_EASE: 2.28
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:55]
    :END:
 What is RDS proxy?
 *** Answer:
  - a connection pool lambda can use
 
 ** Question                                                  :drill:practice:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-03-17 Thu>
    :PROPERTIES:
    :ID:       caf2ac13-8dcd-453e-a035-8edb5c1012b8
-   :DRILL_LAST_INTERVAL: 19.0033
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_LAST_INTERVAL: 44.0877
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 7
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_AVERAGE_QUALITY: 3.143
    :DRILL_EASE: 2.32
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-05 Wed 21:29]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:59]
    :END:
 What is Execution Record
 *** Answer:
@@ -6208,17 +6552,17 @@ What is Execution Record
  - has version, request/response context request/response payload
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-03-22 Tue>
    :PROPERTIES:
    :ID:       48f4cd28-1683-462b-8450-92c797fd1a7e
-   :DRILL_LAST_INTERVAL: 20.6501
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 49.5809
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.667
-   :DRILL_EASE: 2.32
+   :DRILL_AVERAGE_QUALITY: 4.0
+   :DRILL_EASE: 2.42
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-02 Sun 16:18]
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:41]
    :END:
 Can you create a local secondary index on an existing table?
 *** Answer:
@@ -6334,17 +6678,17 @@ read per second Dynamo calcs - What is 2:1:.5 for?
     of the query conditions and filters.
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-03-21 Mon>
    :PROPERTIES:
    :ID:       8d4d7c8a-3541-4fd9-810e-f2e9f179c7ec
-   :DRILL_LAST_INTERVAL: 20.6501
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 47.9082
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_AVERAGE_QUALITY: 3.75
    :DRILL_EASE: 2.32
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 08:02]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:57]
    :END:
 How can you reduce latency for DynamoDb users in specified regions
 *** Answer:
@@ -6625,17 +6969,17 @@ New file systems start out with 2.1 TiB of burst credits.
     lowered.
 
 ** EFS Filesystem                                             :drill:
-   SCHEDULED: <2022-01-22 Sat>
+   SCHEDULED: <2022-03-15 Tue>
    :PROPERTIES:
    :ID:       2c1d6726-6c31-4f3e-94ac-b27826ce63a9
-   :DRILL_LAST_INTERVAL: 19.2482
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 42.6733
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-03 Mon 07:52]
+   :DRILL_AVERAGE_QUALITY: 3.5
+   :DRILL_EASE: 2.18
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:31]
    :END:
 What fielsystem becomes more efficient with greater volumes and why?
 *** Answer:
@@ -6776,18 +7120,18 @@ Resource policies * Standard AWS IAM roles * IAM tags
 
     
 ** Elastic Beastalk Deployment                                        :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-02-09 Wed>
    :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       116fff72-34c8-4d3f-808a-a60bc036b0b9
-:DRILL_LAST_INTERVAL: 6.9732
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 7
+:DRILL_LAST_INTERVAL: 12.1124
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 8
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 2.571
-:DRILL_EASE: 1.8
+:DRILL_AVERAGE_QUALITY: 2.625
+:DRILL_EASE: 1.66
 :DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2022-01-11 Tue 06:57]
+:DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:45]
 :END:
 Synonyms: [traffic splitting] and [canary deployment]
 
@@ -6807,20 +7151,20 @@ Traffic-splitting deployments let you perform canary testing
    - There's never any service interruption. 
 
 ** Bursting credit usage                                     :drill:practice:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
    :ID:       897363c3-eae5-4fdc-a637-d0b0f329168e
-   :DRILL_LAST_INTERVAL: 17.091
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.8
-   :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-06 Thu 08:35]
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 2.75
+   :DRILL_EASE: 2.18
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:46]
    :END:
-What behavior to you look for when monitoring [BurstCreditBalance] metric
-to ensure you are getting best thruput
+[BurstCreditBalance] is the metric do you examine look for when
+to ensure you are getting best disk thruput.  What behavior do you look for?
 *** Bonus:
 To monitor and trigger an alarm on throughput, use the
 BurstCreditBalance metric.
@@ -6871,17 +7215,17 @@ What is unpublished version of lambda?
  https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html 
 
 ** Lambda and VPC resources                                  :drill:practice:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
    :ID:       c17559ad-6298-4607-934e-27f87560fc8a
-   :DRILL_LAST_INTERVAL: 16.4926
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 5
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 2.6
+   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 2.714
    :DRILL_EASE: 1.94
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-07 Fri 08:05]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:43]
    :END:
 When lambda connects to private subnet, key points
 *** Answer:
@@ -6961,17 +7305,17 @@ What backend does CDK use to define stacks?
   - target group and Lambda must be in same account and same region
 
 ** Lambda limits                                              :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-18 Fri>
    :PROPERTIES:
    :ID:       a3d14727-e863-4034-bd8d-6369431f5dd0
-   :DRILL_LAST_INTERVAL: 7.979
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_LAST_INTERVAL: 16.5963
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 9
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.751
+   :DRILL_AVERAGE_QUALITY: 2.89
    :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:47]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:04]
    :END:
 Maxiumum body of Lambda function call
 *** Answer:
@@ -7136,17 +7480,17 @@ Max size SQS Message
 
     
 ** ALB performance                                                    :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-03-14 Mon>
    :PROPERTIES:
    :ID:       0679f167-ee36-4e40-bbe1-29bbc479d06e
-   :DRILL_LAST_INTERVAL: 19.2482
-   :DRILL_REPEATS_SINCE_FAIL: 4
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 41.2296
+   :DRILL_REPEATS_SINCE_FAIL: 5
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
+   :DRILL_AVERAGE_QUALITY: 3.25
    :DRILL_EASE: 2.08
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-05 Wed 07:27]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:57]
    :END:
    Distinguish ALB Access Logs and ALB Request tracing
 
@@ -7173,17 +7517,17 @@ client's IP address, latencies, request paths, and server responses.
 Access Log
 
 ** Access Log                                                 :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-02-22 Tue>
    :PROPERTIES:
    :ID:       b255396a-28fd-47a5-b695-7af6b6a1be18
-   :DRILL_LAST_INTERVAL: 10.0
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 25.0
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 4.0
    :DRILL_EASE: 2.5
    :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:36]
+   :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:41]
    :END:
 With what service is Access Log associated
 *** Answer:
@@ -7192,18 +7536,18 @@ ALB
 
       
 ** SQS Troubleshooting                                                :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-23 Wed>
    :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       d5045ca9-cf40-42c5-8bb1-a355a1ebbe9e
-:DRILL_LAST_INTERVAL: 9.9471
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 10
+:DRILL_LAST_INTERVAL: 24.072
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 11
 :DRILL_FAILURE_COUNT: 4
-:DRILL_AVERAGE_QUALITY: 3.1
+:DRILL_AVERAGE_QUALITY: 3.182
 :DRILL_EASE: 2.42
 :DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:14]
+:DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:52]
 :END:
 
    [Access log] is an ALB feature for troubleshooting.  There is no
@@ -7233,17 +7577,17 @@ ALB
  - Rolling with additional
 
 ** VPC endpoint                                                       :drill:
-   SCHEDULED: <2022-01-25 Tue>
+   SCHEDULED: <2022-02-25 Fri>
    :PROPERTIES:
    :ID:       41203c39-807a-4387-8364-e98624d49717
-   :DRILL_LAST_INTERVAL: 8.88
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_LAST_INTERVAL: 19.021
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 8
    :DRILL_FAILURE_COUNT: 2
    :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 14:11]
+   :DRILL_EASE: 2.08
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:30]
    :END:
    What is a region specific s3 url?
 
@@ -7531,17 +7875,17 @@ handler ID in the SAM CLI.
     runs the script.
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-11 Fri>
    :PROPERTIES:
    :ID:       d5e21d27-81b6-4882-824e-64548e65ac87
-   :DRILL_LAST_INTERVAL: 4.135
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 10.1597
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.75
-   :DRILL_EASE: 2.56
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 06:34]
+   :DRILL_AVERAGE_QUALITY: 3.6
+   :DRILL_EASE: 2.42
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 20:55]
    :END:
 How does a load balancer communicate with instances -- what does it call?
 *** Answer:
@@ -7746,17 +8090,17 @@ EC2 Anywhere modifies this
  - 2 they configure: include header Cache-Control: max-age=0
 
 ** define                                                         :drill:fix:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-08 Tue>
    :PROPERTIES:
    :ID:       3e2ecacf-8d28-4522-b8f4-38ed08cf0df3
-   :DRILL_LAST_INTERVAL: 3.725
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_LAST_INTERVAL: 8.56
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 8
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.857
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:41]
+   :DRILL_AVERAGE_QUALITY: 3.125
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:46]
    :END:
 define Cloudwatch Events
 *** Answer:
@@ -7830,17 +8174,17 @@ resources in another.
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-03-06 Sun>
    :PROPERTIES:
    :ID:       4bd4ac9c-7d4e-4551-8c37-5b2c3885b488
-   :DRILL_LAST_INTERVAL: 10.3191
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_LAST_INTERVAL: 27.583
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 8
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 3.143
-   :DRILL_EASE: 2.56
+   :DRILL_AVERAGE_QUALITY: 3.375
+   :DRILL_EASE: 2.66
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 14:10]
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 07:46]
    :END:
 Lambda feature to redirect traffic to new version; its advantage;
 name of implementation setting
@@ -7981,17 +8325,17 @@ suffix is like amazonaws.com or amazonaws.com.cn
 partion is liek china, gov or aws
 
 ** EC2 agent                                                 :drill:practice:
-   SCHEDULED: <2022-01-20 Thu>
+   SCHEDULED: <2022-02-07 Mon>
    :PROPERTIES:
    :ID:       e236ae0d-2e0a-42b7-b38b-4ef49096684f
-   :DRILL_LAST_INTERVAL: 3.72
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 7
+   :DRILL_LAST_INTERVAL: 8.1096
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 8
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.286
+   :DRILL_AVERAGE_QUALITY: 2.5
    :DRILL_EASE: 2.18
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 16:05]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:39]
    :END:
 Where do you find the ECS agent instance env variables  on ec2
 *** Answer:
@@ -8385,17 +8729,17 @@ more information, see Network mode.
 
 
 ** Credentials on ECS                                         :drill:
-   SCHEDULED: <2022-01-26 Wed>
+   SCHEDULED: <2022-02-28 Mon>
    :PROPERTIES:
    :ID:       aa40cbaf-890a-4e34-9518-e74405dbedfa
-   :DRILL_LAST_INTERVAL: 9.624
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_LAST_INTERVAL: 22.0486
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 7
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.833
-   :DRILL_EASE: 2.32
+   :DRILL_AVERAGE_QUALITY: 2.857
+   :DRILL_EASE: 2.18
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-16 Sun 15:54]
+   :DRILL_LAST_REVIEWED: [2022-02-06 Sun 08:13]
    :END:
 Guess how to query the credential endpoint in ec2 running in ECS?
 *** Answer:
@@ -8499,18 +8843,18 @@ They are available in Elastic beanstalk -
   - You can't build them with dockerfile, have to be in ECR
 
 ** BeanStalk Multicontainer                                   :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-09 Wed>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       2a256448-b00d-4065-b433-8628da536fc8
-:DRILL_LAST_INTERVAL: 3.725
-:DRILL_REPEATS_SINCE_FAIL: 2
-:DRILL_TOTAL_REPEATS: 3
+:DRILL_LAST_INTERVAL: 8.56
+:DRILL_REPEATS_SINCE_FAIL: 3
+:DRILL_TOTAL_REPEATS: 4
 :DRILL_FAILURE_COUNT: 1
-:DRILL_AVERAGE_QUALITY: 2.333
-:DRILL_EASE: 2.22
-:DRILL_LAST_QUALITY: 3
-:DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:08]
+:DRILL_AVERAGE_QUALITY: 3.0
+:DRILL_EASE: 2.32
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:34]
 :END:
 
 Building custom images [during deployment] with a Dockerfile is not
@@ -8649,17 +8993,17 @@ Can you use efs on windows
 
 
 ** SQS Feature                                                :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-03-02 Wed>
    :PROPERTIES:
    :ID:       fd59610c-3cbc-42a2-adde-857079ae2a14
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 30.9885
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
    :DRILL_AVERAGE_QUALITY: 5.0
-   :DRILL_EASE: 2.7
+   :DRILL_EASE: 2.8
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:40]
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:51]
    :END:
 Which types of SQS queue allow deduplication key?
 *** Answer:
@@ -8704,17 +9048,17 @@ ratio of throughput to storage capacity] than allowed by Bursting
 Throughput mode.
 
 ** Origin Access Identity                                     :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
    :ID:       22b030d1-2865-4035-a260-187fcf8dc6e4
-   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_LAST_INTERVAL: 4.285
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.6
+   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_FAILURE_COUNT: 2
+   :DRILL_AVERAGE_QUALITY: 3.2
+   :DRILL_EASE: 2.7
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:08]
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:44]
    :END:
 Define Origin Access Identity 
 *** Answer:
@@ -8756,17 +9100,17 @@ Give the origin access identity permission to read the files in your bucket.
 Remove permission for anyone else to use Amazon S3 URLs to read the files
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-02-02 Wed>
    :PROPERTIES:
    :ID:       99e54ff1-5567-49f2-80d0-abc2680a8256
-   :DRILL_LAST_INTERVAL: 9.6346
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
-   :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.46
+   :DRILL_LAST_INTERVAL: 4.14
+   :DRILL_REPEATS_SINCE_FAIL: 2
+   :DRILL_TOTAL_REPEATS: 6
+   :DRILL_FAILURE_COUNT: 3
+   :DRILL_AVERAGE_QUALITY: 2.667
+   :DRILL_EASE: 2.56
    :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:31]
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:28]
    :END:
 What are the two EFS storage classes?
 *** Answer:
@@ -8935,17 +9279,17 @@ the lambda role has permission to write there.
       
       
 ** Distinguish                                                        :drill:
-   SCHEDULED: <2022-01-18 Tue>
+   SCHEDULED: <2022-02-25 Fri>
    :PROPERTIES:
    :ID:       f33df5b8-c673-4121-8681-ee6d7a88b9f8
-   :DRILL_LAST_INTERVAL: 10.352
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 26.791
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.5
+   :DRILL_AVERAGE_QUALITY: 4.333
    :DRILL_EASE: 2.6
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-08 Sat 14:35]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:29]
    :END:
  codedeploy and codepipeline?
 *** answer
@@ -8979,17 +9323,17 @@ the lambda role has permission to write there.
 
 
 ** redis clusters                                                     :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
    :ID:       7bce28ba-69fb-4b0f-b022-bf143da42810
-   :DRILL_LAST_INTERVAL: 3.855
+   :DRILL_LAST_INTERVAL: 3.725
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 6
-   :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.667
-   :DRILL_EASE: 2.32
+   :DRILL_TOTAL_REPEATS: 8
+   :DRILL_FAILURE_COUNT: 4
+   :DRILL_AVERAGE_QUALITY: 2.626
+   :DRILL_EASE: 2.18
    :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 22:09]
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:45]
    :END:
      with cluster mode disabled, three types of endpoints 
 *** answer
@@ -8998,17 +9342,17 @@ the lambda role has permission to write there.
 
 
 ** HA for Redis                                                       :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-24 Thu>
    :PROPERTIES:
    :ID:       b13e3441-acac-4fdf-a63b-35d234cfad79
-   :DRILL_LAST_INTERVAL: 10.0
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_LAST_INTERVAL: 25.88
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 4
    :DRILL_FAILURE_COUNT: 1
-   :DRILL_AVERAGE_QUALITY: 3.333
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-09 Sun 12:00]
+   :DRILL_AVERAGE_QUALITY: 3.75
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:29]
    :END:
 How to ensure HA for redis
 *** answer
@@ -9040,17 +9384,17 @@ write activity, we recommend that your applications connect to the
 primary endpoint instead of connecting directly to the primary.
 
 ** cognito sync                                                       :drill:
-   SCHEDULED: <2022-01-19 Wed>
+   SCHEDULED: <2022-02-19 Sat>
    :PROPERTIES:
    :ID:       a861eea6-1ea4-4058-897e-408e74e47ebf
-   :DRILL_LAST_INTERVAL: 8.9861
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 20.6501
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 3.0
-   :DRILL_EASE: 2.22
-   :DRILL_LAST_QUALITY: 3
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:45]
+   :DRILL_AVERAGE_QUALITY: 3.667
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-29 Sat 12:32]
    :END:
    Amazon Cognito Sync is an AWS service and client library that
    enables [cross-device] syncing of application-related user data.
@@ -9058,17 +9402,17 @@ primary endpoint instead of connecting directly to the primary.
    Guess what?  App-sync is now recommended
 
 ** Code Commit                                                        :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-03-01 Tue>
    :PROPERTIES:
    :ID:       86f05337-5371-4450-a8ef-8125bb0f508a
-   :DRILL_LAST_INTERVAL: 11.0911
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 29.7131
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 5.0
+   :DRILL_AVERAGE_QUALITY: 4.667
    :DRILL_EASE: 2.7
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-10 Mon 05:44]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:54]
    :END:
 Besides SSH, how can you connect?
 *** Answer:
@@ -9077,6 +9421,9 @@ AWS access keys + credential helper (comes with CLI) -- over https
 git-remote-codecommit   
 
 ** Question  :drill:
+   :PROPERTIES:
+   :ID:       8bac884a-ba8a-4b8a-a462-18a394c81da1
+   :END:
 What are the 4 parts of buildspec.yml
  - what service is it used with?
  - what are the parts called?
@@ -9091,17 +9438,17 @@ phases
 
 
 ** CodeBuild                                                  :drill:
-   SCHEDULED: <2022-01-17 Mon>
+   SCHEDULED: <2022-02-23 Wed>
    :PROPERTIES:
    :ID:       6c4fb5d4-d485-4f1e-b54e-a65564c5c515
-   :DRILL_LAST_INTERVAL: 10.0
-   :DRILL_REPEATS_SINCE_FAIL: 3
-   :DRILL_TOTAL_REPEATS: 2
+   :DRILL_LAST_INTERVAL: 25.88
+   :DRILL_REPEATS_SINCE_FAIL: 4
+   :DRILL_TOTAL_REPEATS: 3
    :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-07 Fri 08:16]
+   :DRILL_AVERAGE_QUALITY: 4.333
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-28 Fri 06:41]
    :END:
 Where is CodeBuild's "recipe"?
 *** Answer:
@@ -9114,35 +9461,35 @@ phases
    postbuild
 
 ** Question                                                           :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-25 Fri>
 :PROPERTIES:
 :DRILL_CARD_TYPE: hide1cloze
 :ID:       e8a3aa5e-c94a-41e4-9ea6-b6e29c99c0e0
-:DRILL_LAST_INTERVAL: 10.0
-:DRILL_REPEATS_SINCE_FAIL: 3
-:DRILL_TOTAL_REPEATS: 5
+:DRILL_LAST_INTERVAL: 25.88
+:DRILL_REPEATS_SINCE_FAIL: 4
+:DRILL_TOTAL_REPEATS: 6
 :DRILL_FAILURE_COUNT: 2
-:DRILL_AVERAGE_QUALITY: 3.2
-:DRILL_EASE: 2.5
-:DRILL_LAST_QUALITY: 4
-:DRILL_LAST_REVIEWED: [2022-01-11 Tue 21:30]
+:DRILL_AVERAGE_QUALITY: 3.5
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:51]
 :END:
 The CodeBuild "driver" file, [buildspec.yml], defines a series of [phases]
 
 
 
 ** Question  :drill:
-   SCHEDULED: <2022-01-21 Fri>
+   SCHEDULED: <2022-02-09 Wed>
    :PROPERTIES:
    :ID:       050ad770-4fc4-4d9b-9206-87d0b840ea09
-   :DRILL_LAST_INTERVAL: 3.995
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 4
+   :DRILL_LAST_INTERVAL: 9.8277
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 5
    :DRILL_FAILURE_COUNT: 2
-   :DRILL_AVERAGE_QUALITY: 2.5
+   :DRILL_AVERAGE_QUALITY: 2.8
    :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-17 Mon 07:06]
+   :DRILL_LAST_QUALITY: 4
+   :DRILL_LAST_REVIEWED: [2022-01-30 Sun 18:49]
    :END:
 distinguish access advisor and access analyzer
 *** Answer:
@@ -9165,16 +9512,16 @@ roles. You can implement permissions guardrails using service control
 policies (SCPs) that restrict access to those services.
 
 ** RDS Feature                                                :drill:
-   SCHEDULED: <2022-01-23 Sun>
+   SCHEDULED: <2022-02-04 Fri>
    :PROPERTIES:
-   :DRILL_LAST_INTERVAL: 4.0
+   :DRILL_LAST_INTERVAL: 4.14
    :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 1
-   :DRILL_FAILURE_COUNT: 0
-   :DRILL_AVERAGE_QUALITY: 4.0
-   :DRILL_EASE: 2.5
-   :DRILL_LAST_QUALITY: 4
-   :DRILL_LAST_REVIEWED: [2022-01-19 Wed 06:24]
+   :DRILL_TOTAL_REPEATS: 3
+   :DRILL_FAILURE_COUNT: 1
+   :DRILL_AVERAGE_QUALITY: 3.333
+   :DRILL_EASE: 2.6
+   :DRILL_LAST_QUALITY: 5
+   :DRILL_LAST_REVIEWED: [2022-01-31 Mon 20:42]
    :ID:       bb8e4a08-c527-4fe4-9289-3b9e0578e114
    :END:
 Name RDS Disaster recovery feature that gives continuous backups
@@ -9286,17 +9633,17 @@ network delay or outage. In this case, DynamoDB may return a server
 error (HTTP 500).
 
 ** Dynamo return data                                         :drill:
-   SCHEDULED: <2022-01-24 Mon>
+   SCHEDULED: <2022-02-10 Thu>
    :PROPERTIES:
    :ID:       b11243c3-bc29-4ccf-8dd4-5b39d29e73e2
-   :DRILL_LAST_INTERVAL: 3.995
-   :DRILL_REPEATS_SINCE_FAIL: 2
-   :DRILL_TOTAL_REPEATS: 5
+   :DRILL_LAST_INTERVAL: 9.4841
+   :DRILL_REPEATS_SINCE_FAIL: 3
+   :DRILL_TOTAL_REPEATS: 6
    :DRILL_FAILURE_COUNT: 3
-   :DRILL_AVERAGE_QUALITY: 2.6
-   :DRILL_EASE: 2.46
-   :DRILL_LAST_QUALITY: 5
-   :DRILL_LAST_REVIEWED: [2022-01-20 Thu 20:33]
+   :DRILL_AVERAGE_QUALITY: 2.667
+   :DRILL_EASE: 2.32
+   :DRILL_LAST_QUALITY: 3
+   :DRILL_LAST_REVIEWED: [2022-02-01 Tue 21:02]
    :END:
 When you want to track your cost in WCU for CRUD operations, what
 do you set in the api
@@ -9605,6 +9952,42 @@ Lambd disk capacity of /tmp
 
 SQS gotchas
 https://tomgregory.com/3-surprising-facts-about-aws-sqs-fifo-queues/
+
+
+There is only one required component in cloud formation template, what is it
+Resources. 
+
+
+Headers in API to use S3 managed keys vs KMS?
+
+Dynamodb idempotent via conditional
+
+
+
+What is the component of so gateway that transforms eg Jason to xml? Mapping template
+
+
+
+
+
+
+
+
+What does lambda@edge do?
+
+Review dedicated hosts versus dedicated instances one chain one difference is on dedicated instances it can be on the same hardware as other non dedicated instances from the same account
+
+
+
+Practice can figure some trails and point them to a bucket
+
+Practice with dimensions for example for a custom metric of CPU usage would a dimension be the times that it was high
+
+Can you do lambda weighting with just the lambda function and no
+gateway or Auto scaling group
+
+
+
 
 ** Pricing clusters                                                   :fix-drill:
    SCHEDULED: <2022-01-05 Wed>
